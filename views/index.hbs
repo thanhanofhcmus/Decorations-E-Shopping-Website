@@ -1,0 +1,90 @@
+<section class="_1khoi sachmoi bg-white">
+    <div class="container">
+        <div class="noidung" style=" width: 100%;">
+            <div class="row">
+                <!--header-->
+                <div class="col-12 d-flex justify-content-between align-items-center pb-2 bg-transparent pt-4">
+                    <h1 class="header text-uppercase" style="font-weight: 400;">SÁCH MỚI TUYỂN CHỌN</h1>
+                    <a href="sach-moi-tuyen-chon.html" class="btn btn-warning btn-sm text-white">Xem tất cả</a>
+                </div>
+            </div>
+            <div class="khoisanpham" style="padding-bottom: 2rem;">
+                {{#if newProducts}}
+                {{#each newProducts}}
+                <div class="card">
+                    <a href="{{this.link}}" class="motsanpham" style="text-decoration: none; color: black;"
+                        data-toggle="tooltip" data-placement="bottom" title="{{this.title}}">
+                        <img class="card-img-top anh" src="{{this.imageLink}}" alt="{{this.title}}">
+                        <div class="card-body noidungsp mt-3">
+                            <h3 class="card-title ten">{{this.title}}</h3>
+                            <small class="tacgia text-muted">{{this.author}}</small>
+                            <div class="gia d-flex align-items-baseline">
+                                <div class="giamoi">{{this.newPrice}} đ</div>
+                                <div class="giacu text-muted">{{this.price}} đ</div>
+                                <div class="sale">-{{this.discount}}</div>
+                            </div>
+                            <div class="danhgia">
+                                <ul class="d-flex" style="list-style: none;">
+                                    <li class="active"><i class="fa fa-star"></i></li>
+                                    <li class="active"><i class="fa fa-star"></i></li>
+                                    <li class="active"><i class="fa fa-star"></i></li>
+                                    <li class="active"><i class="fa fa-star"></i></li>
+                                    <li><i class="fa fa-star"></i></li>
+                                    <li><span class="text-muted">{{this.commentNum}} nhận xét</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                {{/each}}
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="_1khoi combohot mt-4">
+    <div class="container">
+        <div class="noidung bg-white" style=" width: 100%;">
+            <div class="row">
+                <!--header -->
+                <div class="col-12 d-flex justify-content-between align-items-center pb-2 bg-light">
+                    <h2 class="header text-uppercase" style="font-weight: 400;">COMBO SÁCH HOT - GIẢM ĐẾN 25%</h2>
+                    <a href="#" class="btn btn-warning btn-sm text-white">Xem tất cả</a>
+                </div>
+            </div>
+            <div class="khoisanpham">
+                {{#if hotProducts}}
+                {{#each hotProducts}}
+                <div class="card">
+                    <a href="{{this.link}}" class="motsanpham" style="text-decoration: none; color: black;"
+                        data-toggle="tooltip" data-placement="bottom" title="{{this.title}}">
+                        <img class="card-img-top anh" src="{{this.imageLink}}" alt="{{this.title}}">
+                        <div class="card-body noidungsp mt-3">
+                            <h3 class="card-title ten">{{this.title}}</h3>
+                            <small class="tacgia text-muted">{{this.author}}</small>
+                            <div class="gia d-flex align-items-baseline">
+                                <div class="giamoi">{{this.newPrice}} đ</div>
+                                <div class="giacu text-muted">{{this.price}} đ</div>
+                                <div class="sale">-{{this.discount}}</div>
+                            </div>
+                            <div class="danhgia">
+                                <ul class="d-flex" style="list-style: none;">
+                                    <li class="active"><i class="fa fa-star"></i></li>
+                                    <li class="active"><i class="fa fa-star"></i></li>
+                                    <li class="active"><i class="fa fa-star"></i></li>
+                                    <li class="active"><i class="fa fa-star"></i></li>
+                                    <li><i class="fa fa-star"></i></li>
+                                    <li><span class="text-muted">{{this.commentNum}} nhận xét</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                {{/each}}
+                {{/if}}
+
+            </div>
+        </div>
+    </div>
+</section>
