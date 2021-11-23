@@ -12,13 +12,12 @@
                 {{#if products}}
                 {{#each products}}
                 <div class="card">
-                    <a href="#" class="motsanpham" style="text-decoration: none; color: black;" data-toggle="tooltip"
+                    <a href={{link}} class="motsanpham" style="text-decoration: none; color: black;" data-toggle="tooltip"
                         data-placement="bottom" title="{{this.name}}">
                         <img class="card-img-top anh" src="images/lap-ke-hoach-kinh-doanh-hieu-qua.jpg"
                             alt="{{this.name}}">
                         <div class="card-body noidungsp mt-3">
                             <h3 class="card-title ten">{{this.name}}</h3>
-                            <small class="tacgia text-muted">author</small>
                             <div class="gia d-flex align-items-baseline">
                                 <div class="giamoi">{{this.price}} đ</div>
                                 {{#if this.discount}}

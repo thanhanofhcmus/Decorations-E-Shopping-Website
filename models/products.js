@@ -7,16 +7,23 @@ module.exports.list = async () => {
 };
 
 module.exports.findById = async (id) => {
-    return await getCollection(COLLECTION_NAME).find({ id }).toArray();
+    const products = await getCollection(COLLECTION_NAME).find({ id }).toArray();
+    return products[0];
 };
 
 module.exports.findByCatalog = async (catalogId) => {
     return await getCollection(COLLECTION_NAME).find({ catalogId }).toArray();
 };
 
-module.exports.toRenderData = (data) => ({
-    ...data,
-    oldPrice: data.price,
-    price: Math.floor(data.price * (1 - data.discount)),
-    discount: Math.floor(data.discount * 100)
-});
+module.exports.toRenderData = (data) => {
+    const price = Math.floor(data.price * (1 - data.discount));
+    const saved = data.price - price;
+    return {
+        ...data,
+        oldPrice: data.price,
+        price,
+        saved,
+        discount: Math.floor(data.discount * 100),
+        link: `/products/${data.id}`
+    };
+};

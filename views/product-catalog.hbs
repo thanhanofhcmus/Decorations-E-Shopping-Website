@@ -8,11 +8,9 @@
   </div>
 </section>
 
-<!-- khối sản phẩm  -->
 <section class="content my-4">
   <div class="container">
     <div class="noidung bg-white" style=" width: 100%;">
-      <!-- header của khối sản phẩm : tag(tác giả), bộ lọc và sắp xếp  -->
       <div class="header-khoi-sp d-flex">
         <div class="sort d-flex ml-auto">
           <div class="hien-thi">
@@ -33,14 +31,13 @@
         </div>
       </div>
 
-      <!-- các sản phẩm  -->
       <div class="items">
         <div class="row">
           {{#if products}}
           {{#each products}}
-          <div class="col-lg-3 col-md-4 col-xs-6 item DeanGraziosi">
+          <div class="col-lg-3 col-md-4 col-xs-6 item">
             <div class="card">
-              <a href="#" class="motsanpham" style="text-decoration: none; color: black;" data-toggle="tooltip"
+              <a href={{this.link}} class="motsanpham" style="text-decoration: none; color: black;" data-toggle="tooltip"
                 data-placement="bottom" title="{{this.name}}">
                 <img class="card-img-top anh" src="/images/lap-ke-hoach-kinh-doanh-hieu-qua.jpg" alt="{{this.name}}">
                 <div class="card-body noidungsp mt-3">
@@ -96,11 +93,6 @@
           </div>
         </div>
       </div>
-
-      <!--het khoi san pham-->
     </div>
-    <!--het div noidung-->
   </div>
-  <!--het container-->
 </section>
-<!--het _1khoi-->

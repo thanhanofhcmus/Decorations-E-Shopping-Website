@@ -1,10 +1,10 @@
-const express = require('express');
-const router = express.Router();
+const router = require('express').Router();
+const controller = require('../controllers/product');
+
+router.get('/:id', controller.detail);
 
 router.get('/', (req, res) => {
-    res.render('detail-product', {
-        title: 'Product'
-    });
+    res.render('detail-product');
 });
 
 module.exports = router;
