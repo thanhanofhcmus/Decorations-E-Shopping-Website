@@ -233,11 +233,7 @@ label.error {
     margin-bottom: 0;
     font-size: 13px;
 }
-/* het css cho form dang nhap signUp */
 
-
-
-/* .navBar-tail  */
 .navBar-tail{
     background-color:#CF111A ;
 }
@@ -599,7 +595,6 @@ h6.card-title.ten {
     margin: 0 -10px;
 }
 
-/* css cho khong co border */
 .card{
     border: none;
 }

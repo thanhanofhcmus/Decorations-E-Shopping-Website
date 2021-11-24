@@ -656,7 +656,6 @@ footer .header {
     left: 149px;
 }
 
-/* don vi tien  */
 .info-block .price .currency-type {
     color: red;
     font-size: 26px;
@@ -707,9 +706,7 @@ footer .header {
 .info-block .buy-btn:hover {
     box-shadow: 0px 11px 20px -10px #fd8205;
 }
-/*het css cho khoi thong tin cua product-page*/
 
-/* .product-description  */
 .review-form .send-bl-btn {
     border: 1px solid #F7A623;
     color: #F7A623;
@@ -942,12 +939,9 @@ h6.card-title.ten {
     margin: 0 -10px;
 }
 
-/* css cho khong co border */
 .card{
     border: none;
 }
-/* het css cho one-block  */
-
 
 
 @media (max-width:767px){
@@ -980,7 +974,6 @@ h6.card-title.ten {
     }
 }
 
-/* css cho trang sach-kinh-te  */
 .img img {
     height: 80px;
     width: 60px;
@@ -1028,7 +1021,6 @@ h6.card-title.ten {
 }
 
 
-/* page tai khoan  */
 .account-page-tab-content .nav-tabs .nav-link {
     border-radius: 0;
 }

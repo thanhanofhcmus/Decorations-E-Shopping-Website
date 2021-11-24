@@ -285,10 +285,6 @@ label.error {
     font-size: 13px;
 }
 
-/* het css cho form dang nhap signUp */
-
-/* .navBar-tail  */
-
 .navBar-tail {
     background-color: #CF111A;
 }
@@ -571,10 +567,6 @@ footer .header {
     border: 1px solid #F5A623;
 }
 
-/* het css cho product-page  */
-
-/* css cho khoi thong tin cua  product-page*/
-
 .info-block .header hr {
     margin-top: 10px;
 }
@@ -688,8 +680,6 @@ footer .header {
     left: 149px;
 }
 
-/* don vi tien  */
-
 .info-block .price .currency-type {
     color: red;
     font-size: 26px;
@@ -740,8 +730,6 @@ footer .header {
 .info-block .buy-btn:hover {
     box-shadow: 0px 11px 20px -10px #fd8205;
 }
-
-/*het css cho khoi thong tin cua product-page*/
 
 /* .product-description  */
 
