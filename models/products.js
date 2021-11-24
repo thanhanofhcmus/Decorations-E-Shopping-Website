@@ -2,8 +2,8 @@ const { getCollection } = require('../database');
 
 const COLLECTION_NAME = 'product';
 
-module.exports.list = async () => {
-    return await getCollection(COLLECTION_NAME).find({}).toArray();
+module.exports.list = () => {
+    return getCollection(COLLECTION_NAME).find({}).toArray();
 };
 
 module.exports.findById = async (id) => {
@@ -11,8 +11,8 @@ module.exports.findById = async (id) => {
     return products[0];
 };
 
-module.exports.findByCatalog = async (catalogId) => {
-    return await getCollection(COLLECTION_NAME).find({ catalogId }).toArray();
+module.exports.findByCatalog = (catalogId) => {
+    return getCollection(COLLECTION_NAME).find({ catalogId }).toArray();
 };
 
 module.exports.toRenderData = (data) => {

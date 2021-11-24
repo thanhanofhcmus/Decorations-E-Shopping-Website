@@ -1,32 +1,29 @@
-*{
+* {
     margin: 0;
     padding: 0;
     font-family: 'Roboto', sans-serif;
-    
 }
 
-/* css cho navbar  */
-body,html{
+body, html {
     background-color: #F8F9FA;
 }
 
-.navbar-nav li .nav-link{
-   font-size: 13px;
-   padding-top: 17px;
-   font-weight: 400;
+.navbar-nav li .nav-link {
+    font-size: 13px;
+    padding-top: 17px;
+    font-weight: 400;
 }
 
 .navbar input.form-control {
-    border: 2px solid #CF111A!important;
-    
+    border: 2px solid #CF111A !important;
 }
 
-li.nav-item a{
+li.nav-item a {
     transition: 0.2s;
 }
 
 li.nav-item:hover a {
-    color: #F5A623!important;
+    color: #F5A623 !important;
 }
 
 a.nav-link {
@@ -37,14 +34,16 @@ a.navbar-brand {
     font-size: 34px;
 }
 
-li.nav-item.account {margin-right: 0.5rem;}
+li.nav-item.account {
+    margin-right: 0.5rem;
+}
 
 a.nav-link {
     margin-left: -0.5rem;
 }
 
-.navbar-expand-md .navbar-nav .nav-link.cart{
-    padding-right: 0!important;
+.navbar-expand-md .navbar-nav .nav-link.cart {
+    padding-right: 0 !important;
 }
 
 i.fa.fa-shopping-cart {
@@ -60,7 +59,7 @@ a.btn.btn-secondary.rounded-circle {
     border: #cacaca;
 }
 
-.cart-amount{
+.cart-amount {
     height: 18px;
     width: 18px;
     border-radius: 50%;
@@ -72,7 +71,7 @@ a.btn.btn-secondary.rounded-circle {
     transition: 0.2s;
 }
 
-.nav-item.cart:hover .cart-amount{
+.nav-item.cart:hover .cart-amount {
     background: #CF111A;
     color: white;
 }
@@ -96,27 +95,25 @@ a.dropdown-item:hover {
     box-shadow: 0px 2px 5px #F5A623;
 }
 
-.navbar-nav .nav-item.active a{
+.navbar-nav .nav-item.active a {
     color: #F5A623;
 }
 
-.rollUp-btn{
+.rollUp-btn {
     visibility: hidden;
     opacity: 0;
     transition: 0.5s;
 }
 
-.rollUp-btn._display{
+.rollUp-btn._display {
     visibility: visible;
     opacity: 1;
 }
 
-.navbar.fixed-top{
+.navbar.fixed-top {
     box-shadow: 0px 5px 20px grey;
 }
-/* het css cho navbar  */
 
-/* css cho header signIn-form signUp  */
 .modal-header {
     padding-bottom: 0;
 }
@@ -131,11 +128,19 @@ ul.tabs li:hover a {
     color: #F5A623;
 }
 
-ul.tabs li:hover{
+ul.tabs li:hover {
     cursor: pointer;
 }
 
-ul.tabs li hr {position: relative;width: 50%;top: 0px;left: 25%;visibility: hidden;border-top: 2px solid #F5A623;transition: 0.2s;}
+ul.tabs li hr {
+    position: relative;
+    width: 50%;
+    top: 0px;
+    left: 25%;
+    visibility: hidden;
+    border-top: 2px solid #F5A623;
+    transition: 0.2s;
+}
 
 ul.tabs li:hover hr {
     visibility: visible;
@@ -154,22 +159,21 @@ ul.tabs li {
     height: 100%;
 }
 
-ul.tabs li.active a{
+ul.tabs li.active a {
     color: #F5A623;
 }
+
 ul.tabs li.active hr {
     visibility: visible;
     border-top: 2px solid #F5A623;
     width: 100%;
     left: 0;
 }
-/* het css cho header form signIn signUp  */
 
-/* css cho signIn-form signUp*/
 .form-signIn {
     width: 100%;
-  }
-  
+}
+
 .form-signIn .btn {
     font-size: 80%;
     letter-spacing: .1rem;
@@ -177,7 +181,7 @@ ul.tabs li.active hr {
     padding: 1rem;
     transition: all 0.2s;
 }
-  
+
 .form-label-group {
     position: relative;
     margin-bottom: 1rem;
@@ -187,7 +191,7 @@ ul.tabs li.active hr {
     color: white;
     background-color: #ea4335;
 }
-  
+
 .btn-facebook {
     color: white;
     background-color: #3b5998;
@@ -199,9 +203,8 @@ ul.tabs li.active hr {
 }
 
 .btn-signIn:hover {
-    color: black!important;
+    color: black !important;
 }
-
 
 #signUp-form .form-signIn p {
     margin-bottom: 3px;
@@ -215,17 +218,12 @@ ul.tabs li.active hr {
 
 label.error {
     display: inline-block;
-    color:red;
+    color: red;
     width: 300px;
-    
-    margin-top:5px;
+
+    margin-top: 5px;
     margin-bottom: 0;
     font-size: 13px;
-}
-
-
-.navBar-tail{
-    background-color:#CF111A ;
 }
 
 .leftSide.float-right {
@@ -249,71 +247,70 @@ label.error {
 
 .navBar-tail {
     height: 40px;
+    background-color: #CF111A;
 }
 
-.hotline{
+.hotline {
     display: inline-block;
     position: relative;
     margin-right: 11px;
 }
 
-.hotline:after{
-    content:"|";
+.hotline:after {
+    content: "|";
     position: absolute;
-    color:white;
+    color: white;
     top: -1px;
     right: -10px;
     font-size: 22px;
 }
 
-.leftSide a{
+.leftSide a {
     color: white;
 }
-/* het css .navBar-tail  */
 
-/* css category  */
-.category-content{
+.category-content {
     border: 1px solid #b4b2b2;
     box-sizing: border-box;
     height: 387px;
     background: white;
 }
 
-.category-content ul{
+.category-content ul {
     list-style: none;
     background: white;
 }
 
-.category-content > ul > li:hover{
+.category-content>ul>li:hover {
     background-color: #CF111A;
     cursor: pointer;
 }
 
-.category-content > ul > li:hover > a{
-    color:white;
+.category-content>ul>li:hover>a {
+    color: white;
 }
 
-.category-content ul li:hover i.fa.fa-chevron-right{
-    color:white;
+.category-content ul li:hover i.fa.fa-chevron-right {
+    color: white;
 }
 
-.category-content > ul > li{
+.category-content>ul>li {
     border-bottom: 1px solid #f8e1e1;
     height: 35px;
 }
 
-.category-content > ul > li:last-child{
+.category-content>ul>li:last-child {
     border-bottom: none
 }
 
-.category-content  ul  li  a{
+.category-content ul li a {
     line-height: 35px;
     padding-left: 16px;
     font-weight: 400;
     font-size: 13px;
 }
 
-.category-content ul li ul{
+.category-content ul li ul {
     display: none;
     height: 386px;
     width: 750px;
@@ -327,65 +324,59 @@ label.error {
     background-color: white;
 }
 
-.category-content ul li ul:hover{
+.category-content ul li ul:hover {
     cursor: auto;
 }
 
-.category-content ul li a{
+.category-content ul li a {
     text-decoration: none;
     color: black;
 }
 
-.category-content ul li:hover ul{
-    display:block;
-
+.category-content ul li:hover ul {
+    display: block;
 }
 
-ul i.fa.fa-chevron-right{
+ul i.fa.fa-chevron-right {
     font-size: 10px;
     color: #d1d1d1;
     line-height: 35px;
     padding-right: 20px;
 }
-/* het css category  */
 
-/* hidden-category */
-
-.category-content ul li ul li:first-child{
+.category-content ul li ul li:first-child {
     margin-top: 3px;
 }
 
-.category-content ul li ul li.li-header{
+.category-content ul li ul li.li-header {
     margin-top: 16px;
 }
 
-ul li a.header{
+ul li a.header {
     font-size: 15px;
     padding-left: 33px;
     color: #CF111A;
 }
 
-.category-content ul li ul .content{
-    float:left;
+.category-content ul li ul .content {
+    float: left;
     margin-left: 19px;
     width: 300px;
     height: 265px;
 }
 
-
-.category-content ul li ul .content.content-right{
+.category-content ul li ul .content.content-right {
     margin-left: 100px;
 }
 
-
-.category-content ul li ul .content li a:hover{
+.category-content ul li ul .content li a:hover {
     color: #F5A623;
 }
 
-.carousel-button.carousel-indicators li{
-        height: 8px;
-        width: 8px;
-        border-radius: 50%;
+.carousel-button.carousel-indicators li {
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
 }
 
 .one-block h1.header {
@@ -401,7 +392,7 @@ a.btn.btn-warning.btn-sm.text-white {
     width: 77px;
     background: #F5A623;
     font-size: 11px;
-} 
+}
 
 .card:hover .anh {
     top: 5px;
@@ -417,7 +408,7 @@ ul span.text-muted {
     font-size: 11px;
     padding-top: 6px;
     padding-left: 12px;
-    color: #919191!important;
+    color: #919191 !important;
 }
 
 i.fa.fa-star {
@@ -432,17 +423,17 @@ li.active .fa-star {
 .sale {
     background: #F5A623;
     border-radius: 6px;
-    font-size: 11px;color: white;
+    font-size: 11px;
+    color: white;
     padding: 1px 4px;
     position: absolute;
-    right: 0
-    ;
+    right: 0;
     top: 2px;
 }
 
 .old-price.text-muted {
     font-size: 13px;
-    color: #919191!important;
+    color: #919191 !important;
 }
 
 .new-price {
@@ -495,7 +486,7 @@ h3.card-title.ten {
 /* het css cho one-block  */
 
 /* css cho margin slick */
-.card{
+.card {
     margin: 0 10px;
 }
 
@@ -504,11 +495,11 @@ h3.card-title.ten {
 }
 
 
-.hot-combo .card{
+.hot-combo .card {
     border: none;
 }
 
-.about-to-release .card{
+.about-to-release .card {
     border: none;
 }
 
@@ -523,7 +514,10 @@ h3.card-title.ten {
     color: #F5A623;
 }
 
-.recommended-book ._time {display: inline-block;padding-top: 7px;}
+.recommended-book ._time {
+    display: inline-block;
+    padding-top: 7px;
+}
 
 .recommended-book h3.card-title.ten {
     margin-top: -12px;
@@ -539,7 +533,11 @@ h3.card-title.ten {
     border: none;
 }
 
-hr {margin-bottom: 0;position: relative;top: -31px;}
+hr {
+    margin-bottom: 0;
+    position: relative;
+    top: -31px;
+}
 
 .recommended-book .col-lg {
     padding-bottom: 30px;
@@ -569,6 +567,7 @@ hr {margin-bottom: 0;position: relative;top: -31px;}
     height: 57px;
     margin-right: 10px;
 }
+
 /* het css cho service  */
 
 /* css cho footer  */
@@ -586,40 +585,39 @@ footer .row a {
 }
 
 footer .row a:hover {
-    color:  #F5A623;
+    color: #F5A623;
 }
 
 footer .header {
     font-size: 14px;
     margin-bottom: 13px;
 }
-/* het css cho footer  */
 
 
-@media (max-width:767px){
-    .navbar form .input-group{
-        width: 100%!important;
+@media (max-width:767px) {
+    .navbar form .input-group {
+        width: 100% !important;
 
     }
 
-    .navbar ul li a.nav-link{
-        margin-left:0.25rem!important;
+    .navbar ul li a.nav-link {
+        margin-left: 0.25rem !important;
     }
 
-    .navbar ul li.account{
+    .navbar ul li.account {
         border-top: 1px dashed #CF111A;
         border-bottom: 1px dashed #CF111A;
         padding-bottom: 0.5rem;
         margin-bottom: 0.25rem;
     }
-    .navbar ul li.cart{
+
+    .navbar ul li.cart {
         border-bottom: 1px dashed #CF111A;
         padding-bottom: 0.5rem;
-        margin-right:8px;
+        margin-right: 8px;
     }
-    .category-content{
+
+    .category-content {
         display: none;
     }
 }
-
-

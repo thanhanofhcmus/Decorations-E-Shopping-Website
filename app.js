@@ -8,6 +8,7 @@ const indexRouter = require('./routes/index');
 const productsRouter = require('./routes/products');
 const cartRouter = require('./routes/cart');
 const catalogRouter = require('./routes/catalog');
+const apiRouter = require('./routes/api');
 
 const app = express();
 
@@ -24,6 +25,7 @@ app.use('/', indexRouter);
 app.use('/products', productsRouter);
 app.use('/cart', cartRouter);
 app.use('/catalog', catalogRouter);
+app.use('/api', apiRouter);
 
 app.use((req, res, next) => {
     next(createError(404));
