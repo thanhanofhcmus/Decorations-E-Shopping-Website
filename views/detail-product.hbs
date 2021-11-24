@@ -1,5 +1,5 @@
 <!-- breadcrumb  -->
-<section class="breadcrumbbar">
+<section class="breadcrumb">
     <div class="container">
         <ol class="breadcrumb mb-0 p-0 bg-transparent">
             <li class="breadcrumb-item"><a href="/">Trang chủ</a></li>
@@ -8,14 +8,11 @@
     </div>
 </section>
 
-<!-- nội dung của trang  -->
 <section class="product-page mb-4">
     <div class="container">
-        <!-- chi tiết 1 sản phẩm -->
         <div class="product-detail bg-white p-4">
             <div class="row">
-                <!-- ảnh  -->
-                <div class="col-md-5 khoianh">
+                <div class="col-md-5 image-block">
                     <div class="anhto mb-4">
                         <a class="active" href="/images/lap-ke-hoach-kinh-doanh-hieu-qua-mt.jpg"
                             data-fancybox="thumb-img">
@@ -23,12 +20,12 @@
                         </a>
                         <a href="/images/lap-ke-hoach-kinh-doanh-hieu-qua-ms.jpg" data-fancybox="thumb-img"></a>
                     </div>
-                    <div class="list-anhchitiet d-flex mb-4" style="margin-left: 2rem;">
+                    <div class="list-image-detail d-flex mb-4" style="margin-left: 2rem;">
                         <img class="thumb-img thumb1 mr-3" src="/images/lap-ke-hoach-kinh-doanh-hieu-qua-mt.jpg" class="img-fluid">
                         <img class="thumb-img thumb2" src="/images/lap-ke-hoach-kinh-doanh-hieu-qua-ms.jpg" class="img-fluid">
                     </div>
                 </div>
-                <div class="col-md-7 khoithongtin">
+                <div class="col-md-7 info-block">
                     <div class="row">
                         <div class="col-md-12 header">
                             <h4 class="ten">{{name}}</h4>
@@ -43,24 +40,24 @@
                         </div>
                         <div class="col-md-7">
                             <div class="gia">
-                                <div class="giabia">Giá gốc:<span class="giacu ml-2">{{oldPrice}} ₫</span></div>
-                                <div class="giaban">Giá bán: <span class="giamoi font-weight-bold">{{price}} ₫</div>
-                                <div class="tietkiem">Tiết kiệm: <b>{{saved}} ₫</b> <span class="sale">-{{discount}}%</span> </div>
+                                <div class="normal-price">Giá gốc:<span class="old-price ml-2">{{oldPrice}} ₫</span></div>
+                                <div class="price">Giá bán: <span class="new-price font-weight-bold">{{price}} ₫</div>
+                                <div class="money-saved">Tiết kiệm: <b>{{saved}} ₫</b> <span class="sale">-{{discount}}%</span> </div>
                             </div>
-                            <div class="soluong d-flex">
+                            <div class="_number d-flex">
                                 <label class="font-weight-bold">Số lượng: </label>
                                 <div class="input-number input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text btn-spin btn-dec">-</span>
                                     </div>
-                                    <input type="text" value="1" class="soluongsp  text-center">
+                                    <input type="text" value="1" class="product-number  text-center">
                                     <div class="input-group-append">
                                         <span class="input-group-text btn-spin btn-inc">+</span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="nutmua btn w-100 text-uppercase">Chọn mua</div>
-                            <a class="huongdanmuahang text-decoration-none" href="#">(Vui lòng xem hướng dẫn mua
+                            <div class="buy-btn btn w-100 text-uppercase">Chọn mua</div>
+                            <a class="how-to-buy text-decoration-none" href="#">(Vui lòng xem hướng dẫn mua
                                 hàng)</a>
                         </div>
                     </div>
@@ -71,24 +68,24 @@
                     <!-- 2 tab ở trên  -->
                     <nav>
                         <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                            <a class="nav-item nav-link active text-uppercase" id="nav-gioithieu-tab" data-toggle="tab"
-                                href="#nav-gioithieu" role="tab" aria-controls="nav-gioithieu" aria-selected="true">Giới
+                            <a class="nav-item nav-link active text-uppercase" id="nav-introduce-tab" data-toggle="tab"
+                                href="#nav-introduce" role="tab" aria-controls="nav-introduce" aria-selected="true">Giới
                                 thiệu</a>
-                            <a class="nav-item nav-link text-uppercase" id="nav-danhgia-tab" data-toggle="tab"
-                                href="#nav-danhgia" role="tab" aria-controls="nav-danhgia" aria-selected="false">Đánh
+                            <a class="nav-item nav-link text-uppercase" id="review-nav-tab" data-toggle="tab"
+                                href="#review-nav" role="tab" aria-controls="review-nav" aria-selected="false">Đánh
                                 giá của độc giả</a>
                         </div>
                     </nav>
                     <!-- nội dung của từng tab  -->
                     <div class="tab-content" id="nav-tabContent">
-                        <div class="tab-pane fade show active ml-3" id="nav-gioithieu" role="tabpanel"
-                            aria-labelledby="nav-gioithieu-tab">
+                        <div class="tab-pane fade show active ml-3" id="nav-introduce" role="tabpanel"
+                            aria-labelledby="nav-introduce-tab">
                             {{content}}
                         </div>
-                        <div class="tab-pane fade" id="nav-danhgia" role="tabpanel" aria-labelledby="nav-danhgia-tab">
+                        <div class="tab-pane fade" id="review-nav" role="tabpanel" aria-labelledby="review-nav-tab">
                             <div class="row">
                                 <div class="col-md-3 text-center">
-                                    <p class="tieude">Đánh giá trung bình</p>
+                                    <p class="title">Đánh giá trung bình</p>
                                     <div class="diem">0/5</div>
                                     <div class="sao">
                                         <i class="fa fa-star"></i>
@@ -97,46 +94,46 @@
                                         <i class="fa fa-star"></i>
                                         <i class="fa fa-star"></i>
                                     </div>
-                                    <p class="sonhanxet text-muted">(0 nhận xét)</p>
+                                    <p class="review-number text-muted">(0 nhận xét)</p>
                                 </div>
                                 <div class="col-md-5">
-                                    <div class="tiledanhgia text-center">
-                                        <div class="motthanh d-flex align-items-center">5 <i class="fa fa-star"></i>
+                                    <div class="review-title text-center">
+                                        <div class="margin-bottom d-flex align-items-center">5 <i class="fa fa-star"></i>
                                             <div class="progress mx-2">
                                                 <div class="progress-bar" role="progressbar" aria-valuenow="0"
                                                     aria-valuemin="0" aria-valuemax="100"></div>
                                             </div> 0%
                                         </div>
-                                        <div class="motthanh d-flex align-items-center">4 <i class="fa fa-star"></i>
+                                        <div class="margin-bottom d-flex align-items-center">4 <i class="fa fa-star"></i>
                                             <div class="progress mx-2">
                                                 <div class="progress-bar" role="progressbar" aria-valuenow="0"
                                                     aria-valuemin="0" aria-valuemax="100"></div>
                                             </div> 0%
                                         </div>
-                                        <div class="motthanh d-flex align-items-center">3 <i class="fa fa-star"></i>
+                                        <div class="margin-bottom d-flex align-items-center">3 <i class="fa fa-star"></i>
                                             <div class="progress mx-2">
                                                 <div class="progress-bar" role="progressbar" aria-valuenow="0"
                                                     aria-valuemin="0" aria-valuemax="100"></div>
                                             </div> 0%
                                         </div>
-                                        <div class="motthanh d-flex align-items-center">2 <i class="fa fa-star"></i>
+                                        <div class="margin-bottom d-flex align-items-center">2 <i class="fa fa-star"></i>
                                             <div class="progress mx-2">
                                                 <div class="progress-bar" role="progressbar" aria-valuenow="0"
                                                     aria-valuemin="0" aria-valuemax="100"></div>
                                             </div> 0%
                                         </div>
-                                        <div class="motthanh d-flex align-items-center">1 <i class="fa fa-star"></i>
+                                        <div class="margin-bottom d-flex align-items-center">1 <i class="fa fa-star"></i>
                                             <div class="progress mx-2">
                                                 <div class="progress-bar" role="progressbar" aria-valuenow="0"
                                                     aria-valuemin="0" aria-valuemax="100"></div>
                                             </div> 0%
                                         </div>
-                                        <div class="btn vietdanhgia mt-3">Viết đánh giá của bạn</div>
+                                        <div class="btn write-review mt-3">Viết đánh giá của bạn</div>
                                     </div>
                                     <!-- nội dung của form đánh giá  -->
-                                    <div class="formdanhgia">
-                                        <h6 class="tieude text-uppercase">GỬI ĐÁNH GIÁ CỦA BẠN</h6>
-                                        <span class="danhgiacuaban">Đánh giá của bạn về sản phẩm này:</span>
+                                    <div class="review-form">
+                                        <h6 class="title text-uppercase">GỬI ĐÁNH GIÁ CỦA BẠN</h6>
+                                        <span class="your-review">Đánh giá của bạn về sản phẩm này:</span>
                                         <div
                                             class="rating d-flex flex-row-reverse align-items-center justify-content-end">
                                             <input type="radio" name="star" id="star1"><label for="star1"></label>
@@ -157,13 +154,13 @@
                                             <input type="text" class="txtComment w-100"
                                                 placeholder="Đánh giá của bạn về sản phẩm này">
                                         </div>
-                                        <div class="btn nutguibl">Gửi bình luận</div>
+                                        <div class="btn send-bl-btn">Gửi bình luận</div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <hr>
-                        <!-- het tab nav-danhgia  -->
+                        <!-- het tab review-nav  -->
                     </div>
                     <!-- het tab-content  -->
                 </div>

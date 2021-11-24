@@ -4,7 +4,7 @@
     font-family: 'Roboto', sans-serif;
 }
 
-.header-khoi-sp {
+.header-product-block {
     border-bottom: 1px solid #e5e5e5;
     margin-bottom: 10px;
 }
@@ -14,7 +14,7 @@ select {
     border-radius: 3px;
 }
 
-.header-khoi-sp .sort {
+.header-product-block .sort {
     color: #727272;
 }
 
@@ -26,15 +26,15 @@ label.label-select {
     margin-left: 17px;
 }
 
-.header-khoi-sp .tag, .header-khoi-sp .sort {
+.header-product-block .tag, .header-product-block .sort {
     margin: 10px 20px 0 15px;
 }
 
-.header-khoi-sp label {
+.header-product-block label {
     font-size: 13px;
 }
 
-.header-khoi-sp a {
+.header-product-block a {
     font-size: 13px;
     margin: 0 3px 0 3px;
     color: #F5A623;
@@ -88,7 +88,7 @@ a.nav-link {
     margin-left: -0.5rem;
 }
 
-.navbar-expand-md .navbar-nav .nav-link.giohang{
+.navbar-expand-md .navbar-nav .nav-link.cart{
     padding-right: 0!important;
 }
 
@@ -117,7 +117,7 @@ a.btn.btn-secondary.rounded-circle {
     transition: 0.2s;
 }
 
-.nav-item.giohang:hover .cart-amount{
+.nav-item.cart:hover .cart-amount{
     background: #CF111A;
     color: white;
 }
@@ -145,13 +145,13 @@ a.dropdown-item:hover {
     color: #F5A623;
 }
 
-.nutcuonlen{
+.rollUp-btn{
     visibility: hidden;
     opacity: 0;
     transition: 0.5s;
 }
 
-.nutcuonlen.hienthi{
+.rollUp-btn._display{
     visibility: visible;
     opacity: 1;
 }
@@ -161,7 +161,7 @@ a.dropdown-item:hover {
 }
 /* het css cho navbar  */
 
-/* css cho header formdangnhap dangky  */
+/* css cho header signIn-form signUp  */
 .modal-header {
     padding-bottom: 0;
 }
@@ -208,14 +208,14 @@ ul.tabs li.active hr {
     width: 100%;
     left: 0;
 }
-/* het css cho header form dangnhap dangky  */
+/* het css cho header form signIn signUp  */
 
-/* css cho formdangnhap dangky*/
-.form-signin {
+/* css cho signIn-form signUp*/
+.form-signIn {
     width: 100%;
   }
   
-.form-signin .btn {
+.form-signIn .btn {
     font-size: 80%;
     letter-spacing: .1rem;
     font-weight: bold;
@@ -243,17 +243,17 @@ ul.tabs li.active hr {
     top: 1px;
 }
 
-.btn-signin:hover {
+.btn-signIn:hover {
     color: black!important;
 }
 
 
-#formdangky .form-signin p {
+#signUp-form .form-signIn p {
     margin-bottom: 3px;
     font-size: 13px;
 }
 
-#formdangky .form-signin a {
+#signUp-form .form-signIn a {
     display: block;
     font-size: 13px;
 }
@@ -267,35 +267,33 @@ label.error {
     margin-bottom: 0;
     font-size: 13px;
 }
-/* het css cho form dang nhap dangky */
 
 
-
-/* .duoinavbar  */
-.duoinavbar{
+/* .navBar-tail  */
+.navBar-tail{
     background-color:#CF111A ;
 }
 
-.benphai.float-right {
+.leftSide.float-right {
     line-height: 40px;
     font-size: 14px;
 }
 
-.noidungheader {
+.productHeader {
     padding-top: 8px;
     padding-left: 14px;
 }
 
-.categoryheader {
+.categoryHeader {
     height: 40px;
     background-color: #aa1318;
 }
 
-.duoinavbar .container .row {
+.navBar-tail .container .row {
     height: 40px;
 }
 
-.duoinavbar {
+.navBar-tail {
     height: 40px;
 }
 
@@ -314,13 +312,13 @@ label.error {
     font-size: 22px;
 }
 
-.benphai a{
+.leftSide a{
     color: white;
 }
-/* het css .duoinavbar  */
+/* het css .navBar-tail  */
 
 /* css category  */
-.categorycontent{
+.category-content{
     border: 1px solid #b4b2b2;
     box-sizing: border-box;
     height: 387px;
@@ -330,41 +328,41 @@ label.error {
     background: white;
 }
 
-.categorycontent ul{
+.category-content ul{
     list-style: none;
     background: white;
 }
 
-.categorycontent > ul > li:hover{
+.category-content > ul > li:hover{
     background-color: #CF111A;
     cursor: pointer;
 }
 
-.categorycontent > ul > li:hover > a{
+.category-content > ul > li:hover > a{
     color:white;
 }
 
-.categorycontent ul li:hover i.fa.fa-chevron-right{
+.category-content ul li:hover i.fa.fa-chevron-right{
     color:white;
 }
 
-.categorycontent > ul > li{
+.category-content > ul > li{
     border-bottom: 1px solid #f8e1e1;
     height: 35px;
 }
 
-.categorycontent > ul > li:last-child{
+.category-content > ul > li:last-child{
     border-bottom: none
 }
 
-.categorycontent  ul  li  a{
+.category-content  ul  li  a{
     line-height: 35px;
     padding-left: 16px;
     font-weight: 400;
     font-size: 13px;
 }
 
-.categorycontent ul li ul{
+.category-content ul li ul{
     display: none;
     height: 387px;
     width: 750px;
@@ -378,16 +376,16 @@ label.error {
     background-color: white;
 }
 
-.categorycontent ul li ul:hover{
+.category-content ul li ul:hover{
     cursor: auto;
 }
 
-.categorycontent ul li a{
+.category-content ul li a{
     text-decoration: none;
     color: black;
 }
 
-.categorycontent ul li:hover ul{
+.category-content ul li:hover ul{
     display:block;
 
 }
@@ -400,13 +398,13 @@ ul i.fa.fa-chevron-right{
 }
 /* het css category  */
 
-/* danhmucan */
+/* hidden-category */
 
-.categorycontent ul li ul li:first-child{
+.category-content ul li ul li:first-child{
     margin-top: 3px;
 }
 
-.categorycontent ul li ul li.liheader{
+.category-content ul li ul li.li-header{
     margin-top: 16px;
 }
 
@@ -416,7 +414,7 @@ ul li a.header{
     color: #CF111A;
 }
 
-.categorycontent ul li ul .content{
+.category-content ul li ul .content{
     float:left;
     margin-left: 19px;
     width: 300px;
@@ -424,58 +422,52 @@ ul li a.header{
 }
 
 
-.categorycontent ul li ul .content.phai{
+.category-content ul li ul .content.content-right{
     margin-left: 100px;
 }
 
 
-.categorycontent ul li ul .content li a:hover{
+.category-content ul li ul .content li a:hover{
     color: #F5A623;
 }
 
-.categorycontent{
+.category-content{
     display: none;
 }
 
-.categoryheader:hover .categorycontent{
+.categoryHeader:hover .category-content{
     display: block;
 }
-/*het danhmucan */
 
 
-/* CSS CHO PHAN CONTENT O GIUA O NGAY DAY ................................ */
-
-
-
-/* css cho dichvu  */
-.dichvu p.detail {
+.service p.detail {
     font-size: 12px;
     margin-bottom: 1px;
     width: 198px;
 }
 
-.dichvu {
+.service {
     padding: 24px 0px 24px;
 }
 
-.dichvu h6.tieude {
+.service h6.title {
     font-size: 14px;
     margin-bottom: 3px;
 }
 
-.dichvu .noidung {
+.service .product {
     width: 180px;
 }
 
-.dichvu img {
+.service img {
     width: 57px;
     height: 57px;
     margin-right: 10px;
 }
-/* het css cho dichvu  */
+/* het css cho service  */
 
 /* css cho footer  */
-.ptthanhtoan {
+.payment-method {
     width: 200px;
 }
 
@@ -500,7 +492,7 @@ footer .header {
 
 
 /* css cho breadcrumb  */
-.breadcrumbbar{
+.breadcrumb{
     height: 40px;
 }
 
@@ -541,7 +533,7 @@ footer .header {
     border: 1px solid #F2F2F2;
 }
 
-.product-detail .list-anhchitiet {
+.product-detail .list-image-detail {
     height: 76px;
 }
 
@@ -549,85 +541,84 @@ footer .header {
     cursor: pointer;
 }
 
-.product-detail .thumb-img.vienvang{
+.product-detail .thumb-img.yellow-border{
     border: 1px solid #F5A623;
 }
-/* het css cho product-page  */
-/* css cho khoi thong tin cua  product-page*/
-.khoithongtin .header hr {
+
+.info-block .header hr {
     margin-top: 10px;
 }
 
-.khoithongtin .rate {color: #D9D9D5;font-size: 14px;}
+.info-block .rate {color: #D9D9D5;font-size: 14px;}
 
-.khoithongtin .rate .active {
+.info-block .rate .active {
     color: #F5A623;
 }
 
-.khoithongtin .uudai .header {
+.info-block .sales .header {
     margin-top: 5px;
     padding: 10px 0px 2px 16px;
     font-size: 13px;
 }
 
-.khoithongtin .header h4 {
+.info-block .header h4 {
     font-weight: 400;
     font-size: 22px;
     margin-bottom: 5px;
 }
 
-.khoithongtin .gia {
+.info-block .gia {
     font-size: 13px;
 }
 
-.khoithongtin .input-number .btn-spin {
+.info-block .input-number .btn-spin {
     background: white;
     border: 1px solid #ebebeb;
 }
 
-.khoithongtin .input-number .btn-spin:hover {
+.info-block .input-number .btn-spin:hover {
     cursor: pointer;
     color: #2196F3;
 }
 
-.khoithongtin .input-number .soluongsp {
+.info-block .input-number .product-number {
     width: 38px;
     border: 1px solid #ebebeb;
 }
 
 
-.khoithongtin .soluong label {
+.info-block ._number label {
     width: 101px;
     font-size: 14px;
     margin-top: 9px;
 }
 
-.thongtinsach a.tacgia {
+.book-info a.author {
     color: #F5A623;
     text-decoration: none;
 }
 
-.thongtinsach ul li {
+.book-info ul li {
     margin-bottom: 5px;
 }
 
-.khoithongtin .thongtinsach ul {
+.info-block .book-info ul {
     list-style: none;
     margin-bottom: 0px;
 }
 
-.khoithongtin .thongtinsach {
+.info-block .book-info {
     border: 1px solid #E5E5E5;
     border-radius: 5px;
     padding: 13px;
     font-size: 13px;
 }
 
-.khoithongtin .uudai ul {
+.info-block .sales ul {
     list-style: none;
 }
 
-.khoithongtin .uudai ul li::before {
+.info-block .sales ul li::before {
     content: "\2022";
     color: #F5A623;
     font-weight: bold;
@@ -637,27 +628,27 @@ footer .header {
     font-size:15px;
 }
 
-.khoithongtin .uudai li a {
+.info-block .sales li a {
     color: gray;
 }
 
-.khoithongtin .uudai li {
+.info-block .sales li {
     margin-left: 33px;
     margin-bottom: 5px;
 }
 
-.khoithongtin .uudai {
+.info-block .sales {
     background: #FEF6E9;
     border: 1px solid #F5A623;
     border-radius: 5px;
     font-size: 13px;
 }
 
-.khoithongtin .giaban {
+.info-block .price {
     margin-top: 7px;
 }
 
-.khoithongtin .giaban .giamoi {
+.info-block .price .new-price {
     color: red;
     font-size: 26px;
     position: absolute;
@@ -666,7 +657,7 @@ footer .header {
 }
 
 /* don vi tien  */
-.khoithongtin .giaban .donvitien {
+.info-block .price .currency-type {
     color: red;
     font-size: 26px;
     position: absolute;
@@ -675,16 +666,16 @@ footer .header {
     font-weight: bold;
 }
 
-.khoithongtin .giabia .giacu {
+.info-block .normal-price .old-price {
     text-decoration: line-through;
     color: #b8b8b8;
 }
 
-.khoithongtin .tietkiem {
+.info-block .money-saved {
     margin-top: 7px;
 }
 
-.khoithongtin .tietkiem .sale {
+.info-block .money-saved .sale {
     background: #F5A623;
     border-radius: 6px;
     font-size: 11px;
@@ -695,92 +686,92 @@ footer .header {
     left: 140px;
 }
 
-.khoithongtin small.share {
+.info-block small.share {
     font-size: 15px;
 }
 
-.khoithongtin .huongdanmuahang {
+.info-block .how-to-buy {
     color: #F7A623;
     font-size: 13px;
     margin: 10px 0px;
     display: block;
 }
 
-.khoithongtin .nutmua {
+.info-block .buy-btn {
     background: linear-gradient(#f5a623,#fd8205);
     color: white;
     font-weight: bold;
     font-size: 15px;
 }
 
-.khoithongtin .nutmua:hover {
+.info-block .buy-btn:hover {
     box-shadow: 0px 11px 20px -10px #fd8205;
 }
 /*het css cho khoi thong tin cua product-page*/
 
 /* .product-description  */
-.formdanhgia .nutguibl {
+.review-form .send-bl-btn {
     border: 1px solid #F7A623;
     color: #F7A623;
     width: 60%;
     font-weight: 500;
 }
 
-.formdanhgia .nutguibl:hover {background: #F7A623;color: white;}
+.review-form .send-bl-btn:hover {background: #F7A623;color: white;}
 
-.formdanhgia .form-group input {padding: 6px 15px;font-size: 14px;border: 1px solid #d7d2d2;}
+.review-form .form-group input {padding: 6px 15px;font-size: 14px;border: 1px solid #d7d2d2;}
 
-.formdanhgia .danhgiacuaban {
+.review-form .your-review {
     font-size: 14px;
     margin-bottom: 10px;
     display: block;
 }
 
-.formdanhgia .tieude {
+.review-form .title {
     font-size: 17px!important;
 }
 
-.btn.vietdanhgia {border: 1px solid #F7A623;color: #F7A623;padding: 7px 20px;}
+.btn.write-review {border: 1px solid #F7A623;color: #F7A623;padding: 7px 20px;}
 
-.btn.vietdanhgia:hover {
+.btn.write-review:hover {
     color: white;
     background: #F7A623;
 }
 
-.tiledanhgia .motthanh {
+.review-title .margin-bottom {
     margin-bottom: 8px;
 }
 
-#nav-danhgia .tiledanhgia {
+#review-nav .review-title {
     margin-top: 53px;
 }
 
-.motthanh i.fa.fa-star {margin-left: 6px;color: #a5a5a5;}
+.margin-bottom i.fa.fa-star {margin-left: 6px;color: #a5a5a5;}
 
 .progress {
     width: 80%;
     height: 10px;
 }
 
-#nav-danhgia p.sonhanxet {
+#review-nav p.review-number {
     font-size: 13px;
 }
 
-#nav-danhgia .sao i.fa.fa-star {
+#review-nav .sao i.fa.fa-star {
     color: #d1cccc;
 }
 
-#nav-danhgia .diem {
+#review-nav .diem {
     font-size: 45px;
     color: red;
     font-weight: bold;
 }
 
-.product-description #nav-danhgia p.tieude {
+.product-description #review-nav p.title {
     margin: 20px 0px 0px 0px;
 }
 
-.product-description h6.tieude {
+.product-description h6.title {
     margin-top: 22px;
     font-size: 18px;
 }
@@ -801,18 +792,18 @@ footer .header {
     margin-left: 9px;
 }
 
-.formdanhgia .rating input{
+.review-form .rating input{
     display: none;
     
 }
 
-.formdanhgia .rating label{
+.review-form .rating label{
     display: block;
     cursor: pointer;
     width: 15px;
 }
 
-.formdanhgia .rating label::before{
+.review-form .rating label::before{
     content: '\f005';
     font-family: 'Font Awesome\ 5 Free';
     font-weight: 900;
@@ -822,7 +813,7 @@ footer .header {
     color: rgb(187, 186, 186);
 }
 
-.formdanhgia .rating label::after{
+.review-form .rating label::after{
     content: '\f005';
     font-family: 'Font Awesome\ 5 Free';
     font-weight: 900;
@@ -835,14 +826,14 @@ footer .header {
     transition: 0.2s;
 }
 
-.formdanhgia .rating label:hover::after,
-.formdanhgia .rating label:hover ~ label::after,
-.formdanhgia .rating input:checked ~ label::after{
+.review-form .rating label:hover::after,
+.review-form .rating label:hover ~ label::after,
+.review-form .rating input:checked ~ label::after{
     opacity: 1;
 }
 /* het css cho .product-description  */
 
-/* css cho _1khoi */
+/* css cho one-block */
 
 /* css cho nut xem tat ca  */
 a.btn.btn-warning.btn-sm.text-white {
@@ -879,7 +870,7 @@ li.active .fa-star {
     color: #F5A623;
 }
 
-.noidungsp .gia .sale {
+.product-content .gia .sale {
     background: #F5A623;
     border-radius: 6px;
     font-size: 11px;color: white;
@@ -890,12 +881,12 @@ li.active .fa-star {
     top: 2px;
 }
 
-.giacu.text-muted {
+.old-price.text-muted {
     font-size: 13px;
     color: #919191!important;
 }
 
-.giamoi {
+.new-price {
     color: red;
     font-size: 14px;
     font-weight: 500;
@@ -906,7 +897,7 @@ li.active .fa-star {
     position: relative;
 }
 
-small.tacgia.text-muted {
+small.author.text-muted {
     font-size: 12px;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -930,7 +921,7 @@ h6.card-title.ten {
     transition: 0.3s;
 }
 
-.card-body.noidungsp {
+.card-body.product-content {
     padding: 10px 10px 0px 10px;
 }
 
@@ -947,7 +938,7 @@ h6.card-title.ten {
     margin: 0 10px;
 }
 
-.khoisanpham {
+._product-block {
     margin: 0 -10px;
 }
 
@@ -955,7 +946,7 @@ h6.card-title.ten {
 .card{
     border: none;
 }
-/* het css cho _1khoi  */
+/* het css cho one-block  */
 
 
 
@@ -975,16 +966,16 @@ h6.card-title.ten {
         padding-bottom: 0.5rem;
         margin-bottom: 0.25rem;
     }
-    .navbar ul li.giohang{
+    .navbar ul li.cart{
         border-bottom: 1px dashed #CF111A;
         padding-bottom: 0.5rem;
         margin-right:8px;
     }
-    .categorycontent{
+    .category-content{
         display: none;
     }
 
-    .categoryheader:hover .categorycontent{
+    .categoryHeader:hover .category-content{
         display: none;
     }
 }
@@ -996,7 +987,7 @@ h6.card-title.ten {
     margin-bottom: 8px;
 }
 
-.the-loai-sach ul li {
+.book-type ul li {
     border: 1px solid #d1d1d1;
     border-radius: 3px;
     width: 105px;
@@ -1006,13 +997,13 @@ h6.card-title.ten {
     background: white;
 }
 
-.the-loai-sach ul li:last-child {
+.book-type ul li:last-child {
     margin-right: 0px;
 }
 
-.the-loai-sach ul li:hover {box-shadow: 0px 0px 2px 1px #d5d5d5;border: 1px solid #F5A623;}
+.book-type ul li:hover {box-shadow: 0px 0px 2px 1px #d5d5d5;border: 1px solid #F5A623;}
 
-.the-loai-sach .ten {
+.book-type .ten {
     color: #474747;
     text-align: center;
     font-size: 14px;
@@ -1024,7 +1015,7 @@ h6.card-title.ten {
     -webkit-box-orient: vertical;
 }
 
-.the-loai-sach ul li:hover .ten{color: #F5A623;}
+.book-type ul li:hover .ten{color: #F5A623;}
 
 .page-item .page-link {
     color: #939393;
@@ -1055,7 +1046,7 @@ h6.card-title.ten {
     color: gray;
 }
 
-.button-capnhat {
+.update-button {
     background: linear-gradient(#f8c168,#ffa142);
     color: white;
     font-weight: 500;
@@ -1073,7 +1064,7 @@ table {
     width: 100%;
 }
 
-.donhang-table table th {
+.order-table table th {
     font-weight: 500;
     background: #cecece;
 }

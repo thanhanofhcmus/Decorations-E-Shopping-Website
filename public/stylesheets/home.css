@@ -43,7 +43,7 @@ a.nav-link {
     margin-left: -0.5rem;
 }
 
-.navbar-expand-md .navbar-nav .nav-link.giohang{
+.navbar-expand-md .navbar-nav .nav-link.cart{
     padding-right: 0!important;
 }
 
@@ -72,7 +72,7 @@ a.btn.btn-secondary.rounded-circle {
     transition: 0.2s;
 }
 
-.nav-item.giohang:hover .cart-amount{
+.nav-item.cart:hover .cart-amount{
     background: #CF111A;
     color: white;
 }
@@ -100,13 +100,13 @@ a.dropdown-item:hover {
     color: #F5A623;
 }
 
-.nutcuonlen{
+.rollUp-btn{
     visibility: hidden;
     opacity: 0;
     transition: 0.5s;
 }
 
-.nutcuonlen.hienthi{
+.rollUp-btn._display{
     visibility: visible;
     opacity: 1;
 }
@@ -116,7 +116,7 @@ a.dropdown-item:hover {
 }
 /* het css cho navbar  */
 
-/* css cho header formdangnhap dangky  */
+/* css cho header signIn-form signUp  */
 .modal-header {
     padding-bottom: 0;
 }
@@ -163,14 +163,14 @@ ul.tabs li.active hr {
     width: 100%;
     left: 0;
 }
-/* het css cho header form dangnhap dangky  */
+/* het css cho header form signIn signUp  */
 
-/* css cho formdangnhap dangky*/
-.form-signin {
+/* css cho signIn-form signUp*/
+.form-signIn {
     width: 100%;
   }
   
-.form-signin .btn {
+.form-signIn .btn {
     font-size: 80%;
     letter-spacing: .1rem;
     font-weight: bold;
@@ -198,17 +198,17 @@ ul.tabs li.active hr {
     top: 1px;
 }
 
-.btn-signin:hover {
+.btn-signIn:hover {
     color: black!important;
 }
 
 
-#formdangky .form-signin p {
+#signUp-form .form-signIn p {
     margin-bottom: 3px;
     font-size: 13px;
 }
 
-#formdangky .form-signin a {
+#signUp-form .form-signIn a {
     display: block;
     font-size: 13px;
 }
@@ -223,35 +223,31 @@ label.error {
     font-size: 13px;
 }
 
-/* het css cho form dang nhap dangky */
 
-
-
-/* .duoinavbar  */
-.duoinavbar{
+.navBar-tail{
     background-color:#CF111A ;
 }
 
-.benphai.float-right {
+.leftSide.float-right {
     line-height: 40px;
     font-size: 14px;
 }
 
-.noidungheader {
+.productHeader {
     padding-top: 8px;
     padding-left: 14px;
 }
 
-.categoryheader {
+.categoryHeader {
     height: 40px;
     background-color: #aa1318;
 }
 
-.duoinavbar .container .row {
+.navBar-tail .container .row {
     height: 40px;
 }
 
-.duoinavbar {
+.navBar-tail {
     height: 40px;
 }
 
@@ -270,54 +266,54 @@ label.error {
     font-size: 22px;
 }
 
-.benphai a{
+.leftSide a{
     color: white;
 }
-/* het css .duoinavbar  */
+/* het css .navBar-tail  */
 
 /* css category  */
-.categorycontent{
+.category-content{
     border: 1px solid #b4b2b2;
     box-sizing: border-box;
     height: 387px;
     background: white;
 }
 
-.categorycontent ul{
+.category-content ul{
     list-style: none;
     background: white;
 }
 
-.categorycontent > ul > li:hover{
+.category-content > ul > li:hover{
     background-color: #CF111A;
     cursor: pointer;
 }
 
-.categorycontent > ul > li:hover > a{
+.category-content > ul > li:hover > a{
     color:white;
 }
 
-.categorycontent ul li:hover i.fa.fa-chevron-right{
+.category-content ul li:hover i.fa.fa-chevron-right{
     color:white;
 }
 
-.categorycontent > ul > li{
+.category-content > ul > li{
     border-bottom: 1px solid #f8e1e1;
     height: 35px;
 }
 
-.categorycontent > ul > li:last-child{
+.category-content > ul > li:last-child{
     border-bottom: none
 }
 
-.categorycontent  ul  li  a{
+.category-content  ul  li  a{
     line-height: 35px;
     padding-left: 16px;
     font-weight: 400;
     font-size: 13px;
 }
 
-.categorycontent ul li ul{
+.category-content ul li ul{
     display: none;
     height: 386px;
     width: 750px;
@@ -331,16 +327,16 @@ label.error {
     background-color: white;
 }
 
-.categorycontent ul li ul:hover{
+.category-content ul li ul:hover{
     cursor: auto;
 }
 
-.categorycontent ul li a{
+.category-content ul li a{
     text-decoration: none;
     color: black;
 }
 
-.categorycontent ul li:hover ul{
+.category-content ul li:hover ul{
     display:block;
 
 }
@@ -353,13 +349,13 @@ ul i.fa.fa-chevron-right{
 }
 /* het css category  */
 
-/* danhmucan */
+/* hidden-category */
 
-.categorycontent ul li ul li:first-child{
+.category-content ul li ul li:first-child{
     margin-top: 3px;
 }
 
-.categorycontent ul li ul li.liheader{
+.category-content ul li ul li.li-header{
     margin-top: 16px;
 }
 
@@ -369,7 +365,7 @@ ul li a.header{
     color: #CF111A;
 }
 
-.categorycontent ul li ul .content{
+.category-content ul li ul .content{
     float:left;
     margin-left: 19px;
     width: 300px;
@@ -377,44 +373,35 @@ ul li a.header{
 }
 
 
-.categorycontent ul li ul .content.phai{
+.category-content ul li ul .content.content-right{
     margin-left: 100px;
 }
 
 
-.categorycontent ul li ul .content li a:hover{
+.category-content ul li ul .content li a:hover{
     color: #F5A623;
 }
-/* danhmucan */
 
-/* css cho carousel */
-.nutcarousel.carousel-indicators li{
+.carousel-button.carousel-indicators li{
         height: 8px;
         width: 8px;
         border-radius: 50%;
 }
 
-/* het css cho carousel */
-
-
-/* css cho _1khoi */
-
-._1khoi h1.header {
+.one-block h1.header {
     font-size: 20px;
 }
 
-._1khoi h2.header {
+.one-block h2.header {
     font-size: 20px;
 }
 
-/* css cho nut xem tat ca  */
 a.btn.btn-warning.btn-sm.text-white {
     height: 25px;
     width: 77px;
     background: #F5A623;
     font-size: 11px;
 } 
-/* het css cho nut xem tat ca  */
 
 .card:hover .anh {
     top: 5px;
@@ -453,12 +440,12 @@ li.active .fa-star {
     top: 2px;
 }
 
-.giacu.text-muted {
+.old-price.text-muted {
     font-size: 13px;
     color: #919191!important;
 }
 
-.giamoi {
+.new-price {
     color: red;
     font-size: 14px;
     font-weight: 500;
@@ -469,7 +456,7 @@ li.active .fa-star {
     position: relative;
 }
 
-small.tacgia.text-muted {
+small.author.text-muted {
     font-size: 12px;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -493,7 +480,7 @@ h3.card-title.ten {
     transition: 0.3s;
 }
 
-.card-body.noidungsp {
+.card-body.product-content {
     padding: 10px 10px 0px 10px;
 }
 
@@ -505,94 +492,89 @@ h3.card-title.ten {
     color: #F5A623;
 }
 
-/* het css cho _1khoi  */
+/* het css cho one-block  */
 
 /* css cho margin slick */
 .card{
     margin: 0 10px;
 }
 
-.khoisanpham {
+._product-block {
     margin: 0 -10px;
 }
 
 
-/* css cho 1 khoi san pham - slick */
-
-/* css rieng cho phan combo phat hanh - card-border*/
-.combohot .card{
+.hot-combo .card{
     border: none;
 }
 
-.sapphathanh .card{
+.about-to-release .card{
     border: none;
 }
-/* het css cho phan combo  */
 
 
-/* css cho khoi sach nen doc  */
-.sachnendoc .card-body.noidungsp.mt-3 {
+.recommended-book .card-body.product-content.mt-3 {
     padding: 10px 0 10px 0;
 }
 
-.sachnendoc a.detail {
+.recommended-book a.detail {
     font-size: 13px;
     text-decoration: none;
     color: #F5A623;
 }
 
-.sachnendoc .thoigian {display: inline-block;padding-top: 7px;}
+.recommended-book ._time {display: inline-block;padding-top: 7px;}
 
-.sachnendoc h3.card-title.ten {
+.recommended-book h3.card-title.ten {
     margin-top: -12px;
 }
 
-.sachnendoc img.card-img-top.anh {
+.recommended-book img.card-img-top.anh {
     position: static;
     border-radius: 0;
 }
 
-.sachnendoc .card {
+.recommended-book .card {
     margin: 0;
     border: none;
 }
 
 hr {margin-bottom: 0;position: relative;top: -31px;}
 
-.sachnendoc .col-lg {
+.recommended-book .col-lg {
     padding-bottom: 30px;
 }
 /* het css cho khoi sach nen doc  */
 
-/* css cho dichvu  */
-.dichvu p.detail {
+/* css cho service  */
+.service p.detail {
     font-size: 12px;
     margin-bottom: 1px;
     width: 198px;
 }
 
-.dichvu {
+.service {
     padding: 24px 0px 24px;
 }
 
-.dichvu h3.tieude {
+.service h3.title {
     font-size: 14px;
     margin-bottom: 3px;
 }
 
-.dichvu .noidung {
+.service .product {
     width: 180px;
 }
 
-.dichvu img {
+.service img {
     width: 57px;
     height: 57px;
     margin-right: 10px;
 }
-/* het css cho dichvu  */
+/* het css cho service  */
 
 /* css cho footer  */
-.ptthanhtoan {
+.payment-method {
     width: 200px;
 }
 
@@ -632,12 +614,12 @@ footer .header {
         padding-bottom: 0.5rem;
         margin-bottom: 0.25rem;
     }
-    .navbar ul li.giohang{
+    .navbar ul li.cart{
         border-bottom: 1px dashed #CF111A;
         padding-bottom: 0.5rem;
         margin-right:8px;
     }
-    .categorycontent{
+    .category-content{
         display: none;
     }
 }

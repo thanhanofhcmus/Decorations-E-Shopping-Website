@@ -1,5 +1,5 @@
 $(function () {
-    $('.khoisanpham').slick({
+    $('._product-block').slick({
         dots: false,
         infinite: false,
         speed: 300,
@@ -48,59 +48,59 @@ $(function () {
 
     $(window).scroll(function () {
         if ($("body,html").scrollTop() > 500) {
-            $(".nutcuonlen").addClass("hienthi");
+            $(".rollUp-btn").addClass("_display");
         }
         else {
-            $(".nutcuonlen").removeClass("hienthi");
+            $(".rollUp-btn").removeClass("_display");
         }
     });
 
-    // header form dangnhap dangky
-    $(".nutdangnhap").click(function (e) {
-        $("ul.tabs .tab-dangnhap").addClass("active");
+    // header form signIn signUp
+    $(".signIn-button").click(function (e) {
+        $("ul.tabs .signIn-tab").addClass("active");
     });
-    $(".nutdangky").click(function (e) {
-        $("ul.tabs .tab-dangky").addClass("active");
-    });
-
-    $("ul.tabs .tab-dangnhap").click(function (e) {
-        $("ul.tabs .tab-dangnhap").addClass("active");
-        $("ul.tabs .tab-dangky").removeClass("active");
+    $(".signUp-button").click(function (e) {
+        $("ul.tabs .signUp-tab").addClass("active");
     });
 
-    $("ul.tabs .tab-dangky").click(function (e) {
-        $("ul.tabs .tab-dangky").addClass("active");
-        $("ul.tabs .tab-dangnhap").removeClass("active");
+    $("ul.tabs .signIn-tab").click(function (e) {
+        $("ul.tabs .signIn-tab").addClass("active");
+        $("ul.tabs .signUp-tab").removeClass("active");
     });
 
-    // form dangnhap dangky 
-    $(".tab-dangky").click(function (e) {
-        $('#formdangnhap').removeClass("fade");
-        $('#formdangky').removeClass("fade");
-        $('#formdangnhap').modal("hide");
-        $('#formdangky').modal("show");
+    $("ul.tabs .signUp-tab").click(function (e) {
+        $("ul.tabs .signUp-tab").addClass("active");
+        $("ul.tabs .signIn-tab").removeClass("active");
     });
-    $(".tab-dangnhap").click(function (e) {
-        $('#formdangnhap').removeClass("fade");
-        $('#formdangky').removeClass("fade");
-        $('#formdangky').modal("hide");
-        $('#formdangnhap').modal("show");
+
+    // form signIn signUp 
+    $(".signUp-tab").click(function (e) {
+        $('#signIn-form').removeClass("fade");
+        $('#signUp-form').removeClass("fade");
+        $('#signIn-form').modal("hide");
+        $('#signUp-form').modal("show");
+    });
+    $(".signIn-tab").click(function (e) {
+        $('#signIn-form').removeClass("fade");
+        $('#signUp-form').removeClass("fade");
+        $('#signUp-form').modal("hide");
+        $('#signIn-form').modal("show");
     });
     $(".close").click(function (e) {
         $('.modal').addClass("fade");
-        $("ul.tabs .tab-dangnhap").removeClass("active");
-        $("ul.tabs .tab-dangky").removeClass("active");
+        $("ul.tabs .signIn-tab").removeClass("active");
+        $("ul.tabs .signUp-tab").removeClass("active");
     });
 
     // thumb-img
-    $(".thumb-img.thumb1").addClass('vienvang');
+    $(".thumb-img.thumb1").addClass('yellow-border');
     $('.thumb-img').click(function (e) {
         $('.product-image').attr('src', this.src);
     });
 
     $('.thumb-img').click(function (e) {
-        $('.thumb-img:not(:hover)').removeClass('vienvang');
-        $(this).addClass('vienvang');
+        $('.thumb-img:not(:hover)').removeClass('yellow-border');
+        $(this).addClass('yellow-border');
     });
 
     //btn-spin
@@ -120,43 +120,43 @@ $(function () {
     });
 
     // gui danh gia
-    $(".formdanhgia").hide(200);
-    $(".vietdanhgia").click(function (e) {
-        $(".formdanhgia").toggle(200);
+    $(".review-form").hide(200);
+    $(".write-review").click(function (e) {
+        $(".review-form").toggle(200);
     });
 
 
 
 
     //rotate chevron
-    $('#step1contentid').on('show.bs.collapse', function () {
+    $('#step1content-id').on('show.bs.collapse', function () {
         $(this).prev().addClass("active");
     })
-    $('#step1contentid').on('hide.bs.collapse', function () {
+    $('#step1content-id').on('hide.bs.collapse', function () {
         $(this).prev().removeClass("active");
     })
-    $('#step2contentid').on('show.bs.collapse', function () {
+    $('#step2content-id').on('show.bs.collapse', function () {
         $(this).prev().addClass("active");
     })
-    $('#step2contentid').on('hide.bs.collapse', function () {
+    $('#step2content-id').on('hide.bs.collapse', function () {
         $(this).prev().removeClass("active");
     })
-    $('#step3contentid').on('show.bs.collapse', function () {
+    $('#step3content-id').on('show.bs.collapse', function () {
         $(this).prev().addClass("active");
     })
-    $('#step3contentid').on('hide.bs.collapse', function () {
+    $('#step3content-id').on('hide.bs.collapse', function () {
         $(this).prev().removeClass("active");
     })
 
     // nut btn-shopping-without-signup
-    $("#step1contentid").collapse('show');
+    $("#step1content-id").collapse('show');
     $(".btn-shopping-without-signup").click(function (e) {
-        $("#step1contentid").collapse('hide');
-        $("#step2contentid").collapse('show');
+        $("#step1content-id").collapse('hide');
+        $("#step2content-id").collapse('show');
     });
 
     // validate
-    $("#form-signup").validate({
+    $("#form-signUp").validate({
         rules: {
             name: {
                 required: true,
@@ -204,7 +204,7 @@ $(function () {
         }
     });
 
-    $("#form-signin").validate({
+    $("#form-signIn").validate({
         rules: {
             password: {
                 required: true,
@@ -228,7 +228,7 @@ $(function () {
         }
     });
 
-    $("#form-signup-cart").validate({
+    $("#form-signUp-cart").validate({
         rules: {
             name: {
                 required: true,
@@ -276,7 +276,7 @@ $(function () {
         }
     });
 
-    $("#form-signin-cart").validate({
+    $("#form-signIn-cart").validate({
         rules: {
             password: {
                 required: true,
@@ -303,14 +303,14 @@ $(function () {
     // add to cart 
     let product =
     {
-        name: $('.khoithongtin .ten').text(),
+        name: $('.info-block .ten').text(),
         tag: $('.product-image').attr("alt"),
-        price: parseFloat($('.gia span.giamoi').text()),
-        old_price: parseFloat($('.gia span.giacu').text()),
+        price: parseFloat($('.gia span.new-price').text()),
+        old_price: parseFloat($('.gia span.old-price').text()),
         inCart: 0
     }
 
-    let carts = document.querySelector('.nutmua');
+    let carts = document.querySelector('.buy-btn');
     if (carts) {
         carts.addEventListener('click', () => {
             cartNumbers(product);
@@ -321,7 +321,7 @@ $(function () {
     function onLoadCartNumbers() {
         let productNumbers = localStorage.getItem('cartNumbers');
         if (productNumbers) {
-            document.querySelector('.giohang .cart-amount').textContent = productNumbers;
+            document.querySelector('.cart .cart-amount').textContent = productNumbers;
         }
     }
 
@@ -331,11 +331,11 @@ $(function () {
         productNumbers = parseInt(productNumbers);
 
         if (productNumbers) {
-            localStorage.setItem('cartNumbers', productNumbers + parseInt($(".soluongsp").val()));
-            document.querySelector('.giohang .cart-amount').textContent = productNumbers + parseInt($(".soluongsp").val());
+            localStorage.setItem('cartNumbers', productNumbers + parseInt($(".product-number").val()));
+            document.querySelector('.cart .cart-amount').textContent = productNumbers + parseInt($(".product-number").val());
         } else {
-            localStorage.setItem('cartNumbers', parseInt($(".soluongsp").val()));
-            document.querySelector('.giohang .cart-amount').textContent = parseInt($(".soluongsp").val());
+            localStorage.setItem('cartNumbers', parseInt($(".product-number").val()));
+            document.querySelector('.cart .cart-amount').textContent = parseInt($(".product-number").val());
         }
         setItem(product);
     }
@@ -351,9 +351,9 @@ $(function () {
                     [product.tag]: product
                 }
             }
-            cartItems[product.tag].inCart += parseInt($(".soluongsp").val());
+            cartItems[product.tag].inCart += parseInt($(".product-number").val());
         } else {
-            product.inCart = parseInt($(".soluongsp").val());
+            product.inCart = parseInt($(".product-number").val());
             cartItems = {
                 [product.tag]: product
             }
@@ -367,9 +367,9 @@ $(function () {
 
         if (cartCost != null) {
             cartCost = parseFloat(cartCost);
-            localStorage.setItem('totalCost', cartCost + parseInt($(".soluongsp").val()) * product.price);
+            localStorage.setItem('totalCost', cartCost + parseInt($(".product-number").val()) * product.price);
         } else {
-            localStorage.setItem('totalCost', parseInt($(".soluongsp").val()) * product.price);
+            localStorage.setItem('totalCost', parseInt($(".product-number").val()) * product.price);
         }
     }
 
@@ -405,12 +405,12 @@ $(function () {
                         <div class="item-caption d-flex w-100">
                             <div class="item-info ml-3">
                                 <a href="product-item.html" class="ten">${item.name}</a>
-                                <div class="soluong d-flex">
+                                <div class="_number d-flex">
                                     <div class="input-number input-group mb-3">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text btn-spin btn-dec">-</span>
                                         </div>
-                                        <input type="text" value="${item.inCart}" class="soluongsp  text-center">
+                                        <input type="text" value="${item.inCart}" class="product-number  text-center">
                                         <div class="input-group-append">
                                             <span class="input-group-text btn-spin btn-inc">+</span>
                                         </div>
@@ -418,8 +418,8 @@ $(function () {
                                 </div>
                             </div>
                             <div class="item-price ml-auto d-flex flex-column align-items-end">
-                                <div class="giamoi">${parseFloat(item.price).toFixed(3)} ₫</div>
-                                <div class="giacu">${parseFloat(item.old_price).toFixed(3)} ₫</div>
+                                <div class="new-price">${parseFloat(item.price).toFixed(3)} ₫</div>
+                                <div class="old-price">${parseFloat(item.old_price).toFixed(3)} ₫</div>
                                 <span class="remove mt-auto"><i class="far fa-trash-alt"></i></span>
                             </div>
                         </div>
@@ -433,10 +433,10 @@ $(function () {
 
             <div class="row">
                 <div class="col-md-3">
-                    <a href="index.html" class="btn nutmuathem mb-3">Mua thêm</a>
+                    <a href="index.html" class="btn buy-more-btn mb-3">Mua thêm</a>
                 </div>
                 <div class="col-md-5 offset-md-4">
-                    <div class="tonggiatien">
+                    <div class="total-money">
                         <div class="group d-flex justify-content-between">
                             <p class="label">Tạm tính:</p>
                             <p class="tamtinh">${parseFloat(cartCost).toFixed(3)} ₫</p>
@@ -455,7 +455,7 @@ $(function () {
                         </div>
                         <div class="group d-flex justify-content-between align-items-center">
                             <strong class="text-uppercase">Tổng cộng:</strong>
-                            <p class="tongcong">${parseFloat(cartCost).toFixed(3)} ₫</p>
+                            <p class="_total">${parseFloat(cartCost).toFixed(3)} ₫</p>
                         </div>
                         <small class="note d-flex justify-content-end text-muted">
                             (Giá đã bao gồm VAT)
@@ -482,12 +482,12 @@ $(function () {
     // })
 
     $('.tag a').click(function (e) {
-        var tacgia = $(this).data('tacgia');
+        var author = $(this).data('author');
 
-        if (tacgia == 'all') {
+        if (author == 'all') {
             $('.items .row').isotope({ filter: '*' })
         } else {
-            $('.items .row').isotope({ filter: tacgia });
+            $('.items .row').isotope({ filter: author });
         }
         return false;
     });

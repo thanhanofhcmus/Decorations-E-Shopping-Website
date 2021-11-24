@@ -78,18 +78,18 @@
                 khoản</a>
             </li>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item nutdangky text-center mb-2" href="#" data-toggle="modal"
-                data-target="#formdangky">Đăng ký</a>
-              <a class="dropdown-item nutdangnhap text-center" href="#" data-toggle="modal"
-                data-target="#formdangnhap">Đăng nhập</a>
+              <a class="dropdown-item signUp-button text-center mb-2" href="#" data-toggle="modal"
+                data-target="#signUp-form">Đăng ký</a>
+              <a class="dropdown-item signIn-button text-center" href="#" data-toggle="modal"
+                data-target="#signIn-form">Đăng nhập</a>
             </div>
           </div>
-          <li class="nav-item giohang">
+          <li class="nav-item cart">
             <a href="/cart" class="btn btn-secondary rounded-circle">
               <i class="fa fa-shopping-cart"></i>
               <div class="cart-amount">0</div>
             </a>
-            <a class="nav-link text-dark giohang text-uppercase" href="/cart" style="display:inline-block">Giỏ
+            <a class="nav-link text-dark cart text-uppercase" href="/cart" style="display:inline-block">Giỏ
               Hàng</a>
           </li>
         </ul>
@@ -98,17 +98,17 @@
   </nav>
 
   <!-- form dang ky khi click vao button tren header-->
-  <div class="modal fade mt-5" id="formdangky" data-backdrop="static" tabindex="-1" aria-labelledby="dangky_tieude"
+  <div class="modal fade mt-5" id="signUp-form" data-backdrop="static" tabindex="-1" aria-labelledby="signUp_title"
     aria-hidden="true">
     <div class="modal-dialog ">
       <div class="modal-content">
         <div class="modal-header">
           <ul class="tabs d-flex justify-content-around list-unstyled mb-0">
-            <li class="tab tab-dangnhap text-center">
+            <li class="tab signIn-tab text-center">
               <a class=" text-decoration-none">Đăng nhập</a>
               <hr>
             </li>
-            <li class="tab tab-dangky text-center">
+            <li class="tab signUp-tab text-center">
               <a class="text-decoration-none">Đăng ký</a>
               <hr>
             </li>
@@ -118,7 +118,7 @@
           </button>
         </div>
         <div class="modal-body">
-          <form id="form-signup" class="form-signin mt-2">
+          <form id="form-signUp" class="form-signIn mt-2">
             <div class="form-label-group">
               <input type="text" class="form-control" placeholder="Nhập họ và tên" name="name" required autofocus>
             </div>
@@ -135,7 +135,7 @@
               <input type="password" class="form-control" name="confirm_password" placeholder="Nhập lại mật khẩu"
                 required>
             </div>
-            <button class="btn btn-lg btn-block btn-signin text-uppercase text-white mt-3" type="submit"
+            <button class="btn btn-lg btn-block btn-signIn text-uppercase text-white mt-3" type="submit"
               style="background: #F5A623">Đăng ký</button>
             <hr class="mt-3 mb-2">
             <div class="custom-control custom-checkbox">
@@ -151,17 +151,17 @@
 
 
   <!-- form dang nhap khi click vao button tren header-->
-  <div class="modal fade mt-5" id="formdangnhap" data-backdrop="static" tabindex="-1" aria-labelledby="dangnhap_tieude"
+  <div class="modal fade mt-5" id="signIn-form" data-backdrop="static" tabindex="-1" aria-labelledby="signIn_title"
     aria-hidden="true">
     <div class="modal-dialog ">
       <div class="modal-content">
         <div class="modal-header">
           <ul class="tabs d-flex justify-content-around list-unstyled mb-0">
-            <li class="tab tab-dangnhap text-center">
+            <li class="tab signIn-tab text-center">
               <a class=" text-decoration-none">Đăng nhập</a>
               <hr>
             </li>
-            <li class="tab tab-dangky text-center">
+            <li class="tab signUp-tab text-center">
               <a class="text-decoration-none">Đăng ký</a>
               <hr>
             </li>
@@ -171,7 +171,7 @@
           </button>
         </div>
         <div class="modal-body">
-          <form id="form-signin" class="form-signin mt-2">
+          <form id="form-signIn" class="form-signIn mt-2">
             <div class="form-label-group">
               <input type="email" class="form-control" placeholder="Nhập địa chỉ email" name="email" required autofocus>
             </div>
@@ -187,7 +187,7 @@
                 khẩu</a>
             </div>
 
-            <button class="btn btn-lg btn-block btn-signin text-uppercase text-white" type="submit"
+            <button class="btn btn-lg btn-block btn-signIn text-uppercase text-white" type="submit"
               style="background: #F5A623">Đăng nhập</button>
             <hr class="my-4">
             <button class="btn btn-lg btn-google btn-block text-uppercase" type="submit"><i
@@ -201,17 +201,17 @@
   </div>
 
   <!-- thanh "danh muc san pham" đã được ẩn bên trong + hotline + ho tro truc tuyen -->
-  <section class="duoinavbar">
+  <section class="navBar-tail">
     <div class="container text-white">
       <div class="row justify">
         <div class="col-lg-3 col-md-5">
-          <div class="categoryheader">
-            <div class="noidungheader text-white">
+          <div class="categoryHeader">
+            <div class="productHeader text-white">
               <i class="fa fa-bars"></i>
               <span class="text-uppercase font-weight-bold ml-1">Danh mục sản phẩm</span>
             </div>
             <!-- CATEGORIES -->
-            <div class="categorycontent">
+            <div class="category-content">
               <ul>
                 <li><a href="/catalog/CA00002">Móc khóa</a><i class="fa fa-chevron-right float-right"></i></li>
                 <li><a href="/catalog/CA00003">Thú nhồi bông</a><i class="fa fa-chevron-right float-right"></i></li>
@@ -222,7 +222,7 @@
           </div>
         </div>
         <div class="col-md-5 ml-auto contact d-none d-md-block">
-          <div class="benphai float-right">
+          <div class="leftSide float-right">
             <div class="hotline">
               <i class="fa fa-phone"></i>
               <span>Hotline:<b>1900 1999</b> </span>
@@ -237,44 +237,43 @@
 
   {{{body}}}
 
-  <!-- thanh cac dich vu :mien phi giao hang, qua tang mien phi ........ -->
   <section class="abovefooter text-white" style="background-color: #CF111A;">
     <div class="container">
       <div class="row">
         <div class="col-lg-3 col-sm-6">
-          <div class="dichvu d-flex align-items-center">
+          <div class="service d-flex align-items-center">
             <img src="images/icon-books.png" alt="icon-books">
-            <div class="noidung">
-              <h3 class="tieude font-weight-bold">HƠN 14.000 TỰA SÁCH HAY</h3>
+            <div class="product">
+              <h3 class="title font-weight-bold">HƠN 14.000 TỰA SÁCH HAY</h3>
               <p class="detail">Tuyển chọn bởi DealBooks</p>
             </div>
           </div>
         </div>
         <div class="col-lg-3 col-sm-6">
-          <div class="dichvu d-flex align-items-center">
+          <div class="service d-flex align-items-center">
             <img src="images/icon-ship.png" alt="icon-ship">
-            <div class="noidung">
-              <h3 class="tieude font-weight-bold">MIỄN PHÍ GIAO HÀNG</h3>
+            <div class="product">
+              <h3 class="title font-weight-bold">MIỄN PHÍ GIAO HÀNG</h3>
               <p class="detail">Từ 150.000đ ở TP.HCM</p>
               <p class="detail">Từ 300.000đ ở tỉnh thành khác</p>
             </div>
           </div>
         </div>
         <div class="col-lg-3 col-sm-6">
-          <div class="dichvu d-flex align-items-center">
+          <div class="service d-flex align-items-center">
             <img src="images/icon-gift.png" alt="icon-gift">
-            <div class="noidung">
-              <h3 class="tieude font-weight-bold">QUÀ TẶNG MIỄN PHÍ</h3>
+            <div class="product">
+              <h3 class="title font-weight-bold">QUÀ TẶNG MIỄN PHÍ</h3>
               <p class="detail">Tặng Bookmark</p>
               <p class="detail">Bao sách miễn phí</p>
             </div>
           </div>
         </div>
         <div class="col-lg-3 col-sm-6">
-          <div class="dichvu d-flex align-items-center">
+          <div class="service d-flex align-items-center">
             <img src="images/icon-return.png" alt="icon-return">
-            <div class="noidung">
-              <h3 class="tieude font-weight-bold">ĐỔI TRẢ NHANH CHÓNG</h3>
+            <div class="product">
+              <h3 class="title font-weight-bold">ĐỔI TRẢ NHANH CHÓNG</h3>
               <p class="detail">Hàng bị lỗi được đổi trả nhanh chóng</p>
             </div>
           </div>
@@ -288,7 +287,7 @@
     <div class="container py-4">
       <div class="row">
         <div class="col-md-3 col-xs-6">
-          <div class="gioithieu">
+          <div class="introduce">
             <h3 class="header text-uppercase font-weight-bold">Về DealBook</h3>
             <a href="#">Giới thiệu về DealBook</a>
             <a href="#">Tuyển dụng</a>
@@ -312,7 +311,7 @@
           </div>
         </div>
         <div class="col-md-3 col-xs-6">
-          <div class="ptthanhtoan">
+          <div class="payment-method">
             <h3 class="header text-uppercase font-weight-bold">Phương thức thanh toán</h3>
             <img src="images/visa-payment.jpg" alt="visa-payment">
             <img src="images/master-card-payment.jpg" alt="master-card-payment">
@@ -328,7 +327,7 @@
 
   <!-- nut cuon len dau trang -->
   <div class="fixed-bottom">
-    <div class="btn btn-warning float-right rounded-circle nutcuonlen" id="backtotop" href="#"
+    <div class="btn btn-warning float-right rounded-circle rollUp-btn" id="backtotop" href="#"
       style="background:#CF111A;"><i class="fa fa-chevron-up text-white"></i></div>
   </div>
 

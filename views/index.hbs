@@ -1,6 +1,6 @@
-<section class="_1khoi sachmoi bg-white">
+<section class="one-block sachmoi bg-white">
     <div class="container">
-        <div class="noidung" style=" width: 100%;">
+        <div class="product" style=" width: 100%;">
             <div class="row">
                 <!--header-->
                 <div class="col-12 d-flex justify-content-between align-items-center pb-2 bg-transparent pt-4">
@@ -8,20 +8,20 @@
                     <a href="sach-moi-tuyen-chon.html" class="btn btn-warning btn-sm text-white">Xem tất cả</a>
                 </div>
             </div>
-            <div class="khoisanpham" style="padding-bottom: 2rem;">
+            <div class="_product-block" style="padding-bottom: 2rem;">
                 {{#if products}}
                 {{#each products}}
                 <div class="card">
-                    <a href={{link}} class="motsanpham" style="text-decoration: none; color: black;" data-toggle="tooltip"
+                    <a href={{link}} class="single-product" style="text-decoration: none; color: black;" data-toggle="tooltip"
                         data-placement="bottom" title="{{this.name}}">
                         <img class="card-img-top anh" src="images/lap-ke-hoach-kinh-doanh-hieu-qua.jpg"
                             alt="{{this.name}}">
-                        <div class="card-body noidungsp mt-3">
+                        <div class="card-body product-content mt-3">
                             <h3 class="card-title ten">{{this.name}}</h3>
                             <div class="gia d-flex align-items-baseline">
-                                <div class="giamoi">{{this.price}} đ</div>
+                                <div class="new-price">{{this.price}} đ</div>
                                 {{#if this.discount}}
-                                <div class="giacu text-muted">{{this.oldPrice}} đ</div>
+                                <div class="old-price text-muted">{{this.oldPrice}} đ</div>
                                 <div class="sale">-{{this.discount}}%</div>
                                 {{/if}}
                             </div>
@@ -45,9 +45,9 @@
     </div>
 </section>
 
-<section class="_1khoi sachmoi bg-white">
+<section class="one-block sachmoi bg-white">
     <div class="container">
-        <div class="noidung" style=" width: 100%;">
+        <div class="product" style=" width: 100%;">
             <div class="row">
                 <!--header-->
                 <div class="col-12 d-flex justify-content-between align-items-center pb-2 bg-transparent pt-4">
@@ -55,19 +55,19 @@
                     <a href="sach-moi-tuyen-chon.html" class="btn btn-warning btn-sm text-white">Xem tất cả</a>
                 </div>
             </div>
-            <div class="khoisanpham" style="padding-bottom: 2rem;">
+            <div class="_product-block" style="padding-bottom: 2rem;">
                 {{#if newProducts}}
                 {{#each newProducts}}
                 <div class="card">
-                    <a href="{{this.link}}" class="motsanpham" style="text-decoration: none; color: black;"
+                    <a href="{{this.link}}" class="single-product" style="text-decoration: none; color: black;"
                         data-toggle="tooltip" data-placement="bottom" title="{{this.title}}">
                         <img class="card-img-top anh" src="{{this.imageLink}}" alt="{{this.title}}">
-                        <div class="card-body noidungsp mt-3">
+                        <div class="card-body product-content mt-3">
                             <h3 class="card-title ten">{{this.title}}</h3>
-                            <small class="tacgia text-muted">{{this.author}}</small>
+                            <small class="author text-muted">{{this.author}}</small>
                             <div class="gia d-flex align-items-baseline">
-                                <div class="giamoi">{{this.newPrice}} đ</div>
-                                <div class="giacu text-muted">{{this.price}} đ</div>
+                                <div class="new-price">{{this.newPrice}} đ</div>
+                                <div class="old-price text-muted">{{this.price}} đ</div>
                                 <div class="sale">-{{this.discount}}</div>
                             </div>
                             <div class="danhgia">
@@ -90,9 +90,9 @@
     </div>
 </section>
 
-<section class="_1khoi combohot mt-4">
+<section class="one-block hot-combo mt-4">
     <div class="container">
-        <div class="noidung bg-white" style=" width: 100%;">
+        <div class="product bg-white" style=" width: 100%;">
             <div class="row">
                 <!--header -->
                 <div class="col-12 d-flex justify-content-between align-items-center pb-2 bg-light">
@@ -100,19 +100,19 @@
                     <a href="#" class="btn btn-warning btn-sm text-white">Xem tất cả</a>
                 </div>
             </div>
-            <div class="khoisanpham">
+            <div class="_product-block">
                 {{#if hotProducts}}
                 {{#each hotProducts}}
                 <div class="card">
-                    <a href="{{this.link}}" class="motsanpham" style="text-decoration: none; color: black;"
+                    <a href="{{this.link}}" class="single-product" style="text-decoration: none; color: black;"
                         data-toggle="tooltip" data-placement="bottom" title="{{this.title}}">
                         <img class="card-img-top anh" src="{{this.imageLink}}" alt="{{this.title}}">
-                        <div class="card-body noidungsp mt-3">
+                        <div class="card-body product-content mt-3">
                             <h3 class="card-title ten">{{this.title}}</h3>
-                            <small class="tacgia text-muted">{{this.author}}</small>
+                            <small class="author text-muted">{{this.author}}</small>
                             <div class="gia d-flex align-items-baseline">
-                                <div class="giamoi">{{this.newPrice}} đ</div>
-                                <div class="giacu text-muted">{{this.price}} đ</div>
+                                <div class="new-price">{{this.newPrice}} đ</div>
+                                <div class="old-price text-muted">{{this.price}} đ</div>
                                 <div class="sale">-{{this.discount}}</div>
                             </div>
                             <div class="danhgia">

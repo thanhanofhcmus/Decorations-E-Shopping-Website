@@ -45,7 +45,7 @@ a.nav-link {
     margin-left: -0.5rem;
 }
 
-.navbar-expand-md .navbar-nav .nav-link.giohang{
+.navbar-expand-md .navbar-nav .nav-link.cart{
     padding-right: 0!important;
 }
 
@@ -74,7 +74,7 @@ a.btn.btn-secondary.rounded-circle {
     transition: 0.2s;
 }
 
-.nav-item.giohang:hover .cart-amount{
+.nav-item.cart:hover .cart-amount{
     background: #CF111A;
     color: white;
 }
@@ -102,13 +102,13 @@ a.dropdown-item:hover {
     color: #F5A623;
 }
 
-.nutcuonlen{
+.rollUp-btn{
     visibility: hidden;
     opacity: 0;
     transition: 0.5s;
 }
 
-.nutcuonlen.hienthi{
+.rollUp-btn._display{
     visibility: visible;
     opacity: 1;
 }
@@ -118,7 +118,7 @@ a.dropdown-item:hover {
 }
 /* het css cho navbar  */
 
-/* css cho header formdangnhap dangky  */
+/* css cho header signIn-form signUp  */
 .modal-header {
     padding-bottom: 0;
 }
@@ -165,14 +165,14 @@ ul.tabs li.active hr {
     width: 100%;
     left: 0;
 }
-/* het css cho header form dangnhap dangky  */
+/* het css cho header form signIn signUp  */
 
-/* css cho formdangnhap dangky*/
-.form-signin {
+/* css cho signIn-form signUp*/
+.form-signIn {
     width: 100%;
   }
 
-.form-signin .btn {
+.form-signIn .btn {
     font-size: 80%;
     letter-spacing: .1rem;
     font-weight: bold;
@@ -200,18 +200,18 @@ ul.tabs li.active hr {
     top: 1px;
 }
 
-.btn-signin:hover {
+.btn-signIn:hover {
     color: black!important;
 }
 
 
 
-#formdangky .form-signin p {
+#signUp-form .form-signIn p {
     margin-bottom: 3px;
     font-size: 13px;
 }
 
-#formdangky .form-signin a {
+#signUp-form .form-signIn a {
     display: block;
     font-size: 13px;
 }
@@ -225,35 +225,32 @@ label.error {
     margin-bottom: 0;
     font-size: 13px;
 }
-/* het css cho form dang nhap dangky */
 
-
-
-/* .duoinavbar  */
-.duoinavbar{
+/* .navBar-tail  */
+.navBar-tail{
     background-color:#CF111A ;
 }
 
-.benphai.float-right {
+.leftSide.float-right {
     line-height: 40px;
     font-size: 14px;
 }
 
-.noidungheader {
+.productHeader {
     padding-top: 8px;
     padding-left: 14px;
 }
 
-.categoryheader {
+.categoryHeader {
     height: 40px;
     background-color: #aa1318;
 }
 
-.duoinavbar .container .row {
+.navBar-tail .container .row {
     height: 40px;
 }
 
-.duoinavbar {
+.navBar-tail {
     height: 40px;
 }
 
@@ -272,13 +269,13 @@ label.error {
     font-size: 22px;
 }
 
-.benphai a{
+.leftSide a{
     color: white;
 }
-/* het css .duoinavbar  */
+/* het css .navBar-tail  */
 
 /* css category  */
-.categorycontent{
+.category-content{
     border: 1px solid #b4b2b2;
     box-sizing: border-box;
     height: 387px;
@@ -288,41 +285,41 @@ label.error {
     background: white;
 }
 
-.categorycontent ul{
+.category-content ul{
     list-style: none;
     background: white;
 }
 
-.categorycontent > ul > li:hover{
+.category-content > ul > li:hover{
     background-color: #CF111A;
     cursor: pointer;
 }
 
-.categorycontent > ul > li:hover > a{
+.category-content > ul > li:hover > a{
     color:white;
 }
 
-.categorycontent ul li:hover i.fa.fa-chevron-right{
+.category-content ul li:hover i.fa.fa-chevron-right{
     color:white;
 }
 
-.categorycontent > ul > li{
+.category-content > ul > li{
     border-bottom: 1px solid #f8e1e1;
     height: 35px;
 }
 
-.categorycontent > ul > li:last-child{
+.category-content > ul > li:last-child{
     border-bottom: none
 }
 
-.categorycontent  ul  li  a{
+.category-content  ul  li  a{
     line-height: 35px;
     padding-left: 16px;
     font-weight: 400;
     font-size: 13px;
 }
 
-.categorycontent ul li ul{
+.category-content ul li ul{
     display: none;
     height: 387px;
     width: 750px;
@@ -336,16 +333,16 @@ label.error {
     background-color: white;
 }
 
-.categorycontent ul li ul:hover{
+.category-content ul li ul:hover{
     cursor: auto;
 }
 
-.categorycontent ul li a{
+.category-content ul li a{
     text-decoration: none;
     color: black;
 }
 
-.categorycontent ul li:hover ul{
+.category-content ul li:hover ul{
     display:block;
 
 }
@@ -358,13 +355,13 @@ ul i.fa.fa-chevron-right{
 }
 /* het css category  */
 
-/* danhmucan */
+/* hidden-category */
 
-.categorycontent ul li ul li:first-child{
+.category-content ul li ul li:first-child{
     margin-top: 3px;
 }
 
-.categorycontent ul li ul li.liheader{
+.category-content ul li ul li.li-header{
     margin-top: 16px;
 }
 
@@ -374,7 +371,7 @@ ul li a.header{
     color: #CF111A;
 }
 
-.categorycontent ul li ul .content{
+.category-content ul li ul .content{
     float:left;
     margin-left: 19px;
     width: 300px;
@@ -382,54 +379,54 @@ ul li a.header{
 }
 
 
-.categorycontent ul li ul .content.phai{
+.category-content ul li ul .content.content-right{
     margin-left: 100px;
 }
 
 
-.categorycontent ul li ul .content li a:hover{
+.category-content ul li ul .content li a:hover{
     color: #F5A623;
 }
 
-.categorycontent{
+.category-content{
     display: none;
 }
 
-.categoryheader:hover .categorycontent{
+.categoryHeader:hover .category-content{
     display: block;
 }
-/*het danhmucan */
+/*het hidden-category */
 
 
-/* css cho dichvu  */
-.dichvu p.detail {
+/* css cho service  */
+.service p.detail {
     font-size: 12px;
     margin-bottom: 1px;
     width: 198px;
 }
 
-.dichvu {
+.service {
     padding: 24px 0px 24px;
 }
 
-.dichvu h6.tieude {
+.service h6.title {
     font-size: 14px;
     margin-bottom: 3px;
 }
 
-.dichvu .noidung {
+.service .product {
     width: 180px;
 }
 
-.dichvu img {
+.service img {
     width: 57px;
     height: 57px;
     margin-right: 10px;
 }
-/* het css cho dichvu  */
+/* het css cho service  */
 
 /* css cho footer  */
-.ptthanhtoan {
+.payment-method {
     width: 200px;
 }
 
@@ -454,7 +451,7 @@ footer .header {
 
 
 /* css cho breadcrumb  */
-.breadcrumbbar{
+.breadcrumb{
     height: 40px;
 }
 
@@ -499,7 +496,7 @@ footer .header {
     color: #bebebe;
 }
 
-.item-price .giacu {
+.item-price .old-price {
     text-decoration: line-through;
     color: #b6b6b6;
 }
@@ -520,13 +517,13 @@ footer .header {
     cursor: pointer;
 }
 
-.soluong .soluongsp {
+._number .product-number {
     width: 32px;
     height: 20px;
     border: 1px solid #d1d1d1;
 }
 
-.soluong .input-number {
+._number .input-number {
     width: 73px;
     height: 20px;
 }
@@ -559,17 +556,17 @@ footer .header {
     font-size: 14px;
 }
 
-.tonggiatien .group .tongcong {
+.total-money .group ._total {
     font-size: 19px;
     color: red;
     font-weight: 600;
 }
 
-.tonggiatien .group p {margin: 0;font-size: 13px;}
+.total-money .group p {margin: 0;font-size: 13px;}
 
-.nutmuathem:hover {background: #F5A623;color: white;}
+.buy-more-btn:hover {background: #F5A623;color: white;}
 
-.nutmuathem {
+.buy-more-btn {
     border: 1px solid #F5A623;
     color: #F5A623;
 }
@@ -645,12 +642,12 @@ a.header {display: block;height: 100%;line-height: 42px;font-size: 15px;font-wei
     margin-left: 26px;
 }
 
-.tab-pane .form-signin .btn {
+.tab-pane .form-signIn .btn {
     padding: 12px;
     letter-spacing: 0.08rem;
 }
 
-#nav-dangnhap .form-signin, #nav-dangky .form-signin  {
+#nav-signIn .form-signIn, #nav-signUp .form-signIn  {
     padding: 15px 15px 8px 15px;
 }
 
@@ -659,17 +656,17 @@ a.header {display: block;height: 100%;line-height: 42px;font-size: 15px;font-wei
     background: #EEEEEE;
 }
 
-a#nav-dangky-tab {
+a#nav-signUp-tab {
     border-right: none;
 }
 
 
-a#nav-dangnhap-tab {
+a#nav-signIn-tab {
     margin-left: 0px;
     border-left: none;
 }
 
-#nav-dangky-tab {
+#nav-signUp-tab {
     margin-left: 0px;
 }
 
@@ -679,11 +676,11 @@ a#nav-dangnhap-tab {
     font-size: 14px;
 }
 
-.dangnhap-dangky {
+.signIn-signUp {
     width: 100%;
 }
 
-#step2contentid .card-body {
+#step2content-id .card-body {
     padding: 15px;
 }
 
@@ -730,7 +727,7 @@ label.chuyenkhoan {
     margin-bottom: 10px;
 }
 
-#step3contentid .header {
+#step3content-id .header {
     font-size: 15px;
     font-weight: 600;
 }
@@ -753,20 +750,20 @@ label.chuyenkhoan {
         padding-bottom: 0.5rem;
         margin-bottom: 0.25rem;
     }
-    .navbar ul li.giohang{
+    .navbar ul li.cart{
         border-bottom: 1px dashed #CF111A;
         padding-bottom: 0.5rem;
         margin-right:8px;
     }
-    .categorycontent{
+    .category-content{
         display: none;
     }
 
-    .categoryheader:hover .categorycontent{
+    .categoryHeader:hover .category-content{
         display: none;
     }
 
-    /* giohang  */
+    /* cart  */
     .cart-content{
         padding-right: 16px;
     }

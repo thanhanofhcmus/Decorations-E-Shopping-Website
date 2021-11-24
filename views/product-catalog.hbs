@@ -1,5 +1,5 @@
 <!-- breadcrumb  -->
-<section class="breadcrumbbar">
+<section class="breadcrumb">
   <div class="container">
     <ol class="breadcrumb mb-0 p-0 bg-transparent">
       <li class="breadcrumb-item"><a href="/">Trang chủ</a></li>
@@ -10,22 +10,22 @@
 
 <section class="content my-4">
   <div class="container">
-    <div class="noidung bg-white" style=" width: 100%;">
-      <div class="header-khoi-sp d-flex">
+    <div class="product bg-white" style=" width: 100%;">
+      <div class="header-product-block d-flex">
         <div class="sort d-flex ml-auto">
-          <div class="hien-thi">
-            <label for="hienthi-select" class="label-select">Hiển thị</label>
-            <select class="hienthi-select">
+          <div class="__display">
+            <label for="_display-select" class="label-select">Hiển thị</label>
+            <select class="_display-select">
               <option value="30">30</option>
               <option value="60">60</option>
             </select>
           </div>
           <div class="sap-xep">
-            <label for="sapxep-select" class="label-select">Sắp xếp</label>
-            <select class="sapxep-select">
-              <option value="moinhat">Mới nhất</option>
-              <option value="thap-cao">Giá: Thấp - Cao</option>
-              <option value="cao-thap">Giá: Cao - Thấp</option>
+            <label for="sort-select" class="label-select">Sắp xếp</label>
+            <select class="sort-select">
+              <option value="newest">Mới nhất</option>
+              <option value="low-high">Giá: Thấp - Cao</option>
+              <option value="high-low">Giá: Cao - Thấp</option>
             </select>
           </div>
         </div>
@@ -37,15 +37,15 @@
           {{#each products}}
           <div class="col-lg-3 col-md-4 col-xs-6 item">
             <div class="card">
-              <a href={{this.link}} class="motsanpham" style="text-decoration: none; color: black;" data-toggle="tooltip"
+              <a href={{this.link}} class="single-product" style="text-decoration: none; color: black;" data-toggle="tooltip"
                 data-placement="bottom" title="{{this.name}}">
                 <img class="card-img-top anh" src="/images/lap-ke-hoach-kinh-doanh-hieu-qua.jpg" alt="{{this.name}}">
-                <div class="card-body noidungsp mt-3">
+                <div class="card-body product-content mt-3">
                   <h3 class="card-title ten">{{this.name}}</h3>
                   <div class="gia d-flex align-items-baseline">
-                    <div class="giamoi">{{this.price}} đ</div>
+                    <div class="new-price">{{this.price}} đ</div>
                     {{#if this.discount}}
-                    <div class="giacu text-muted">{{this.oldPrice}} đ</div>
+                    <div class="old-price text-muted">{{this.oldPrice}} đ</div>
                     <div class="sale">-{{this.discount}}%</div>
                     {{/if}}
                   </div>
