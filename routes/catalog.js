@@ -5,6 +5,6 @@ router.get('/', (req, res) => {
     res.send('Dev');
 });
 
-router.get('/:id', controller);
+router.get('/:id', controller.renderChunk);
 
 module.exports = router;

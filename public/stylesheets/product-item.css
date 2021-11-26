@@ -1010,15 +1010,6 @@ h6.card-title.ten {
 
 .book-type ul li:hover .ten{color: #F5A623;}
 
-.page-item .page-link {
-    color: #939393;
-}
-
-.page-item.active  .page-link {
-    background: #F5A623;
-    border: 1px solid #F5A623;
-    color: white;
-}
 
 
 .account-page-tab-content .nav-tabs .nav-link {

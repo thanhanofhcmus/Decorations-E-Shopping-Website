@@ -11,8 +11,15 @@ module.exports.findById = async (id) => {
     return products[0];
 };
 
-module.exports.findByCatalog = (catalogId) => {
-    return getCollection(COLLECTION_NAME).find({ catalogId }).toArray();
+module.exports.findByCatalog = (catalogId) =>
+    getCollection(COLLECTION_NAME).find({ catalogId }).toArray();
+
+module.exports.findChunkByCatalogId = (catalogId, chunkSize, offset) => {
+    return getCollection(COLLECTION_NAME).find({ catalogId }).skip(offset * chunkSize).limit(chunkSize).toArray();
+};
+
+module.exports.getSizeByCatalogId = async (catalogId) => {
+    return (await this.findByCatalog(catalogId)).length;
 };
 
 module.exports.toRenderData = (data) => {

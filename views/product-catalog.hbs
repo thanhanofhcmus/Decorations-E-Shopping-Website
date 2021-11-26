@@ -17,9 +17,9 @@
           {{#each products}}
           <div class="col-lg-3 col-md-4 col-xs-6 item">
             <div class="card">
-              <a href={{this.link}} class="single-product" style="text-decoration: none; color: black;" data-toggle="tooltip"
-                data-placement="bottom" title="{{this.name}}">
-                <img class="card-img-top anh" src="/images/lap-ke-hoach-kinh-doanh-hieu-qua.jpg" alt="{{this.name}}">
+              <a href={{this.link}} class="single-product" style="text-decoration: none; color: black;"
+                data-toggle="tooltip" data-placement="bottom" title="{{this.name}}">
+                <img class="card-img-top anh" src="{{this.imageLink}}" alt="{{this.name}}">
                 <div class="card-body product-content mt-3">
                   <h3 class="card-title ten">{{this.name}}</h3>
                   <div class="gia d-flex align-items-baseline">
@@ -49,27 +49,18 @@
       </div>
 
       <!-- pagination bar -->
-      <div class="pagination-bar my-3">
+      <div class="my-3">
         <div class="row">
-          <div class="col-12">
-            <nav>
-              <ul class="pagination justify-content-center">
-                <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item">
-                  <a class="page-link" href="#" aria-label="Next">
-                    <span aria-hidden="true">&rsaquo;</span>
-                    <span class="sr-only">Next</span>
-                  </a>
-                </li>
-                <li class="page-item">
-                  <a class="page-link" href="#" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                    <span class="sr-only">Next</span>
-                  </a>
-                </li>
-              </ul>
-            </nav>
+          <div class="col-12 d-flex justify-content-center">
+            {{#unless disablePrev}}
+            <a   class="mx-1 btn btn-outline-danger" href="{{firstLink}}" role="button">&laquo;</a>
+            <a   class="mx-1 btn btn-outline-danger" href="{{prevLink}}" role="button">&lsaquo;</a>
+            {{/unless}}
+            <div class="mx-1 btn btn-outline-danger disabled">{{page}}</div>
+            {{#unless disableNext}}
+            <a   class="mx-1 btn btn-outline-danger" href="{{nextLink}}" role="button">&rsaquo;</a>
+            <a   class="mx-1 btn btn-outline-danger" href="{{lastLink}}" role="button">&raquo;</a>
+            {{/unless}}
           </div>
         </div>
       </div>
