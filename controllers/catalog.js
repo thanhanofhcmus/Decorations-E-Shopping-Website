@@ -23,7 +23,7 @@ module.exports.renderChunk = async (req, res) => {
         disablePrev: page === 1,
         disableNext: chunkSize * page >= size,
         firstLink: `/catalogs/${id}/?page=1`,
-        lastLink: `/catalogs/${id}/?page=${Math.floor(size / chunkSize)}`,
+        lastLink: `/catalogs/${id}/?page=${page - 1}`,
         nextLink: `/catalogs/${id}/?page=${page + 1}`,
         prevLink: `/catalogs/${id}/?page=${Math.max(page - 1, 1)}`
     });

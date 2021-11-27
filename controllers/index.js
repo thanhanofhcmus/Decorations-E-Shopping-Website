@@ -1,17 +1,15 @@
-const exampleProducts = require('../models/example-item');
-const model = require('../models/products');
-
-const newProducts = exampleProducts.slice(0, 8);
-const hotProducts = exampleProducts.slice(8);
+const productModel = require('../models/products');
+const catalogModel = require('../models/catalog');
 
 module.exports = async (req, res) => {
-    const oldProducts = await model.list();
-    const products = oldProducts.map(model.toRenderData);
+    const catalogs = await catalogModel.list();
+    const allProducts = await Promise.all(catalogs.map(async catalog => {
+        const products = (await productModel.findByCatalog(catalog.id)).map(productModel.toRenderData);
+        return { catalog, products };
+    }));
 
     res.render('index', {
         title: 'Trang Chủ',
-        products,
-        newProducts,
-        hotProducts
+        allProducts
     });
 };
