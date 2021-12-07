@@ -35,10 +35,6 @@ a.navbar-brand {
     font-size: 34px;
 }
 
-li.nav-item.account {
-    margin-right: 0.5rem;
-}
-
 .navbar-expand-md .navbar-nav .nav-link.cart {
     padding-right: 0 !important;
 }
@@ -569,10 +565,6 @@ footer .header {
     .category-content {
         display: none;
     }
-}
-
-li.nav-item.account {
-    margin-top: 7px;
 }
 
 .info-logout a.nav-link {

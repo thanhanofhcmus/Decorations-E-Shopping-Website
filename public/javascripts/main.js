@@ -205,10 +205,10 @@ $(function () {
                 required: true,
                 minlength: 6
             },
-            email: {
-                required: true,
-                email: true
-            }
+            // email: {
+            //     required: true,
+            //     email: false
+            // }
         },
         messages: {
             password: {
@@ -296,8 +296,7 @@ $(function () {
     });
 
     // add to cart
-    const product =
-    {
+    const product = {
         name: $('.info-block .ten').text(),
         tag: $('.product-image').attr('alt'),
         price: parseFloat($('.gia span.new-price').text()),
