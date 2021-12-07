@@ -10,3 +10,7 @@ module.exports.list = () => {
 module.exports.findByUsername = (username) => {
     return getCollection(COLLECTION_NAME).findOne({ username });
 };
+
+module.exports.add = (user) => {
+    getCollection(COLLECTION_NAME).insertOne(user);
+};

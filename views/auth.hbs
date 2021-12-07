@@ -16,8 +16,8 @@
                         </li>
                     </ul>
                     <div class="tab-content" id="pills-tabContent">
-                        <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
-                            aria-labelledby="pills-home-tab">
+                        <div class="tab-pane fade {{#unless signUpError}} show active {{/unless}}"
+                        id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
                             <form class="form-signIn mt-2" action="/auth/login" method="post">
                                 <div class="form-label-group">
                                     <input type="text" id="inputEmail" class="form-control"
@@ -29,6 +29,9 @@
                                 </div>
                                 {{#if wrongPassword}}
                                 <p class="text-danger">Sai mật khẩu</p>
+                                {{/if}}
+                                {{#if somethingWrong}}
+                                <p class="text-danger">Đã có lỗi xảy ra</p>
                                 {{/if}}
                                 <a href="#" class="float-right" style="color: #F5A623"> Quên mật khẩu </a>
                                 <div class="vstack gap-3 align-items-center">
@@ -51,9 +54,9 @@
                                 </div>
                             </form>
                         </div>
-                        <div class="tab-pane fade" id="pills-profile" role="tabpanel"
+                        <div class="tab-pane fade {{#if signUpError}} active show {{/if}}" id="pills-profile" role="tabpanel"
                             aria-labelledby="pills-profile-tab">
-                            <form id="form-signUp-cart" class="form-signIn mt-2" action="/auth/sign-in" method="post">
+                            <form id="form-signUp-cart" class="form-signIn mt-2" action="/auth/sign-up" method="post">
                                 <div class="form-label-group">
                                     <input type="text" id="inputName" class="form-control" placeholder="Nhập họ và tên"
                                         name="name" required autofocus>
@@ -72,8 +75,16 @@
                                 </div>
                                 <div class="form-label-group mb-3">
                                     <input type="password" id="inputConfirmPassword" class="form-control"
-                                        name="confirm_password" placeholder="Nhập lại mật khẩu" required>
+                                        name="confirmPassword" placeholder="Nhập lại mật khẩu" required>
                                 </div>
+                                {{#if signUpError}}
+                                {{#if signUpError.userExists}}
+                                <p class="text-danger">Username đã được đăng ký từ trước</p>
+                                {{/if}}
+                                {{#if signUpError.passwordRetypeWrong}}
+                                <p class="text-danger">Nhập lại mật khẩu không trùng</p>
+                                {{/if}}
+                                {{/if}}
                                 <div class="mb-3 text-center">
                                     <p class="mb-0">Bằng việc đăng ký, bạn đã đồng ý với MihiShop về</p>
                                     <a href="#" class="text-decoration-none" style="color: #F5A623">

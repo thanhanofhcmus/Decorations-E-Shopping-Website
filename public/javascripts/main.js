@@ -164,10 +164,10 @@ $(function () {
                 required: true,
                 minlength: 6
             },
-            confirm_password: {
+            confirmPassword: {
                 required: true,
-                minlength: 6,
-                equalTo: '#inputPassword'
+                minlength: 6
+                // equalTo: '#inputPassword'
             },
             email: {
                 required: true,
