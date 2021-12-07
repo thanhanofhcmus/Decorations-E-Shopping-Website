@@ -9,6 +9,7 @@ const productsRouter = require('./routes/products');
 const cartRouter = require('./routes/cart');
 const catalogRouter = require('./routes/catalog');
 const apiRouter = require('./routes/api');
+const authRouter = require('./routes/auth');
 
 const app = express();
 
@@ -25,6 +26,7 @@ app.use('/', indexRouter);
 app.use('/products', productsRouter);
 app.use('/cart', cartRouter);
 app.use('/catalogs', catalogRouter);
+app.use('/auth', authRouter);
 app.use('/api', apiRouter);
 
 app.use((req, res, next) => {

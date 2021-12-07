@@ -167,18 +167,6 @@ ul.tabs li.active hr {
     left: 0;
 }
 
-.form-signIn {
-    width: 100%;
-}
-
-.form-signIn .btn {
-    font-size: 80%;
-    letter-spacing: .1rem;
-    font-weight: bold;
-    padding: 1rem;
-    transition: all 0.2s;
-}
-
 .form-label-group {
     position: relative;
     margin-bottom: 1rem;
@@ -197,20 +185,6 @@ ul.tabs li.active hr {
 .modal-body hr {
     position: relative;
     top: 1px;
-}
-
-.btn-signIn:hover {
-    color: black !important;
-}
-
-#signUp-form .form-signIn p {
-    margin-bottom: 3px;
-    font-size: 13px;
-}
-
-#signUp-form .form-signIn a {
-    display: block;
-    font-size: 13px;
 }
 
 label.error {
@@ -417,28 +391,11 @@ li.active .fa-star {
     color: #F5A623;
 }
 
-.sale {
-    background: #F5A623;
-    border-radius: 6px;
-    font-size: 11px;
-    color: white;
-    padding: 1px 4px;
-    position: absolute;
-    right: 0;
-    top: 2px;
-}
-
 .old-price.text-muted {
     font-size: 13px;
     color: #919191 !important;
 }
 
-.new-price {
-    color: red;
-    font-size: 14px;
-    font-weight: 500;
-    padding-right: 10px;
-}
 
 .gia.d-flex {
     position: relative;
@@ -625,4 +582,9 @@ li.nav-item.account {
 
 a.nav-link:hover {
     color: #F5A623 !important;
+}
+
+
+.text-hover-black:hover {
+    color: black !important;
 }

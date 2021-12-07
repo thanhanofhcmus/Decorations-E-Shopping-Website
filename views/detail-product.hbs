@@ -1,6 +1,6 @@
 <section class="breadcrumb">
     <div class="container">
-        <ol class="breadcrumb mb-0 p-0 bg-transparent">
+        <ol class="breadcrumb mb-0 py-3 bg-light">
             <li class="breadcrumb-item"><a class="text-danger" href="/">Trang chủ</a></li>
             <li class="breadcrumb-item"><a class="text-danger" href="/catalogs/{{catalog.id}}">{{catalog.name}}</a></li>
             <li class="breadcrumb-item active">{{title}}</li>
@@ -39,13 +39,13 @@
                             <hr>
                         </div>
                         <div class="col-md-7">
-                            <div class="gia">
-                                <div class="normal-price">Giá gốc:<span class="old-price ml-2">{{oldPrice}} ₫</span></div>
-                                <div class="price">Giá bán: <span class="new-price font-weight-bold">{{price}} ₫</div>
-                                <div class="money-saved">Tiết kiệm: <b>{{saved}} ₫</b> <span class="sale">-{{discount}}%</span> </div>
+                            <div class=>
+                                <div class="normal-price">Giá gốc:&nbsp;<span class="text-muted text-decoration-line-through ml-2">{{oldPrice}} ₫</span></div>
+                                <div class="price">Giá bán: <span class="new-price fs-2 fw-bold text-danger">{{price}} ₫</div>
+                                <div class="money-saved">Tiết kiệm: <b>{{saved}} ₫&nbsp;&nbsp;</b> <span class="sale">-{{discount}}%</span> </div>
                             </div>
                             <div class="_number d-flex">
-                                <label class="font-weight-bold">Số lượng: </label>
+                                <label class="fw-bold">Số lượng: </label>
                                 <div class="input-number input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text btn-spin btn-dec">-</span>

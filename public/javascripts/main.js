@@ -32,68 +32,66 @@ $(function () {
         ]
     });
 
-    //hieu ung header va nut backtotop
-    $("#backtotop").click(function () {
-        $("html, body").animate({ scrollTop: 0 }, 400);
+    // hieu ung header va nut backtotop
+    $('#backtotop').click(function () {
+        $('html, body').animate({ scrollTop: 0 }, 400);
     });
 
     $(window).scroll(function () {
-        if ($("body,html").scrollTop() > 150) {
-            $(".navbar").addClass("fixed-top");
-        }
-        else {
-            $(".navbar").removeClass("fixed-top");
+        if ($('body,html').scrollTop() > 150) {
+            $('.navbar').addClass('fixed-top');
+        } else {
+            $('.navbar').removeClass('fixed-top');
         }
     });
 
     $(window).scroll(function () {
-        if ($("body,html").scrollTop() > 500) {
-            $(".rollUp-btn").addClass("_display");
-        }
-        else {
-            $(".rollUp-btn").removeClass("_display");
+        if ($('body,html').scrollTop() > 500) {
+            $('.rollUp-btn').addClass('_display');
+        } else {
+            $('.rollUp-btn').removeClass('_display');
         }
     });
 
     // header form signIn signUp
-    $(".signIn-button").click(function (e) {
-        $("ul.tabs .signIn-tab").addClass("active");
+    $('.signIn-button').click(function (e) {
+        $('ul.tabs .signIn-tab').addClass('active');
     });
-    $(".signUp-button").click(function (e) {
-        $("ul.tabs .signUp-tab").addClass("active");
-    });
-
-    $("ul.tabs .signIn-tab").click(function (e) {
-        $("ul.tabs .signIn-tab").addClass("active");
-        $("ul.tabs .signUp-tab").removeClass("active");
+    $('.signUp-button').click(function (e) {
+        $('ul.tabs .signUp-tab').addClass('active');
     });
 
-    $("ul.tabs .signUp-tab").click(function (e) {
-        $("ul.tabs .signUp-tab").addClass("active");
-        $("ul.tabs .signIn-tab").removeClass("active");
+    $('ul.tabs .signIn-tab').click(function (e) {
+        $('ul.tabs .signIn-tab').addClass('active');
+        $('ul.tabs .signUp-tab').removeClass('active');
     });
 
-    // form signIn signUp 
-    $(".signUp-tab").click(function (e) {
-        $('#signIn-form').removeClass("fade");
-        $('#signUp-form').removeClass("fade");
-        $('#signIn-form').modal("hide");
-        $('#signUp-form').modal("show");
+    $('ul.tabs .signUp-tab').click(function (e) {
+        $('ul.tabs .signUp-tab').addClass('active');
+        $('ul.tabs .signIn-tab').removeClass('active');
     });
-    $(".signIn-tab").click(function (e) {
-        $('#signIn-form').removeClass("fade");
-        $('#signUp-form').removeClass("fade");
-        $('#signUp-form').modal("hide");
-        $('#signIn-form').modal("show");
+
+    // form signIn signUp
+    $('.signUp-tab').click(function (e) {
+        $('#signIn-form').removeClass('fade');
+        $('#signUp-form').removeClass('fade');
+        $('#signIn-form').modal('hide');
+        $('#signUp-form').modal('show');
     });
-    $(".close").click(function (e) {
-        $('.modal').addClass("fade");
-        $("ul.tabs .signIn-tab").removeClass("active");
-        $("ul.tabs .signUp-tab").removeClass("active");
+    $('.signIn-tab').click(function (e) {
+        $('#signIn-form').removeClass('fade');
+        $('#signUp-form').removeClass('fade');
+        $('#signUp-form').modal('hide');
+        $('#signIn-form').modal('show');
+    });
+    $('.close').click(function (e) {
+        $('.modal').addClass('fade');
+        $('ul.tabs .signIn-tab').removeClass('active');
+        $('ul.tabs .signUp-tab').removeClass('active');
     });
 
     // thumb-img
-    $(".thumb-img.thumb1").addClass('yellow-border');
+    $('.thumb-img.thumb1').addClass('yellow-border');
     $('.thumb-img').click(function (e) {
         $('.product-image').attr('src', this.src);
     });
@@ -103,15 +101,15 @@ $(function () {
         $(this).addClass('yellow-border');
     });
 
-    //btn-spin
-    $(".btn-inc").click(function (e) {
-        var strval = $(this).parent().prev().val();
-        var val = parseInt(strval) + 1;
+    // btn-spin
+    $('.btn-inc').click(function (e) {
+        const strval = $(this).parent().prev().val();
+        const val = parseInt(strval) + 1;
         $(this).parent().prev().attr('value', val);
     });
-    $(".btn-dec").click(function (e) {
-        var strval = $(this).parent().next().val();
-        var val = parseInt(strval) - 1;
+    $('.btn-dec').click(function (e) {
+        const strval = $(this).parent().next().val();
+        const val = parseInt(strval) - 1;
         if (val < 1) {
             $(this).parent().next().attr('value', 1);
         } else {
@@ -120,46 +118,43 @@ $(function () {
     });
 
     // gui danh gia
-    $(".review-form").hide(200);
-    $(".write-review").click(function (e) {
-        $(".review-form").toggle(200);
+    $('.review-form').hide(200);
+    $('.write-review').click(function (e) {
+        $('.review-form').toggle(200);
     });
 
-
-
-
-    //rotate chevron
+    // rotate chevron
     $('#step1content-id').on('show.bs.collapse', function () {
-        $(this).prev().addClass("active");
-    })
+        $(this).prev().addClass('active');
+    });
     $('#step1content-id').on('hide.bs.collapse', function () {
-        $(this).prev().removeClass("active");
-    })
+        $(this).prev().removeClass('active');
+    });
     $('#step2content-id').on('show.bs.collapse', function () {
-        $(this).prev().addClass("active");
-    })
+        $(this).prev().addClass('active');
+    });
     $('#step2content-id').on('hide.bs.collapse', function () {
-        $(this).prev().removeClass("active");
-    })
+        $(this).prev().removeClass('active');
+    });
     $('#step3content-id').on('show.bs.collapse', function () {
-        $(this).prev().addClass("active");
-    })
+        $(this).prev().addClass('active');
+    });
     $('#step3content-id').on('hide.bs.collapse', function () {
-        $(this).prev().removeClass("active");
-    })
+        $(this).prev().removeClass('active');
+    });
 
     // nut btn-shopping-without-signup
-    $("#step1content-id").collapse('show');
-    $(".btn-shopping-without-signup").click(function (e) {
-        $("#step1content-id").collapse('hide');
-        $("#step2content-id").collapse('show');
+    $('#step1content-id').collapse('show');
+    $('.btn-shopping-without-signup').click(function (e) {
+        $('#step1content-id').collapse('hide');
+        $('#step2content-id').collapse('show');
     });
 
     // validate
-    $("#form-signUp").validate({
+    $('#form-signUp').validate({
         rules: {
             name: {
-                required: true,
+                required: true
             },
             phone: {
                 required: true,
@@ -172,7 +167,7 @@ $(function () {
             confirm_password: {
                 required: true,
                 minlength: 6,
-                equalTo: "#inputPassword"
+                equalTo: '#inputPassword'
             },
             email: {
                 required: true,
@@ -181,11 +176,11 @@ $(function () {
         },
         messages: {
             name: {
-                required: "Vui lòng nhập họ và tên",
+                required: 'Vui lòng nhập họ và tên'
             },
             phone: {
-                required: "Vui lòng nhập số điện thoại",
-                minlength: "Số máy quý khách vừa nhập là số không có thực"
+                required: 'Vui lòng nhập số điện thoại',
+                minlength: 'Số máy quý khách vừa nhập là số không có thực'
             },
             password: {
                 required: 'Vui lòng nhập mật khẩu',
@@ -197,14 +192,14 @@ $(function () {
                 equalTo: 'Mật khẩu không trùng'
             },
             email: {
-                required: "Vui lòng nhập email",
-                minlength: "Email không hợp lệ",
-                email: "Vui lòng nhập email",
+                required: 'Vui lòng nhập email',
+                minlength: 'Email không hợp lệ',
+                email: 'Vui lòng nhập email'
             }
         }
     });
 
-    $("#form-signIn").validate({
+    $('#form-signIn').validate({
         rules: {
             password: {
                 required: true,
@@ -221,17 +216,17 @@ $(function () {
                 minlength: 'Vui lòng nhập ít nhất 6 kí tự'
             },
             email: {
-                required: "Vui lòng nhập email",
-                minlength: "Email không hợp lệ",
-                email: "Vui lòng nhập email",
+                required: 'Vui lòng nhập email',
+                minlength: 'Email không hợp lệ',
+                email: 'Vui lòng nhập email'
             }
         }
     });
 
-    $("#form-signUp-cart").validate({
+    $('#form-signUp-cart').validate({
         rules: {
             name: {
-                required: true,
+                required: true
             },
             phone: {
                 required: true,
@@ -244,7 +239,7 @@ $(function () {
             confirm_password: {
                 required: true,
                 minlength: 6,
-                equalTo: "#inputPassword"
+                equalTo: '#inputPassword'
             },
             email: {
                 required: true,
@@ -253,11 +248,11 @@ $(function () {
         },
         messages: {
             name: {
-                required: "Vui lòng nhập họ và tên",
+                required: 'Vui lòng nhập họ và tên'
             },
             phone: {
-                required: "Vui lòng nhập số điện thoại",
-                minlength: "Số máy quý khách vừa nhập là số không có thực"
+                required: 'Vui lòng nhập số điện thoại',
+                minlength: 'Số máy quý khách vừa nhập là số không có thực'
             },
             password: {
                 required: 'Vui lòng nhập mật khẩu',
@@ -269,14 +264,14 @@ $(function () {
                 equalTo: 'Mật khẩu không trùng'
             },
             email: {
-                required: "Vui lòng nhập email",
-                minlength: "Email không hợp lệ",
-                email: "Vui lòng nhập email",
+                required: 'Vui lòng nhập email',
+                minlength: 'Email không hợp lệ',
+                email: 'Vui lòng nhập email'
             }
         }
     });
 
-    $("#form-signIn-cart").validate({
+    $('#form-signIn-cart').validate({
         rules: {
             password: {
                 required: true,
@@ -293,49 +288,48 @@ $(function () {
                 minlength: 'Vui lòng nhập ít nhất 6 kí tự'
             },
             email: {
-                required: "Vui lòng nhập email",
-                minlength: "Email không hợp lệ",
-                email: "Vui lòng nhập email",
+                required: 'Vui lòng nhập email',
+                minlength: 'Email không hợp lệ',
+                email: 'Vui lòng nhập email'
             }
         }
     });
 
-    // add to cart 
-    let product =
+    // add to cart
+    const product =
     {
         name: $('.info-block .ten').text(),
-        tag: $('.product-image').attr("alt"),
+        tag: $('.product-image').attr('alt'),
         price: parseFloat($('.gia span.new-price').text()),
         old_price: parseFloat($('.gia span.old-price').text()),
         inCart: 0
-    }
+    };
 
-    let carts = document.querySelector('.buy-btn');
+    const carts = document.querySelector('.buy-btn');
     if (carts) {
         carts.addEventListener('click', () => {
             cartNumbers(product);
             totalCost(product);
-        })
+        });
     }
 
     function onLoadCartNumbers() {
-        let productNumbers = localStorage.getItem('cartNumbers');
+        const productNumbers = localStorage.getItem('cartNumbers');
         if (productNumbers) {
             document.querySelector('.cart .cart-amount').textContent = productNumbers;
         }
     }
 
     function cartNumbers(product) {
-
         let productNumbers = localStorage.getItem('cartNumbers');
         productNumbers = parseInt(productNumbers);
 
         if (productNumbers) {
-            localStorage.setItem('cartNumbers', productNumbers + parseInt($(".product-number").val()));
-            document.querySelector('.cart .cart-amount').textContent = productNumbers + parseInt($(".product-number").val());
+            localStorage.setItem('cartNumbers', productNumbers + parseInt($('.product-number').val()));
+            document.querySelector('.cart .cart-amount').textContent = productNumbers + parseInt($('.product-number').val());
         } else {
-            localStorage.setItem('cartNumbers', parseInt($(".product-number").val()));
-            document.querySelector('.cart .cart-amount').textContent = parseInt($(".product-number").val());
+            localStorage.setItem('cartNumbers', parseInt($('.product-number').val()));
+            document.querySelector('.cart .cart-amount').textContent = parseInt($('.product-number').val());
         }
         setItem(product);
     }
@@ -345,18 +339,18 @@ $(function () {
         cartItems = JSON.parse(cartItems);
 
         if (cartItems != null) {
-            if (cartItems[product.tag] == undefined) {
+            if (cartItems[product.tag] === undefined) {
                 cartItems = {
                     ...cartItems,
                     [product.tag]: product
-                }
+                };
             }
-            cartItems[product.tag].inCart += parseInt($(".product-number").val());
+            cartItems[product.tag].inCart += parseInt($('.product-number').val());
         } else {
-            product.inCart = parseInt($(".product-number").val());
+            product.inCart = parseInt($('.product-number').val());
             cartItems = {
                 [product.tag]: product
-            }
+            };
         }
 
         localStorage.setItem('productsInCart', JSON.stringify(cartItems));
@@ -367,26 +361,26 @@ $(function () {
 
         if (cartCost != null) {
             cartCost = parseFloat(cartCost);
-            localStorage.setItem('totalCost', cartCost + parseInt($(".product-number").val()) * product.price);
+            localStorage.setItem('totalCost', cartCost + parseInt($('.product-number').val()) * product.price);
         } else {
-            localStorage.setItem('totalCost', parseInt($(".product-number").val()) * product.price);
+            localStorage.setItem('totalCost', parseInt($('.product-number').val()) * product.price);
         }
     }
 
     function displayCart() {
-        let cartItems = localStorage.getItem("productsInCart");
+        let cartItems = localStorage.getItem('productsInCart');
         cartItems = JSON.parse(cartItems);
-        let cartContent = document.querySelector(".cart-content");
-        let cartCost = localStorage.getItem('totalCost');
-        let productNumbers = localStorage.getItem('cartNumbers');
+        const cartContent = document.querySelector('.cart-content');
+        const cartCost = localStorage.getItem('totalCost');
+        const productNumbers = localStorage.getItem('cartNumbers');
 
         if (cartItems == null) {
-            $(".cart-empty").removeClass("d-none");
+            $('.cart-empty').removeClass('d-none');
             $('.cart').addClass('d-none');
             $('.cart-steps').addClass('d-none');
         }
         if (cartItems && cartContent) {
-            $(".cart-empty").addClass("d-none");
+            $('.cart-empty').addClass('d-none');
             $('.cart').removeClass('d-none');
             $('.cart-steps').removeClass('d-none');
 
@@ -395,8 +389,8 @@ $(function () {
             cartContent.innerHTML += `
             <h6 class="header-gio-hang">GIỎ HÀNG CỦA BẠN <span>(${productNumbers} sản phẩm)</span></h6>
             <div class="cart-list-items">
-            `
-            Object.values(cartItems).map(item => {
+            `;
+            Object.values(cartItems).forEach(item => {
                 cartContent.innerHTML += `
                     <div class="cart-item d-flex">
                         <a href="product-item.html" class="img">
@@ -425,8 +419,8 @@ $(function () {
                         </div>
                     </div>
                     <hr>
-                `
-            })
+                `;
+            });
 
             cartContent.innerHTML += `
             </div>
@@ -463,29 +457,28 @@ $(function () {
                     </div>
                 </div>
             </div>
-            `
-
+            `;
         }
     }
 
-    $(".btn-checkout").click(function (e) {
+    $('.btn-checkout').click(function (e) {
         localStorage.clear();
         location.reload(true);
-        alert("cảm ơn đã mua hàng");
+        alert('cảm ơn đã mua hàng');
     });
 
     onLoadCartNumbers();
-    displayCart()
+    displayCart();
 
     // $('.items .row').isotope({
     //     itemSelector: '.item',
     // })
 
     $('.tag a').click(function (e) {
-        var author = $(this).data('author');
+        const author = $(this).data('author');
 
-        if (author == 'all') {
-            $('.items .row').isotope({ filter: '*' })
+        if (author === 'all') {
+            $('.items .row').isotope({ filter: '*' });
         } else {
             $('.items .row').isotope({ filter: author });
         }
@@ -493,8 +486,7 @@ $(function () {
     });
 
     $('.thay-doi-mk').hide();
-    $("#changepass").click(function (e) {
+    $('#changepass').click(function (e) {
         $('.thay-doi-mk').toggle(200);
     });
-
 });

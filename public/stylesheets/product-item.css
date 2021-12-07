@@ -224,25 +224,10 @@ ul.tabs li.active hr {
     margin-bottom: 1rem;
 }
 
-.btn-google {
-    color: white;
-    background-color: #ea4335;
-}
-  
-.btn-facebook {
-    color: white;
-    background-color: #3b5998;
-}
-
 .modal-body hr {
     position: relative;
     top: 1px;
 }
-
-.btn-signIn:hover {
-    color: black!important;
-}
-
 
 #signUp-form .form-signIn p {
     margin-bottom: 3px;
@@ -531,10 +516,6 @@ footer .header {
     margin-bottom: 5px;
 }
 
-.info-block .gia {
-    font-size: 13px;
-}
-
 .info-block .input-number .btn-spin {
     background: white;
     border: 1px solid #ebebeb;
@@ -612,14 +593,6 @@ footer .header {
     margin-top: 7px;
 }
 
-.info-block .price .new-price {
-    color: red;
-    font-size: 26px;
-    position: absolute;
-    top: 12px;
-    left: 149px;
-}
-
 .info-block .price .currency-type {
     color: red;
     font-size: 26px;
@@ -627,11 +600,6 @@ footer .header {
     top: 12px;
     left: 250px;
     font-weight: bold;
-}
-
-.info-block .normal-price .old-price {
-    text-decoration: line-through;
-    color: #b8b8b8;
 }
 
 .info-block .money-saved {
@@ -646,7 +614,6 @@ footer .header {
     padding: 1px 4px;
     position: absolute;
     font-weight: bold;
-    left: 140px;
 }
 
 .info-block small.share {
@@ -845,13 +812,6 @@ li.active .fa-star {
 .old-price.text-muted {
     font-size: 13px;
     color: #919191!important;
-}
-
-.new-price {
-    color: red;
-    font-size: 14px;
-    font-weight: 500;
-    padding-right: 10px;
 }
 
 .gia.d-flex {
