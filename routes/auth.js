@@ -24,12 +24,11 @@ router.post('/sign-up', async (req, res) => {
     if (newUser.password !== newUser.confirmPassword) {
         res.render('auth', { signUpError: { passwordRetypeWrong: true } });
     } else if (users.find(({ username }) => username === newUser.username) !== undefined) {
-        console.log('herer');
-        res.render('auth', { signUpSignError: { userExists: true } });
+        res.render('auth', { signUpError: { userExists: true } });
     } else {
         model.add(newUser);
+        res.redirect('/');
     }
-    res.redirect('/');
 });
 
 module.exports = router;
