@@ -8,61 +8,37 @@
 </section>
 
 <section class="content my-4">
-  <div class="container">
-    <div class="product bg-white" style=" width: 100%;">
-      <div class="items">
-        <div class="row">
-          {{#if products}}
-          {{#each products}}
-          <div class="col-lg-3 col-md-4 col-xs-6 item">
-            <div class="card">
-              <a href={{this.link}} class="single-product" style="text-decoration: none; color: black;"
-                data-toggle="tooltip" data-placement="bottom" title="{{this.name}}">
-                <img class="card-img-top anh" src="{{this.imageLink}}" alt="{{this.name}}">
-                <div class="card-body product-content mt-3">
-                  <h3 class="card-title ten">{{this.name}}</h3>
-                  <div class="gia d-flex align-items-baseline">
-                    <div class="new-price">{{this.price}} đ</div>
-                    {{#if this.discount}}
-                    <div class="old-price text-muted">{{this.oldPrice}} đ</div>
-                    <div class="sale">-{{this.discount}}%</div>
+    <div class="container">
+        <div class="product bg-white" style=" width: 100%;">
+            <div class="items">
+                <div class="row">
+                    {{#if products}}
+                    {{#each products}}
+                    <div class="col-lg-3 col-md-4 col-xs-6 item">
+                        {{> item-card}}
+                    </div>
+                    {{/each}}
                     {{/if}}
-                  </div>
-                  <div class="danhgia">
-                    <ul class="d-flex" style="list-style: none;">
-                      <li class="active"><i class="fa fa-star"></i></li>
-                      <li class="active"><i class="fa fa-star"></i></li>
-                      <li class="active"><i class="fa fa-star"></i></li>
-                      <li class="active"><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                      <li><span class="text-muted">{{this.view}} Lượt xem</span></li>
-                    </ul>
-                  </div>
                 </div>
-              </a>
             </div>
-          </div>
-          {{/each}}
-          {{/if}}
-        </div>
-      </div>
 
-      <!-- pagination bar -->
-      <div class="my-3">
-        <div class="row">
-          <div class="col-12 d-flex justify-content-center">
-            {{#unless disablePrev}}
-            <a class="mx-1 btn btn-outline-danger" href="{{firstLink}}" role="button">&laquo;</a>
-            <a class="mx-1 btn btn-outline-danger" href="{{prevLink}}" role="button">&lsaquo;</a>
-            {{/unless}}
-            <div class="mx-1 btn btn-outline-danger disabled">{{page}}</div>
-            {{#unless disableNext}}
-            <a class="mx-1 btn btn-outline-danger" href="{{nextLink}}" role="button">&rsaquo;</a>
-            <a class="mx-1 btn btn-outline-danger" href="{{lastLink}}" role="button">&raquo;</a>
-            {{/unless}}
-          </div>
+
+            <!-- pagination bar -->
+            <div class="my-3">
+                <div class="row">
+                    <div class="col-12 d-flex justify-content-center">
+                        {{#unless disablePrev}}
+                        <a class="mx-1 btn btn-outline-danger" href="{{firstLink}}" role="button">&laquo;</a>
+                        <a class="mx-1 btn btn-outline-danger" href="{{prevLink}}" role="button">&lsaquo;</a>
+                        {{/unless}}
+                        <div class="mx-1 btn btn-outline-danger disabled">{{page}}</div>
+                        {{#unless disableNext}}
+                        <a class="mx-1 btn btn-outline-danger" href="{{nextLink}}" role="button">&rsaquo;</a>
+                        <a class="mx-1 btn btn-outline-danger" href="{{lastLink}}" role="button">&raquo;</a>
+                        {{/unless}}
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </section>
