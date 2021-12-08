@@ -5,6 +5,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const passport = require('passport');
 const session = require('express-session');
+const exphbs = require('express-handlebars');
 
 const indexRouter = require('./routes/index');
 const productsRouter = require('./routes/products');
@@ -15,7 +16,13 @@ const authRouter = require('./routes/auth');
 
 const app = express();
 
-app.set('views', path.join(__dirname, 'views'));
+const hbs = exphbs.create({
+    extname: 'hbs',
+    defaultLayout: 'layout',
+    layoutsDir: path.join(__dirname, 'views/'),
+    partialsDir: path.join(__dirname, 'views/partials/')
+});
+app.engine('hbs', hbs.engine);
 app.set('view engine', 'hbs');
 
 app.use(logger('dev'));

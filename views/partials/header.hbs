@@ -1,0 +1,90 @@
+<!-- header -->
+<nav class="navbar navbar-expand-md bg-white navbar-light">
+    <div class="container">
+        <!-- logo  -->
+        <a class="navbar-brand" href="/" style="color: #CF111A;"><b>MihiShop</b></a>
+
+        <!-- navbar-toggler  -->
+        <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
+            aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation"><span
+                class="navbar-toggler-icon"></span></button>
+
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+            <!-- form tìm kiếm  -->
+            <form class="form-inline ml-auto my-2 my-lg-0 mr-3">
+                <div class="input-group" style="width: 520px;">
+                    <input type="text" class="form-control" aria-label="Small"
+                        placeholder="Nhập sản phẩm cần tìm kiếm...">
+                    <div class="input-group-append">
+                        <button type="button" class="btn" style="background-color: #CF111A; color: white;">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+            <!-- ô đăng nhập đăng ký giỏ hàng trên header  -->
+            <ul class="navbar-nav ms-auto">
+                {{#if user}}
+                <li class="nav-item giohang">
+                    <a href="/cart" class="btn btn-secondary rounded-circle">
+                        <i class="fa fa-shopping-cart"></i>
+                        <div class="cart-amount">0</div>
+                    </a>
+                    <a class="nav-link text-dark giohang text-uppercase" href="gio-hang.html"
+                        style="display:inline-block">
+                        Giỏ Hàng</a>
+                </li>
+                {{/if}}
+                <li class="nav-item account ms-4" type="button" class="btn dropdown" data-toggle="dropdown">
+                    <a href="/auth/login" class="btn btn-secondary rounded-circle">
+                        <i class="fa fa-user"></i>
+                    </a>
+                    <a class="nav-link text-dark text-uppercase" href="/auth/login" style="display:inline-block">
+                        {{#if user}} {{user.name}} {{/if}}
+                        {{#unless user}} Tài Khoản {{/unless}}
+                    </a>
+                </li>
+                {{#if user}}
+                <li class="nav-item giohang ms-4">
+                    <a href="/auth/logout" class="btn btn-secondary rounded-circle">
+                        <i class="fa fa-times"></i>
+                    </a>
+                    <a class="nav-link text-dark giohang text-uppercase" href="/auth/logout"
+                        style="display:inline-block">
+                        Đang xuất</a>
+                </li>
+                {{/if}}
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- thanh "danh muc san pham" đã được ẩn bên trong + hotline + ho tro truc tuyen -->
+<section class="navBar-tail">
+    <div class="container text-white">
+        <div class="row justify">
+            <div class="col-lg-3 col-md-5">
+                <div class="categoryHeader">
+                    <div class="productHeader text-white">
+                        <i class="fa fa-bars"></i>
+                        <span class="text-uppercase font-weight-bold ml-1">Danh mục sản phẩm</span>
+                    </div>
+                    <!-- CATEGORIES -->
+                    <div class="category-content">
+                        <ul class="ps-0">
+                            <li class="d-flex"><a class="me-auto" href="/catalogs/CA00002/?page=1">Móc khóa</a><i
+                                    class="fa fa-chevron-right float-right"></i></li>
+                            <li class="d-flex"><a class="me-auto" href="/catalogs/CA00003/?page=1">Thú nhồi bông</a><i
+                                    class="fa fa-chevron-right float-right"></i></li>
+                            <li class="d-flex"><a class="me-auto" href="/catalogs/CA00004/?page=1">Bookmark</a><i
+                                    class="fa fa-chevron-right float-right"></i></li>
+                            <li class="d-flex"><a class="me-auto" href="/catalogs/CA00005/?page=1">Thiệp - Bưu ảnh</a><i
+                                    class="fa fa-chevron-right float-right"></i></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
