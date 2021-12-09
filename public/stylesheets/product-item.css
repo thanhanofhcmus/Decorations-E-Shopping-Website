@@ -484,18 +484,6 @@ footer .header {
     box-shadow: 0px 11px 20px -10px #fd8205;
 }
 
-.review-form .send-bl-btn {
-    border: 1px solid #F7A623;
-    color: #F7A623;
-    width: 60%;
-    font-weight: 500;
-}
-
-.review-form .send-bl-btn:hover {
-    background: #F7A623;
-    color: white;
-}
-
 .review-form .form-group input {
     padding: 6px 15px;
     font-size: 14px;
@@ -510,17 +498,6 @@ footer .header {
 
 .review-form .title {
     font-size: 17px !important;
-}
-
-.btn.write-review {
-    border: 1px solid #F7A623;
-    color: #F7A623;
-    padding: 7px 20px;
-}
-
-.btn.write-review:hover {
-    color: white;
-    background: #F7A623;
 }
 
 .review-title .margin-bottom {
@@ -573,7 +550,7 @@ footer .header {
 
 .product-description .nav-tabs .nav-item.active {
     color: black;
-    border-top: 4px solid #F5A623;
+    border-top: 4px solid var(--bs-danger);
 }
 
 .product-description {
@@ -622,73 +599,12 @@ footer .header {
 
 /* het css cho .product-description  */
 
-/* css cho one-block */
-
-/* css cho nut xem tat ca  */
-a.btn.btn-warning.btn-sm.text-white {
-    height: 25px;
-    width: 77px;
-    background: #F5A623;
-    font-size: 11px;
-}
-
-/* het css cho nut xem tat ca  */
-
-.card:hover .anh {
-    top: 5px;
-}
-
-img.card-img-top.anh {
-    position: relative;
-    top: 15px;
-    transition: 0.3s;
-}
-
-ul span.text-muted {
-    font-size: 11px;
-    padding-top: 6px;
-    padding-left: 12px;
-    color: #919191 !important;
-}
-
-i.fa.fa-star {
-    font-size: 10px;
-    color: #bebebe;
-}
-
-li.active .fa-star {
-    color: #F5A623;
-}
-
 .product-content .gia .sale {
     background: #F5A623;
     border-radius: 6px;
     font-size: 11px;
     color: white;
     padding: 1px 4px;
-    position: absolute;
-    right: 0;
-    top: 2px;
-}
-
-.old-price.text-muted {
-    font-size: 13px;
-    color: #919191 !important;
-}
-
-.gia.d-flex {
-    position: relative;
-}
-
-small.author.text-muted {
-    font-size: 12px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 1;
-    -webkit-box-orient: vertical;
-    transition: 0.3s;
-    padding: 3px 0px;
 }
 
 h6.card-title.ten {

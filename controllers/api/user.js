@@ -6,8 +6,6 @@ module.exports.list = async (req, res) => {
 
 module.exports.findByUsername = async (req, res) => {
     const username = req.params.username;
-    console.log(username);
     const user = await model.findByUsername(username);
-    console.log(user);
     res.send(user);
 };

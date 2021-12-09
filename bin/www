@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 
+require('dotenv').config();
 const app = require('../app');
 const debug = require('debug')('userweb:server');
 const http = require('http');
 const { initDatabase } = require('../database');
-require('dotenv').config();
 
 initDatabase().then(() => {
     const port = normalizePort(process.env.PORT || '3000');
