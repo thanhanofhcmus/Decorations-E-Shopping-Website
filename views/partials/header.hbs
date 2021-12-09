@@ -5,9 +5,9 @@
         <a class="navbar-brand" href="/" style="color: #CF111A;"><b>MihiShop</b></a>
 
         <!-- navbar-toggler  -->
-        <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
-            aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation"><span
-                class="navbar-toggler-icon"></span></button>
+        <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
+            aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
 
         <div class="collapse navbar-collapse" id="collapsibleNavId">
             <!-- form tìm kiếm  -->
@@ -26,35 +26,28 @@
             <!-- ô đăng nhập đăng ký giỏ hàng trên header  -->
             <ul class="navbar-nav ms-auto">
                 {{#if user}}
-                <li class="nav-item giohang">
-                    <a href="/cart" class="btn btn-secondary rounded-circle">
-                        <i class="fa fa-shopping-cart"></i>
-                        <div class="cart-amount">0</div>
-                    </a>
-                    <a class="nav-link text-dark giohang text-uppercase" href="gio-hang.html"
-                        style="display:inline-block">
+                <li class="nav-item">
+                    <a class="btn btn-outline-danger text-uppercase" href="/cart" style="display:inline-block">
                         Giỏ Hàng</a>
                 </li>
-                {{/if}}
-                <li class="nav-item account ms-4" type="button" class="btn dropdown" data-toggle="dropdown">
-                    <a href="/auth/login" class="btn btn-secondary rounded-circle">
-                        <i class="fa fa-user"></i>
-                    </a>
-                    <a class="nav-link text-dark text-uppercase" href="/auth/login" style="display:inline-block">
-                        {{#if user}} {{user.name}} {{/if}}
-                        {{#unless user}} Tài Khoản {{/unless}}
-                    </a>
-                </li>
-                {{#if user}}
-                <li class="nav-item giohang ms-4">
-                    <a href="/auth/logout" class="btn btn-secondary rounded-circle">
-                        <i class="fa fa-times"></i>
-                    </a>
-                    <a class="nav-link text-dark giohang text-uppercase" href="/auth/logout"
-                        style="display:inline-block">
-                        Đang xuất</a>
+                <li class="nav-item ms-4 dropdown d-flex align-items-center">
+                    <div class="dropdown-toggle btn btn-outline-danger" role="button" id="accountMenuLink" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        {{user.name}}
+                    </div>
+                    <ul class="dropdown-menu py-3" aria-labelledby="accountMenuLink">
+                        <li class="dropdown-item"><a class="text-danger text-decoration-none"  href="/profile">Tài khoản</a></li>
+                        <li class="dropdown-item"><a class="text-danger text-decoration-none"  href="/auth/logout">Đăng xuât</a></li>
+                    </ul>
                 </li>
                 {{/if}}
+                {{#unless user}}
+                <li class="nav-item ms-4">
+                    <a class="btn btn-outline-danger rounded text-uppercase" href="/auth/login">
+                        Tài Khoản
+                    </a>
+                </li>
+                {{/unless}}
             </ul>
         </div>
     </div>

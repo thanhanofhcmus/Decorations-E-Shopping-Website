@@ -13,6 +13,7 @@ const cartRouter = require('./routes/cart');
 const catalogRouter = require('./routes/catalog');
 const apiRouter = require('./routes/api');
 const authRouter = require('./routes/auth');
+const profileRouter = require('./routes/profile');
 
 const app = express();
 
@@ -46,6 +47,7 @@ app.use('/cart', cartRouter);
 app.use('/catalogs', catalogRouter);
 app.use('/auth', authRouter);
 app.use('/api', apiRouter);
+app.use('/profile', profileRouter);
 
 app.use((req, res, next) => {
     next(createError(404));
