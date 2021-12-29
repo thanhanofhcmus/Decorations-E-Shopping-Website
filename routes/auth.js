@@ -1,34 +1,12 @@
 const router = require('express').Router();
-const passport = require('../auth/passport');
-const model = require('../models/users');
+const controller = require('../controllers/auth');
 
-router.get('/login', (req, res) => {
-    res.render('auth', { somethingWrong: req.query.somethingWrong });
-});
+router.get('/login', controller.loginGet);
 
-router.post('/login',
-    passport.authenticate('local', {
-        successRedirect: '/',
-        failureRedirect: '/auth/login?somethingWrong'
-    })
-);
+router.post('/login', controller.loginPost);
 
-router.get('/logout', (req, res) => {
-    req.logout();
-    res.redirect('/');
-});
+router.get('/logout', controller.logoutPost);
 
-router.post('/sign-up', async (req, res) => {
-    const newUser = req.body;
-    const users = await model.list();
-    if (newUser.password !== newUser.confirmPassword) {
-        res.render('auth', { signUpError: { passwordRetypeWrong: true } });
-    } else if (users.find(({ username }) => username === newUser.username) !== undefined) {
-        res.render('auth', { signUpError: { userExists: true } });
-    } else {
-        model.add(newUser);
-        res.redirect('/');
-    }
-});
+router.post('/sign-up', controller.signupPost);
 
 module.exports = router;
