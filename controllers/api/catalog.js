@@ -1,6 +1,12 @@
 const productModel = require('../../models/products');
+const catalogModel = require('../../models/catalog');
 
-module.exports = async (req, res) => {
+const list = async (req, res) => {
+    const catalogs = await catalogModel.list();
+    res.send(catalogs);
+};
+
+const listById = async (req, res) => {
     const id = req.params.id;
     if (req.query.page) {
         const chunkSize = 1;
@@ -9,4 +15,9 @@ module.exports = async (req, res) => {
     } else {
         res.send(await productModel.findByCatalog(id));
     }
+};
+
+module.exports = {
+    list,
+    listById
 };

@@ -6,6 +6,7 @@ const passport = require('passport');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
 
+const catalogMiddleware = require('./middleware/catalog');
 const localMiddleware = require('./middleware/locals');
 const notFoundMiddleware = require('./middleware/notFound');
 const errorMiddleware = require('./middleware/error');
@@ -43,6 +44,7 @@ app.use(session({ secret: process.env.SESSION_SECRET, resave: false, saveUniniti
 app.use(passport.session());
 
 app.use(localMiddleware);
+app.use(catalogMiddleware);
 
 app.use('/', indexRouter);
 app.use('/products', productsRouter);
