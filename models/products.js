@@ -1,28 +1,18 @@
 const { getCollection } = require('../database');
-
 const COLLECTION_NAME = 'product';
 
-module.exports.list = () => {
-    return getCollection(COLLECTION_NAME).find({}).toArray();
-};
+const list = () => getCollection(COLLECTION_NAME).find({}).toArray();
 
-module.exports.findById = async (id) => {
-    const products = await getCollection(COLLECTION_NAME).find({ id }).toArray();
-    return products[0];
-};
+const findById = async id => (await getCollection(COLLECTION_NAME).find({ id }).toArray())[0];
 
-module.exports.findByCatalog = (catalogId) =>
-    getCollection(COLLECTION_NAME).find({ catalogId }).toArray();
+const findByCatalog = (catalogId) => getCollection(COLLECTION_NAME).find({ catalogId }).toArray();
 
-module.exports.findChunkByCatalogId = (catalogId, chunkSize, offset) => {
-    return getCollection(COLLECTION_NAME).find({ catalogId }).skip(offset * chunkSize).limit(chunkSize).toArray();
-};
+const findChunkByCatalogId = (catalogId, chunkSize, offset) =>
+    getCollection(COLLECTION_NAME).find({ catalogId }).skip(offset * chunkSize).limit(chunkSize).toArray();
 
-module.exports.getSizeByCatalogId = async (catalogId) => {
-    return (await this.findByCatalog(catalogId)).length;
-};
+const getSizeByCatalogId = async catalogId => (await this.findByCatalog(catalogId)).length;
 
-module.exports.toRenderData = (data) => {
+const toRenderData = data => {
     const price = Math.floor(data.price * (1 - data.discount));
     const saved = data.price - price;
     return {
@@ -33,4 +23,13 @@ module.exports.toRenderData = (data) => {
         discount: Math.floor(data.discount * 100),
         link: `/products/${data.id}`
     };
+};
+
+module.exports = {
+    list,
+    findById,
+    findByCatalog,
+    findChunkByCatalogId,
+    getSizeByCatalogId,
+    toRenderData
 };

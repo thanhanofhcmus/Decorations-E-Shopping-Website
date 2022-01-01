@@ -2,12 +2,16 @@
     <div class="container bg-white">
         <div class="row d-flex justify-content-center">
             <div class="col-md-8">
+                <p class="text-center fw-bold fs-4">Thông tin cá nhân</p>
                 <div class="vstack gap-3 p-3 rounded shadow">
                     <p class="p-1 border border-danger p-3 rounded fs-6">Họ và Tên: {{user.name}}</p>
                     <p class="p-1 border border-danger p-3 rounded fs-6">Username: {{user.username}}</p>
                     <p class="p-1 border border-danger p-3 rounded fs-6">Email: {{user.email}}</p>
-                    <a href="/auth/logout" class="btn btn-primary align-self-center text-uppercase">Đăng xuất</a>
-                    <a href="#" class="btn btn-secondary align-self-center text-uppercase">Xóa tài khoản</a>
+                    <div class="d-flex justify-content-around">
+                        <a href="/auth/logout" class="btn btn-primary align-self-center text-uppercase">Đăng xuất</a>
+                        <a href="/profile/edit" class="btn btn-primary align-self-center text-uppercase">Chỉnh sửa</a>
+                        <a href="/auth/delete" class="btn btn-secondary align-self-center text-uppercase">Xóa tài khoản</a>
+                    </div>
                 </div>
             </div>
         </div>

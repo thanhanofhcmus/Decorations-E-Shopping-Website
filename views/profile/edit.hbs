@@ -1,0 +1,30 @@
+<section class="content my-3">
+    <div class="container bg-white">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-8">
+                <p class="text-center fw-bold fs-4">Chỉnh sửa thông tin cá nhân</p>
+                <form id="form-signUp-cart" class="form-signIn mt-2" action="/profile/edit" method="post">
+                    <div class="form-label-group">
+                        <input type="text" id="inputName" class="form-control" placeholder="Nhập họ và tên" name="name"
+                            value="{{user.name}}" required autofocus>
+                    </div>
+                    <div class="form-label-group">
+                        <input type="email" id="inputEmail" class="form-control" placeholder="Nhập địa chỉ email"
+                            name="email" value="{{user.email}}" required>
+                    </div>
+                    {{#if signUpError}}
+                    {{#if signUpError.userExists}}
+                    <p class="text-danger">Username đã được đăng ký từ trước</p>
+                    {{/if}}
+                    {{/if}}
+                    <div class="d-flex justify-content-center">
+                        <button class="btn btn-lg btn-primary text-uppercase my-3 text-white text-hover-black"
+                            type="submit">
+                            Gữi
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
