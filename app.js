@@ -14,10 +14,10 @@ const errorMiddleware = require('./middleware/error');
 const indexRouter = require('./routes/index');
 const productsRouter = require('./routes/products');
 const cartRouter = require('./routes/cart');
-const catalogRouter = require('./routes/catalog');
 const apiRouter = require('./routes/api');
 const authRouter = require('./routes/auth');
 const profileRouter = require('./routes/profile');
+const searchRouter = require('./routes/search');
 
 const app = express();
 
@@ -47,12 +47,12 @@ app.use(localMiddleware);
 app.use(catalogMiddleware);
 
 app.use('/', indexRouter);
+app.use('/profile', profileRouter);
 app.use('/products', productsRouter);
 app.use('/cart', cartRouter);
-app.use('/catalogs', catalogRouter);
 app.use('/auth', authRouter);
+app.use('/search', searchRouter);
 app.use('/api', apiRouter);
-app.use('/profile', profileRouter);
 
 app.use(notFoundMiddleware);
 app.use(errorMiddleware);

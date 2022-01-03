@@ -11,12 +11,12 @@
 
         <div class="collapse navbar-collapse" id="collapsibleNavId">
             <!-- form tìm kiếm  -->
-            <form class="form-inline ml-auto my-2 my-lg-0 mr-3">
+            <form class="form-inline ml-auto my-2 my-lg-0 mr-3" action="/search" method="post">
                 <div class="input-group" style="width: 520px;">
-                    <input type="text" class="form-control" aria-label="Small"
+                    <input type="text" class="form-control" aria-label="Small" name="keyword" 
                         placeholder="Nhập sản phẩm cần tìm kiếm...">
                     <div class="input-group-append">
-                        <button type="button" class="btn" style="background-color: #CF111A; color: white;">
+                        <button type="submit" class="btn" style="background-color: #CF111A; color: white;">
                             <i class="fa fa-search"></i>
                         </button>
                     </div>
@@ -69,7 +69,7 @@
                             {{#if headerCatalogs}}
                             {{#each headerCatalogs}}
                             <li class="d-flex">
-                                <a class="me-auto" href="/catalogs/{{catalog.id}}/?page=1">{{this.name}}</a>
+                                <a class="me-auto" href="/search?catalogId={{this.id}}&page=1">{{this.name}}</a>
                                 <i class="fa fa-chevron-right float-right"></i>
                             </li>
                             {{/each}}
