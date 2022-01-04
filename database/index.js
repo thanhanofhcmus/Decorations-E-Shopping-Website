@@ -4,7 +4,7 @@ let database = null;
 
 module.exports.initDatabase = async () => {
     try {
-        database = await MongoClient.connect(process.env.MONGODB_URL, { useNewUrlParser: true }).then(client => client.db('salesweb'));
+        database = await MongoClient.connect(process.env.MONGODB_URL, { useNewUrlParser: true }).then(client => client.db('mihishop'));
         console.log('database initialized');
     } catch (e) {
         console.log(e);

@@ -1,9 +1,9 @@
 const model = require('../models/products');
-const catalogModel = require('../models/catalog');
+const categoryModel = require('../models/category');
 
 module.exports.renderAll = async (req, res) => {
     const id = req.params.id;
-    const product = model.toRenderData(await model.findById(id));
-    const catalog = await catalogModel.findCatalogById(product.catalogId);
-    res.render('detail-product', { ...product, title: product.name, catalog });
+    const product = model.toRenderData(await model.findOne({ id }));
+    const category = await categoryModel.find({ categoryId: product.categoryId });
+    res.render('detail-product', { ...product, title: product.name, category });
 };

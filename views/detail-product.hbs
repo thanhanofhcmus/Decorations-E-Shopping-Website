@@ -2,7 +2,7 @@
     <div class="container">
         <ol class="breadcrumb mb-0 py-3 bg-light">
             <li class="breadcrumb-item"><a class="text-danger" href="/">Trang chủ</a></li>
-            <li class="breadcrumb-item"><a class="text-danger" href="/catalogs/{{catalog.id}}">{{catalog.name}}</a></li>
+            <li class="breadcrumb-item"><a class="text-danger" href="/categorys/{{category.id}}">{{category.name}}</a></li>
             <li class="breadcrumb-item active">{{title}}</li>
         </ol>
     </div>
@@ -14,15 +14,24 @@
             <div class="row">
                 <div class="col-md-5 image-block">
                     <div class="mb-4">
-                        <a class="active" href="{{imageLink}}"
-                            data-fancybox="thumb-img">
-                            <img class="product-image" src="{{imageLink}}" style="width: 100%;">
+                        <a class="active" href="{{imagesList.[0]}}" data-fancybox="thumb-img">
+                            <img class="product-image" src="{{imagesList.[0]}}" style="width: 100%;">
                         </a>
-                        <a href="/images/lap-ke-hoach-kinh-doanh-hieu-qua-ms.jpg" data-fancybox="thumb-img"></a>
+                        {{#if imagesList.[1]}}
+                        <a href="{{imagesList.[1]}}" data-fancybox="thumb-img"></a>
+                        {{/if}}
+                        {{#if imagesList.[2]}}
+                        <a href="{{imagesList.[2]}}" data-fancybox="thumb-img"></a>
+                        {{/if}}
                     </div>
                     <div class="list-image-detail d-flex mb-4" style="margin-left: 2rem;">
-                        <img class="thumb-img thumb1 mr-3" src="{{imageLink}}" class="img-fluid">
-                        <img class="thumb-img thumb2" src="/images/lap-ke-hoach-kinh-doanh-hieu-qua-ms.jpg" class="img-fluid">
+                        <img class="thumb-img thumb1 mr-3 me-3" src="{{imagesList.[0]}}" class="img-fluid">
+                        {{#if imagesList.[1]}}
+                        <img class="thumb-img thumb2 me-3" src="{{imagesList.[1]}}" class="img-fluid">
+                        {{/if}}
+                        {{#if imagesList.[2]}}
+                        <img class="thumb-img thumb3 me-3" src="{{imagesList.[2]}}" class="img-fluid">
+                        {{/if}}
                     </div>
                 </div>
                 <div class="col-md-7 info-block">
@@ -75,55 +84,29 @@
                     </nav>
                     <div class="tab-content py-3" id="nav-tabContent">
                         <div class="tab-pane fade show active ml-3" id="nav-introduce" role="tabpanel"
-                            aria-labelledby="nav-introduce-tab">
+                            aria-labelledby="nav-introduce-tab" style="white-space: pre-line;">
                             {{content}}
                         </div>
                         <div class="tab-pane fade" id="review-nav" role="tabpanel" aria-labelledby="review-nav-tab">
                             <div class="row">
                                 <div class="col-md-3 text-center">
                                     <p class="title">Đánh giá trung bình</p>
-                                    <div class="diem">0/5</div>
-                                    <div class="sao">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                    </div>
-                                    <p class="review-number text-muted">(0 nhận xét)</p>
+                                    <div class="diem">{{rateStar}}/5</div>
+                                    <p class="review-number text-muted">({{rateCount}} đánh giá)</p>
                                 </div>
-                                <div class="col-md-5">
+                                <div class="col-md-6">
                                     <div class="review-title text-center">
-                                        <div class="margin-bottom d-flex align-items-center">5 <i class="fa fa-star"></i>
-                                            <div class="progress mx-2">
-                                                <div class="progress-bar" role="progressbar" aria-valuenow="0"
-                                                    aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div> 0%
+                                        {{#each ratePercents}}
+                                        <div class="margin-bottom d-flex align-items-center">
+                                            {{this.key}}
+                                            <i class="fa fa-star"></i>
+                                            <div class="progress mx-2 col-md-6">
+                                                <div class="progress-bar" role="progressbar" aria-valuenow="{{this.percent}}"
+                                                    aria-valuemin="0" aria-valuemax="100" style="width: {{this.percent}}%;"></div>
+                                            </div>
+                                            <div class="col-md-6">{{this.percent}}% ({{this.count}} đánh giá)</div>
                                         </div>
-                                        <div class="margin-bottom d-flex align-items-center">4 <i class="fa fa-star"></i>
-                                            <div class="progress mx-2">
-                                                <div class="progress-bar" role="progressbar" aria-valuenow="0"
-                                                    aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div> 0%
-                                        </div>
-                                        <div class="margin-bottom d-flex align-items-center">3 <i class="fa fa-star"></i>
-                                            <div class="progress mx-2">
-                                                <div class="progress-bar" role="progressbar" aria-valuenow="0"
-                                                    aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div> 0%
-                                        </div>
-                                        <div class="margin-bottom d-flex align-items-center">2 <i class="fa fa-star"></i>
-                                            <div class="progress mx-2">
-                                                <div class="progress-bar" role="progressbar" aria-valuenow="0"
-                                                    aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div> 0%
-                                        </div>
-                                        <div class="margin-bottom d-flex align-items-center">1 <i class="fa fa-star"></i>
-                                            <div class="progress mx-2">
-                                                <div class="progress-bar" role="progressbar" aria-valuenow="0"
-                                                    aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div> 0%
-                                        </div>
+                                        {{/each}}
                                         <div class="btn btn-outline-danger write-review mt-3">Viết đánh giá của bạn</div>
                                     </div>
                                     <!-- nội dung của form đánh giá  -->

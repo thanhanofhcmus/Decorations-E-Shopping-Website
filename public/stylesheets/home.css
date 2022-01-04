@@ -224,7 +224,7 @@ label.error {
 .category-content ul li ul {
     display: none;
     height: 386px;
-    width: 750px;
+    width: auto;
     border: 1px solid #d1d1d1;
     position: absolute;
     z-index: 99;
@@ -315,7 +315,7 @@ ul span.text-muted {
     color: #919191 !important;
 }
 
-i.fa.fa-star {
+i.fa.fa-star, i.fa.fa-star-half {
     font-size: 10px;
     color: #bebebe;
 }

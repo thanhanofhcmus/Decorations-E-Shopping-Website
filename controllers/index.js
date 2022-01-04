@@ -1,11 +1,11 @@
-const productModel = require('../models/products');
-const catalogModel = require('../models/catalog');
+const productsModel = require('../models/products');
+const categoryModel = require('../models/category');
 
 module.exports = async (req, res) => {
-    const catalogs = await catalogModel.list();
-    const allProducts = await Promise.all(catalogs.map(async catalog => {
-        const products = (await productModel.findByCatalog(catalog.id)).map(productModel.toRenderData);
-        return { catalog, products };
+    const categories = await categoryModel.list();
+    const allProducts = await Promise.all(categories.map(async category => {
+        const products = (await productsModel.find({ categoryId: category.id })).map(productsModel.toRenderData);
+        return { category, products };
     }));
 
     res.render('index', {

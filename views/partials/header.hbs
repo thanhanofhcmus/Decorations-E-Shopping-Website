@@ -13,7 +13,7 @@
             <!-- form tìm kiếm  -->
             <form class="form-inline ml-auto my-2 my-lg-0 mr-3" action="/search" method="post">
                 <div class="input-group" style="width: 520px;">
-                    <input type="text" class="form-control" aria-label="Small" name="keyword" 
+                    <input type="text" class="form-control" aria-label="Small" name="keyword"
                         placeholder="Nhập sản phẩm cần tìm kiếm...">
                     <div class="input-group-append">
                         <button type="submit" class="btn" style="background-color: #CF111A; color: white;">
@@ -31,13 +31,13 @@
                         Giỏ Hàng</a>
                 </li>
                 <li class="nav-item ms-4 dropdown d-flex align-items-center">
-                    <div class="dropdown-toggle btn btn-outline-primary" role="button" id="accountMenuLink" data-bs-toggle="dropdown"
-                        aria-expanded="false">
+                    <div class="dropdown-toggle btn btn-outline-primary" role="button" id="accountMenuLink"
+                        data-bs-toggle="dropdown" aria-expanded="false">
                         {{user.name}}
                     </div>
                     <ul class="dropdown-menu py-3" aria-labelledby="accountMenuLink">
-                        <li ><a class="dropdown-item" href="/profile">Tài khoản</a></li>
-                        <li ><a class="dropdown-item" href="/auth/logout">Đăng xuât</a></li>
+                        <li><a class="dropdown-item" href="/profile">Tài khoản</a></li>
+                        <li><a class="dropdown-item" href="/auth/logout">Đăng xuât</a></li>
                     </ul>
                 </li>
                 {{/if}}
@@ -66,15 +66,26 @@
                     <!-- CATEGORIES -->
                     <div class="category-content">
                         <ul class="ps-0">
-                            {{#if headerCatalogs}}
-                            {{#each headerCatalogs}}
+                            {{#if headerCategories}}
+                            {{#each headerCategories}}
                             <li class="d-flex">
-                                <a class="me-auto" href="/search?catalogId={{this.id}}&page=1">{{this.name}}</a>
-                                <i class="fa fa-chevron-right float-right"></i>
+                                <a class="me-auto" href="/search?categoryId={{this.parent.id}}&page=1">{{this.parent.name}}</a>
+                                <ul>
+                                    <li class="liheader"><a href="/search?categoryId={{this.parent.id}}&page=1"
+                                            class="header text-uppercase">{{this.parent.name}}</a></li>
+                                    <div class="content trai">
+                                        {{#if this.children}}
+                                        {{#each this.children}}
+                                        <li><a href="/search?categoryId={{this.id}}&page=1">{{this.name}}</a></li>
+                                        {{/each}}
+                                        {{/if}}
+                                    </div>
+                                </ul>
                             </li>
                             {{/each}}
                             {{/if}}
                         </ul>
+
                     </div>
                 </div>
             </div>

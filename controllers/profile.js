@@ -9,7 +9,13 @@ const edit = (req, res) => {
 };
 
 const editPost = async (req, res) => {
-    await usersModel.update(res.locals.user.id, req.body);
+    const localUser = res.locals.user;
+    const postUser = req.body;
+    await usersModel.update(localUser.id, postUser);
+    res.locals.user = {
+        ...localUser,
+        ...postUser
+    };
     res.redirect('/auth/logout');
 };
 

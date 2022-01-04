@@ -1,8 +1,8 @@
 const productsModel = require('../models/products');
 
-const constructLink = (keyword, catalogId, page, chunkSize, size) => {
+const constructLink = (keyword, categoryId, page, chunkSize, size) => {
     const link = '/search?' +
-         Object.entries({ keyword, catalogId, chunkSize })
+         Object.entries({ keyword, categoryId, chunkSize })
              .filter(([_, v]) => v !== undefined)
              .map(([k, v]) => k + '=' + v)
              .reduce((a, v) => a + '&' + v);
@@ -20,22 +20,22 @@ const search = async (req, res) => {
     const keyword = req.query.keyword;
     const page = parseInt(req.query.page) || 1;
     const chunkSize = parseInt(req.query.chunkSize) || 10;
-    const catalogId = req.query.catalogId;
+    const categoryId = req.query.categoryId;
 
-    const size = await productsModel.getSizeByKeyword(keyword);
     const products = await productsModel.find({
         keyword,
         offset: page - 1,
         chunkSize,
-        catalogId
+        categoryId
     });
+    const size = products.length;
     const renderProduct = products.map(productsModel.toRenderData);
 
     res.render('search', {
         title: 'Tìm kiếm',
         products: renderProduct,
         page,
-        ...constructLink(keyword, catalogId, page, chunkSize, size)
+        ...constructLink(keyword, categoryId, page, chunkSize, size)
     });
 };
 
