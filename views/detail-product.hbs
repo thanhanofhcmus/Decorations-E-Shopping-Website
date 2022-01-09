@@ -53,19 +53,21 @@
                                 <div class="price">Giá bán: <span class="new-price fs-2 fw-bold text-danger">{{price}} ₫</div>
                                 <div class="money-saved">Tiết kiệm: <b>{{saved}} ₫&nbsp;&nbsp;</b> <span class="sale">-{{discount}}%</span> </div>
                             </div>
-                            <div class="_number d-flex">
-                                <label class="fw-bold">Số lượng: </label>
-                                <div class="input-number input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text btn-spin btn-dec">-</span>
-                                    </div>
-                                    <input type="text" value="1" class="product-number  text-center">
-                                    <div class="input-group-append">
-                                        <span class="input-group-text btn-spin btn-inc">+</span>
+                            <form method="post">
+                                <div class="_number d-flex">
+                                    <label class="fw-bold">Số lượng: </label>
+                                    <div class="input-number input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text btn-spin btn-dec">-</span>
+                                        </div>
+                                        <input type="text" id="quanlity" name="quanlity" value="1" class="product-number  text-center">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text btn-spin btn-inc">+</span>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="buy-btn btn w-100 text-uppercase">Chọn mua</div>
+                                <button class="buy-btn btn w-100 text-uppercase" type="submit">Chọn mua</div>
+                            </form>
                             <a class="how-to-buy text-decoration-none" href="#">(Vui lòng xem hướng dẫn mua hàng)</a>
                         </div>
                     </div>
@@ -79,7 +81,7 @@
                                 thiệu</button>
                             <button class="nav-item nav-link text-uppercase" id="review-nav-tab" data-bs-toggle="tab"
                                 href="#review-nav" role="tab" aria-controls="review-nav" aria-selected="false">Đánh
-                                giá của độc giả</button>
+                                giá</button>
                         </div>
                     </nav>
                     <div class="tab-content py-3" id="nav-tabContent">

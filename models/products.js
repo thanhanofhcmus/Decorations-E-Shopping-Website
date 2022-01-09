@@ -24,6 +24,8 @@ const findRaw = async params => {
     return query;
 };
 
+const findByIds = ids => getCollection(COLLECTION_NAME).find({ id: { $in: ids } }).toArray();
+
 const find = async params => (await findRaw(params)).toArray();
 const findOne = params => findRaw({ ...params, isFindOne: true });
 const getSize = async params => (await findRaw(params)).count();
@@ -44,6 +46,7 @@ const toRenderData = data => {
 };
 
 module.exports = {
+    findByIds,
     find,
     findOne,
     getSize,

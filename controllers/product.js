@@ -1,9 +1,35 @@
-const model = require('../models/products');
+const productModel = require('../models/products');
 const categoryModel = require('../models/category');
+const userModel = require('../models/users');
 
-module.exports.renderAll = async (req, res) => {
+const getOne = async (req, res) => {
     const id = req.params.id;
-    const product = model.toRenderData(await model.findOne({ id }));
+    const product = productModel.toRenderData(await productModel.findOne({ id }));
     const category = await categoryModel.find({ categoryId: product.categoryId });
     res.render('detail-product', { ...product, title: product.name, category });
+};
+
+const updateOne = async (req, res) => {
+    const id = req.params.id;
+    const data = req.body;
+    const product = productModel.toRenderData(await productModel.findOne({ id }));
+    const category = await categoryModel.find({ categoryId: product.categoryId });
+    if (typeof res.locals.user !== 'undefined') {
+        const user = await userModel.findByUsername(res.locals.user.username);
+        const index = user.cart.findIndex((p) => p.productId === id);
+        if (index > -1) {
+            user.cart[index].quantity += data.quantity;
+        } else {
+            user.cart.push({ productId: id, quantity: 1 });
+        }
+        await userModel.update(user.id, user);
+        res.render('detail-product', { ...product, title: product.name, category });
+    } else {
+        res.render('auth');
+    }
+};
+
+module.exports = {
+    getOne,
+    updateOne
 };

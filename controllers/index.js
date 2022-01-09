@@ -4,7 +4,8 @@ const categoryModel = require('../models/category');
 module.exports = async (req, res) => {
     const categories = await categoryModel.list();
     const allProducts = await Promise.all(categories.map(async category => {
-        const products = (await productsModel.find({ categoryId: category.id })).map(productsModel.toRenderData);
+        const data = (await productsModel.find({ categoryId: category.id })).map(productsModel.toRenderData);
+        const products = data.slice(0, Math.min(9, data.length));
         return { category, products };
     }));
 

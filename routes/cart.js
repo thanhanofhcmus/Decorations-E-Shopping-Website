@@ -1,8 +1,6 @@
-const express = require('express');
-const router = express.Router();
+const router = require('express').Router();
+const controller = require('../controllers/cart');
 
-router.get('/', (req, res) => {
-    res.render('cart', { title: 'Cart' });
-});
+router.get('/', controller.getAll);
 
 module.exports = router;
