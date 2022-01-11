@@ -1,7 +1,7 @@
 <section class="breadcrumb">
     <div class="container">
         <ol class="breadcrumb mb-0 py-3 bg-light">
-            <li class="breadcrumb-item"><a class="text-danger" href="/">Trang chủ</a></li>
+            <li class="breadcrumb-item"><a class="text-primary" href="/">Trang chủ</a></li>
             <li class="breadcrumb-item active">{{title}}</li>
         </ol>
     </div>
@@ -28,13 +28,13 @@
                 <div class="row">
                     <div class="col-12 d-flex justify-content-center">
                         {{#unless disablePrev}}
-                        <a class="mx-1 btn btn-outline-danger" href="{{firstLink}}" role="button">&laquo;</a>
-                        <a class="mx-1 btn btn-outline-danger" href="{{prevLink}}" role="button">&lsaquo;</a>
+                        <a class="mx-1 btn btn-outline-primary" href="{{firstLink}}" role="button">&laquo;</a>
+                        <a class="mx-1 btn btn-outline-primary" href="{{prevLink}}" role="button">&lsaquo;</a>
                         {{/unless}}
-                        <div class="mx-1 btn btn-outline-danger disabled">{{page}}</div>
+                        <div class="mx-1 btn btn-outline-primary disabled">{{page}}</div>
                         {{#unless disableNext}}
-                        <a class="mx-1 btn btn-outline-danger" href="{{nextLink}}" role="button">&rsaquo;</a>
-                        <a class="mx-1 btn btn-outline-danger" href="{{lastLink}}" role="button">&raquo;</a>
+                        <a class="mx-1 btn btn-outline-primary" href="{{nextLink}}" role="button">&rsaquo;</a>
+                        <a class="mx-1 btn btn-outline-primary" href="{{lastLink}}" role="button">&raquo;</a>
                         {{/unless}}
                     </div>
                 </div>

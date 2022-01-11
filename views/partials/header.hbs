@@ -23,11 +23,10 @@
                 </div>
             </form>
 
-            <!-- ô đăng nhập đăng ký giỏ hàng trên header  -->
             <ul class="navbar-nav ms-auto">
                 {{#if user}}
                 <li class="nav-item">
-                    <a class="btn btn-outline-danger text-uppercase" href="/cart" style="display:inline-block">
+                    <a class="btn btn-outline-primary text-uppercase" href="/cart" style="display:inline-block">
                         Giỏ Hàng</a>
                 </li>
                 <li class="nav-item ms-4 dropdown d-flex align-items-center">
@@ -43,7 +42,7 @@
                 {{/if}}
                 {{#unless user}}
                 <li class="nav-item ms-4">
-                    <a class="btn btn-outline-danger rounded text-uppercase" href="/auth/login">
+                    <a class="btn btn-outline-primary rounded text-uppercase" href="/auth/login">
                         Tài Khoản
                     </a>
                 </li>
@@ -53,7 +52,6 @@
     </div>
 </nav>
 
-<!-- thanh "danh muc san pham" đã được ẩn bên trong + hotline + ho tro truc tuyen -->
 <section class="navBar-tail">
     <div class="container text-white">
         <div class="row justify">
