@@ -324,6 +324,10 @@ $(function () {
 
     onLoadCartNumbers();
 
+    // $('.items .row').isotope({
+    //     itemSelector: '.item',
+    // })
+
     $('.tag a').click(function (e) {
         const author = $(this).data('author');
 
