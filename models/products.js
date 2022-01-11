@@ -6,6 +6,11 @@ const categoriesModel = require('./category');
 const isValidUnsigned = num =>
     num !== undefined && num !== null && typeof num === 'number' && !isNaN(num) && isFinite(num) && num >= 0;
 
+/*
+This function is created so that we can be flexible in query params when we do a search query.
+It can handle keywords, product Id, multiple category ids, chunk size and offset for pagination
+and the lack of those params.
+*/
 const findRaw = async params => {
     const { id, productId, categoryId, keyword, chunkSize, offset, isFindOne } = params;
     const product = {};
@@ -23,6 +28,8 @@ const findRaw = async params => {
     (isValidUnsigned(chunkSize) && isValidUnsigned(offset)) && (query.skip(offset * chunkSize).limit(chunkSize));
     return query;
 };
+
+const getAll = () => getCollection(COLLECTION_NAME).find({}).toArray();
 
 const find = async params => (await findRaw(params)).toArray();
 const findOne = params => findRaw({ ...params, isFindOne: true });
@@ -44,6 +51,7 @@ const toRenderData = data => {
 };
 
 module.exports = {
+    getAll,
     find,
     findOne,
     getSize,

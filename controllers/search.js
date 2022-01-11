@@ -4,13 +4,13 @@ const constructLink = (keyword, categoryId, page, chunkSize, size) => {
     const link = '/search?' +
          Object.entries({ keyword, categoryId, chunkSize })
              .filter(([_, v]) => v !== undefined)
-             .map(([k, v]) => k + '=' + v)
-             .reduce((a, v) => a + '&' + v);
+             .map(kv => kv.join('='))
+             .join('&');
     return {
         disablePrev: page === 1,
         disableNext: chunkSize * page >= size,
         firstLink: `${link}&page=1`,
-        lastLink: `${link}&page=${Math.floor(size / chunkSize)}`,
+        lastLink: `${link}&page=${Math.ceil(size / chunkSize)}`,
         nextLink: `${link}&page=${page + 1}`,
         prevLink: `${link}&page=${page - 1}`
     };
@@ -24,11 +24,11 @@ const search = async (req, res) => {
 
     const products = await productsModel.find({
         keyword,
+        categoryId,
         offset: page - 1,
-        chunkSize,
-        categoryId
+        chunkSize
     });
-    const size = products.length;
+    const size = await productsModel.getSize({ keyword, categoryId });
     const renderProduct = products.map(productsModel.toRenderData);
 
     res.render('search', {

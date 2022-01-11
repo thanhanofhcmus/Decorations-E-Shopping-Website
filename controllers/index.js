@@ -3,11 +3,11 @@ const categoryModel = require('../models/category');
 
 module.exports = async (req, res) => {
     const categories = await categoryModel.list();
-    const allProducts = await Promise.all(categories.map(async category => {
-        const products = (await productsModel.find({ categoryId: category.id })).map(productsModel.toRenderData);
-        return { category, products };
+    const products = await productsModel.getAll();
+    const allProducts = categories.map(category => ({
+        category,
+        products: products.filter(p => p.categoryId === category.id).map(productsModel.toRenderData)
     }));
-
     res.render('index', {
         title: 'Trang Chủ',
         allProducts
