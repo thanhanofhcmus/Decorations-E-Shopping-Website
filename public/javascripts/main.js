@@ -1,3 +1,5 @@
+// const $ = _test => { };
+
 $(function () {
     $('._product-block').slick({
         dots: false,
@@ -136,20 +138,10 @@ $(function () {
     $('#step2content-id').on('hide.bs.collapse', function () {
         $(this).prev().removeClass('active');
     });
-    $('#step3content-id').on('show.bs.collapse', function () {
-        $(this).prev().addClass('active');
-    });
-    $('#step3content-id').on('hide.bs.collapse', function () {
-        $(this).prev().removeClass('active');
-    });
 
     // nut btn-shopping-without-signup
     $('#step1content-id').collapse('show');
-    $('.btn-shopping-without-signup').click(function (e) {
-        $('#step1content-id').collapse('hide');
-        $('#step2content-id').collapse('show');
-    });
-
+    
     // validate
     $('#form-signUp').validate({
         rules: {
@@ -158,7 +150,7 @@ $(function () {
             },
             phone: {
                 required: true,
-                minlength: 8
+                minlength: 10
             },
             password: {
                 required: true,
@@ -223,23 +215,14 @@ $(function () {
         }
     });
 
-    $('#form-signUp-cart').validate({
+    $('#form-delivery-address').validate({
         rules: {
             name: {
                 required: true
             },
             phone: {
                 required: true,
-                minlength: 8
-            },
-            password: {
-                required: true,
-                minlength: 6
-            },
-            confirm_password: {
-                required: true,
-                minlength: 6,
-                equalTo: '#inputPassword'
+                minlength: 10
             },
             email: {
                 required: true,
@@ -253,39 +236,6 @@ $(function () {
             phone: {
                 required: 'Vui lòng nhập số điện thoại',
                 minlength: 'Số máy quý khách vừa nhập là số không có thực'
-            },
-            password: {
-                required: 'Vui lòng nhập mật khẩu',
-                minlength: 'Vui lòng nhập ít nhất 6 kí tự'
-            },
-            confirm_password: {
-                required: 'Vui lòng nhập lại mật khẩu',
-                minlength: 'Vui lòng nhập ít nhất 6 kí tự',
-                equalTo: 'Mật khẩu không trùng'
-            },
-            email: {
-                required: 'Vui lòng nhập email',
-                minlength: 'Email không hợp lệ',
-                email: 'Vui lòng nhập email'
-            }
-        }
-    });
-
-    $('#form-signIn-cart').validate({
-        rules: {
-            password: {
-                required: true,
-                minlength: 6
-            },
-            email: {
-                required: true,
-                email: true
-            }
-        },
-        messages: {
-            password: {
-                required: 'Vui lòng nhập mật khẩu',
-                minlength: 'Vui lòng nhập ít nhất 6 kí tự'
             },
             email: {
                 required: 'Vui lòng nhập email',
@@ -366,100 +316,6 @@ $(function () {
         }
     }
 
-    function displayCart() {
-        let cartItems = localStorage.getItem('productsInCart');
-        cartItems = JSON.parse(cartItems);
-        const cartContent = document.querySelector('.cart-content');
-        const cartCost = localStorage.getItem('totalCost');
-        const productNumbers = localStorage.getItem('cartNumbers');
-
-        if (cartItems == null) {
-            $('.cart-empty').removeClass('d-none');
-            $('.cart').addClass('d-none');
-            $('.cart-steps').addClass('d-none');
-        }
-        if (cartItems && cartContent) {
-            $('.cart-empty').addClass('d-none');
-            $('.cart').removeClass('d-none');
-            $('.cart-steps').removeClass('d-none');
-
-            cartContent.innerHTML = '';
-
-            cartContent.innerHTML += `
-            <h6 class="header-gio-hang">GIỎ HÀNG CỦA BẠN <span>(${productNumbers} sản phẩm)</span></h6>
-            <div class="cart-list-items">
-            `;
-            Object.values(cartItems).forEach(item => {
-                cartContent.innerHTML += `
-                    <div class="cart-item d-flex">
-                        <a href="product-item.html" class="img">
-                            <img src="images/${item.tag}.jpg" class="img-fluid" alt="${item.tag}">
-                        </a>
-                        <div class="item-caption d-flex w-100">
-                            <div class="item-info ml-3">
-                                <a href="product-item.html" class="ten">${item.name}</a>
-                                <div class="_number d-flex">
-                                    <div class="input-number input-group mb-3">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text btn-spin btn-dec">-</span>
-                                        </div>
-                                        <input type="text" value="${item.inCart}" class="product-number  text-center">
-                                        <div class="input-group-append">
-                                            <span class="input-group-text btn-spin btn-inc">+</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item-price ml-auto d-flex flex-column align-items-end">
-                                <div class="new-price">${parseFloat(item.price).toFixed(3)} ₫</div>
-                                <div class="old-price">${parseFloat(item.old_price).toFixed(3)} ₫</div>
-                                <span class="remove mt-auto"><i class="far fa-trash-alt"></i></span>
-                            </div>
-                        </div>
-                    </div>
-                    <hr>
-                `;
-            });
-
-            cartContent.innerHTML += `
-            </div>
-
-            <div class="row">
-                <div class="col-md-3">
-                    <a href="index.html" class="btn buy-more-btn mb-3">Mua thêm</a>
-                </div>
-                <div class="col-md-5 offset-md-4">
-                    <div class="total-money">
-                        <div class="group d-flex justify-content-between">
-                            <p class="label">Tạm tính:</p>
-                            <p class="tamtinh">${parseFloat(cartCost).toFixed(3)} ₫</p>
-                        </div>
-                        <div class="group d-flex justify-content-between">
-                            <p class="label">Giảm giá:</p>
-                            <p class="giamgia">0 ₫</p>
-                        </div>
-                        <div class="group d-flex justify-content-between">
-                            <p class="label">Phí vận chuyển:</p>
-                            <p class="phivanchuyen">0 ₫</p>
-                        </div>
-                        <div class="group d-flex justify-content-between">
-                            <p class="label">Phí dịch vụ:</p>
-                            <p class="phidicvu">0 ₫</p>
-                        </div>
-                        <div class="group d-flex justify-content-between align-items-center">
-                            <strong class="text-uppercase">Tổng cộng:</strong>
-                            <p class="_total">${parseFloat(cartCost).toFixed(3)} ₫</p>
-                        </div>
-                        <small class="note d-flex justify-content-end text-muted">
-                            (Giá đã bao gồm VAT)
-                        </small>
-                    </div>
-                </div>
-            </div>
-            `;
-        }
-    }
-
     $('.btn-checkout').click(function (e) {
         localStorage.clear();
         location.reload(true);
@@ -467,11 +323,6 @@ $(function () {
     });
 
     onLoadCartNumbers();
-    displayCart();
-
-    // $('.items .row').isotope({
-    //     itemSelector: '.item',
-    // })
 
     $('.tag a').click(function (e) {
         const author = $(this).data('author');

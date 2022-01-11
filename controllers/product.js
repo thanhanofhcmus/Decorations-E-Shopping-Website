@@ -9,7 +9,7 @@ const getOne = async (req, res) => {
     res.render('detail-product', { ...product, title: product.name, category });
 };
 
-const updateOne = async (req, res) => {
+const addToCart = async (req, res) => {
     const id = req.params.id;
     const data = req.body;
     const product = productModel.toRenderData(await productModel.findOne({ id }));
@@ -31,5 +31,5 @@ const updateOne = async (req, res) => {
 
 module.exports = {
     getOne,
-    updateOne
+    addToCart
 };
