@@ -5,8 +5,10 @@ const userModel = require('../models/users');
 const getOne = async (req, res) => {
     const id = req.params.id;
     const product = productModel.toRenderData(await productModel.findOne({ id }));
-    const category = await categoryModel.find({ categoryId: product.categoryId });
-    res.render('detail-product', { ...product, title: product.name, category });
+    const category = await categoryModel.find({ id: product.categoryId });
+    const data = (await productModel.find({ categoryId: category[0].id })).map(productModel.toRenderData);
+    const relatedProducts = data.slice(0, Math.min(6, data.length));
+    res.render('detail-product', { ...product, title: product.name, category, relatedProducts });
 };
 
 const addToCart = async (req, res) => {

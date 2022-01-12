@@ -227,6 +227,9 @@ $(function () {
             email: {
                 required: true,
                 email: true
+            },
+            address: {
+                required: true
             }
         },
         messages: {
@@ -241,6 +244,9 @@ $(function () {
                 required: 'Vui lòng nhập email',
                 minlength: 'Email không hợp lệ',
                 email: 'Vui lòng nhập email'
+            },
+            address: {
+                required: 'Vui lòng nhập địa chỉ giao hàng'
             }
         }
     });
