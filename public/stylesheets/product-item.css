@@ -678,12 +678,6 @@ h6.card-title.ten {
     }
 }
 
-.img img {
-    height: 80px;
-    width: 60px;
-    margin-bottom: 8px;
-}
-
 .book-type ul li {
     border: 1px solid #d1d1d1;
     border-radius: 3px;

@@ -48,112 +48,134 @@
                     class="text-muted text-decoration-line-through ml-2">{{oldPrice}} ₫</span></div>
                 <div class="price">Giá bán: <span class="new-price fs-2 fw-bold text-danger">{{price}} ₫
                 </div>
-                <div class="money-saved">Tiết kiệm: <b>{{saved}} ₫&nbsp;&nbsp;</b> <span
-                    class="sale">-{{discount}}%</span> </div>
-              </div>
-              <div class="_number d-flex">
-                <label class="fw-bold">Số lượng: </label>
-                <div class="input-number input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text btn-spin btn-dec">-</span>
-                  </div>
-                  <input type="text" value="1" class="product-number  text-center">
-                  <div class="input-group-append">
-                    <span class="input-group-text btn-spin btn-inc">+</span>
+                <div class="col-md-7 info-block">
+                  <div class="row">
+                    <div class="col-md-12 header">
+                      <hr>
+                      <h4 class="ten">{{name}}</h4>
+                    </div>
+                    <div class="col-md-7">
+                      <div class=>
+                        <div class="normal-price">Giá gốc:&nbsp;<span
+                            class="text-muted text-decoration-line-through ml-2">{{oldPrice}} ₫</span></div>
+                        <div class="price">Giá bán: <span class="new-price fs-2 fw-bold text-danger">{{price}} ₫</div>
+                        <div class="money-saved">Tiết kiệm: <b>{{saved}} ₫&nbsp;&nbsp;</b> <span
+                            class="sale">-{{discount}}%</span> </div>
+                      </div>
+                      <form method="post">
+                        <div class="_number d-flex">
+                          <label class="fw-bold">Số lượng: </label>
+                          <div class="input-number input-group mb-3">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text btn-spin btn-dec">-</span>
+                            </div>
+                            <input type="text" id="quanlity" name="quanlity" value="1"
+                              class="product-number  text-center">
+                            <div class="input-group-append">
+                              <span class="input-group-text btn-spin btn-inc">+</span>
+                            </div>
+                          </div>
+                        </div>
+                        <button class="buy-btn btn w-100 text-uppercase" type="submit">Chọn mua
+                    </div>
+                    </form>
+                    <a class="how-to-buy text-decoration-none" href="#">(Vui lòng xem hướng dẫn mua hàng)</a>
                   </div>
                 </div>
               </div>
-              <div class="buy-btn btn w-100 text-uppercase">Chọn mua</div>
             </div>
+            <div class="buy-btn btn w-100 text-uppercase">Chọn mua</div>
           </div>
         </div>
+      </div>
 
-        <div class="product-description col">
-          <nav>
-            <div class="nav nav-tabs" id="nav-tab" role="tablist">
-              <button class="nav-item nav-link active text-uppercase" id="nav-introduce-tab" data-bs-toggle="tab"
-                href="#nav-introduce" role="tab" aria-controls="nav-introduce" aria-selected="true">Giới
-                thiệu</button>
-              <button class="nav-item nav-link text-uppercase" id="review-nav-tab" data-bs-toggle="tab"
-                href="#review-nav" role="tab" aria-controls="review-nav" aria-selected="false">Đánh
-                giá</button>
-            </div>
-          </nav>
-          <div class="tab-content py-3" id="nav-tabContent">
-            <div class="tab-pane fade show active ml-3" id="nav-introduce" role="tabpanel"
-              aria-labelledby="nav-introduce-tab" style="white-space: pre-line;">
-              {{content}}
-            </div>
-            <div class="tab-pane fade" id="review-nav" role="tabpanel" aria-labelledby="review-nav-tab">
-              <div class="row">
-                <div class="col-md-3 text-center">
-                  <p class="title">Đánh giá trung bình</p>
-                  <div class="diem">{{rateAverage}}/5</div>
-                  <p class="review-number text-muted">({{rateCount}} đánh giá)</p>
-                </div>
-                <div class="col-md-6">
-                  <div class="review-title text-center">
-                    {{#each ratePercents}}
-                    <div class="margin-bottom d-flex align-items-center">
-                      {{this.key}}
-                      <i class="fa fa-star {{#if this.count}}text-primary{{/if}}"></i>
-                      <div class="progress mx-2 col-md-6">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="{{this.percent}}" aria-valuemin="0"
-                          aria-valuemax="100" style="width: {{this.percent}}%;"></div>
-                      </div>
-                      <div class="col-md-6">{{this.percent}}% ({{this.count}} đánh giá)</div>
-                    </div>
-                    {{/each}}
-                  </div>
-                </div>
+      <div class="product-description col">
+        <nav>
+          <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <button class="nav-item nav-link active text-uppercase" id="nav-introduce-tab" data-bs-toggle="tab"
+              href="#nav-introduce" role="tab" aria-controls="nav-introduce" aria-selected="true">Giới
+              thiệu</button>
+            <button class="nav-item nav-link text-uppercase" id="review-nav-tab" data-bs-toggle="tab" href="#review-nav"
+              role="tab" aria-controls="review-nav" aria-selected="false">Đánh
+              giá</button>
+          </div>
+        </nav>
+        <div class="tab-content py-3" id="nav-tabContent">
+          <div class="tab-pane fade show active ml-3" id="nav-introduce" role="tabpanel"
+            aria-labelledby="nav-introduce-tab" style="white-space: pre-line;">
+            {{content}}
+          </div>
+          <div class="tab-pane fade" id="review-nav" role="tabpanel" aria-labelledby="review-nav-tab">
+            <div class="row">
+              <div class="col-md-3 text-center">
+                <p class="title">Đánh giá trung bình</p>
+                <div class="diem">{{rateAverage}}/5</div>
+                <p class="review-number text-muted">({{rateCount}} đánh giá)</p>
               </div>
-              <hr class="my-3">
-              <div class="row">
-                <div class="col-8 vstack gap-3 border-end">
-                  {{#if comments}}
-                  {{#each comments}}
-                  <div class="border-bottom pb-2">
-                    <div>
-                      {{this.userName}}
-                      <div class="float-end">{{this.rate}} <i class="fa fa-star text-primary"></i></div></div>
-                    {{#if this.comment}}<div style="white-space: pre-line;">{{this.comment}}</div>{{/if}}
+              <div class="col-md-6">
+                <div class="review-title text-center">
+                  {{#each ratePercents}}
+                  <div class="margin-bottom d-flex align-items-center">
+                    {{this.key}}
+                    <i class="fa fa-star {{#if this.count}}text-primary{{/if}}"></i>
+                    <div class="progress mx-2 col-md-6">
+                      <div class="progress-bar" role="progressbar" aria-valuenow="{{this.percent}}" aria-valuemin="0"
+                        aria-valuemax="100" style="width: {{this.percent}}%;"></div>
+                    </div>
+                    <div class="col-md-6">{{this.percent}}% ({{this.count}} đánh giá)</div>
                   </div>
                   {{/each}}
-                  {{/if}}
-                  {{#unless comments}}
-                  <h1>Không có đánh giá nào</h1>
-                  {{/unless}}
                 </div>
-                <div class="col-4 border-start text-center">
-                  {{#if user}}
-                  <form class="review-form" action="/products/add-comment" method="post" id="comment-form">
-                    <h6 class="title text-uppercase my-2">GỬI ĐÁNH GIÁ CỦA BẠN</h6>
-                    <span class="your-review">Đánh giá của bạn về sản phẩm này:</span>
-                    <div class="form-group mt-3 vstack gap-3">
-                      <select class="form-select" name="rate">
-                        <option value="1" selected>1 sao <i class="fa fa-star"></i></option>
-                        <option value="2">2 sao</option>
-                        <option value="3">3 sao</option>
-                        <option value="4">4 sao</option>
-                        <option value="5">5 sao</option>
-                      </select>
-                      <textarea form="comment-form" class="form-control" name="comment"
+              </div>
+            </div>
+            <hr class="my-3">
+            <div class="row">
+              <div class="col-8 vstack gap-3 border-end">
+                {{#if comments}}
+                {{#each comments}}
+                <div class="border-bottom pb-2">
+                  <div>
+                    {{this.userName}}
+                    <div class="float-end">{{this.rate}} <i class="fa fa-star text-primary"></i></div>
+                  </div>
+                  {{#if this.comment}}<div style="white-space: pre-line;">{{this.comment}}</div>{{/if}}
+                </div>
+                {{/each}}
+                {{/if}}
+                {{#unless comments}}
+                <h1>Không có đánh giá nào</h1>
+                {{/unless}}
+              </div>
+              <div class="col-4 border-start text-center">
+                {{#if user}}
+                <form class="review-form" action="/products/add-comment" method="post" id="comment-form">
+                  <h6 class="title text-uppercase my-2">GỬI ĐÁNH GIÁ CỦA BẠN</h6>
+                  <span class="your-review">Đánh giá của bạn về sản phẩm này:</span>
+                  <div class="form-group mt-3 vstack gap-3">
+                    <select class="form-select" name="rate">
+                      <option value="1" selected>1 sao <i class="fa fa-star"></i></option>
+                      <option value="2">2 sao</option>
+                      <option value="3">3 sao</option>
+                      <option value="4">4 sao</option>
+                      <option value="5">5 sao</option>
+                    </select>
+                    <textarea form="comment-form" class="form-control" name="comment"
                       placeholder="Đánh giá của bạn về sản phẩm này"></textarea>
-                      <input type="text" name="id" value="{{id}}" class="d-none">
-                      <input type="text" name="userName" value="{{user.name}}" class="d-none">
-                    </div>
-                    <button type="submit" class="btn btn-outline-primary mt-3">Gửi bình luận</i>
-                  </form>
-                  {{/if}}
-                  {{#unless user}}
-                  <a href="/auth/login" class="btn btn-outline-primary mt-3">Đăng nhập để đánh giá</a>
-                  {{/unless}}
-                </div>
+                    <input type="text" name="id" value="{{id}}" class="d-none">
+                    <input type="text" name="userName" value="{{user.name}}" class="d-none">
+                  </div>
+                  <button type="submit" class="btn btn-outline-primary mt-3">Gửi bình luận</i>
+                </form>
+                {{/if}}
+                {{#unless user}}
+                <a href="/auth/login" class="btn btn-outline-primary mt-3">Đăng nhập để đánh giá</a>
+                {{/unless}}
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
   </div>
 </section>

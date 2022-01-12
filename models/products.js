@@ -30,6 +30,7 @@ const findRaw = async params => {
 };
 
 const getAll = () => getCollection(COLLECTION_NAME).find({}).toArray();
+const findByIds = ids => getCollection(COLLECTION_NAME).find({ id: { $in: ids } }).toArray();
 
 const find = async params => (await findRaw(params)).toArray();
 const findOne = params => findRaw({ ...params, isFindOne: true });
@@ -62,6 +63,7 @@ const toRenderData = data => {
 
 module.exports = {
     getAll,
+    findByIds,
     find,
     findOne,
     getSize,
