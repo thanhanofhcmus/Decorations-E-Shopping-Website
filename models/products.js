@@ -36,7 +36,10 @@ const findOne = params => findRaw({ ...params, isFindOne: true });
 const getSize = async params => (await findRaw(params)).count();
 
 const toRenderData = data => {
-    const ratePercents = data.rate.map((v, i) => ({ key: i, percent: Math.round(v * 100 / data.rateCount), count: v })).splice(1).reverse();
+    const ratePercents = data.rate
+        .map((v, i) => ({ key: i, percent: Math.round(v * 100 / data.rateCount), count: v }))
+        .splice(1)
+        .reverse();
     const price = Math.floor(data.price * (1 - data.discount));
     const saved = data.price - price;
     return {

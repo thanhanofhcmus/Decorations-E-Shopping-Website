@@ -414,12 +414,6 @@ h3.card-title.ten {
     border: none;
 }
 
-hr {
-    margin-bottom: 0;
-    position: relative;
-    top: -31px;
-}
-
 .recommended-book .col-lg {
     padding-bottom: 30px;
 }

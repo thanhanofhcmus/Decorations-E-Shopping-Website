@@ -1,138 +1,147 @@
 <section class="breadcrumb">
-    <div class="container">
-        <ol class="breadcrumb mb-0 py-3 bg-light">
-            <li class="breadcrumb-item"><a class="text-danger" href="/">Trang chủ</a></li>
-            <li class="breadcrumb-item"><a class="text-danger" href="/search?categoryId={{category.id}}">{{category.name}}</a></li>
-            <li class="breadcrumb-item active">{{title}}</li>
-        </ol>
-    </div>
+  <div class="container">
+    <ol class="breadcrumb mb-0 py-3 bg-light">
+      <li class="breadcrumb-item"><a class="text-primary"
+          href="/search?categoryId={{category.id}}">{{category.name}}</a>
+      </li>
+      <li class="breadcrumb-item active">{{title}}</li>
+    </ol>
+  </div>
 </section>
 
 <section class="product-page mb-4">
-    <div class="container">
-        <div class="product-detail bg-white p-4">
-            <div class="row">
-                <div class="col-md-5 image-block">
-                    <div class="mb-4">
-                        <a class="active" href="{{imagesList.[0]}}" data-fancybox="thumb-img">
-                            <img class="product-image" src="{{imagesList.[0]}}" style="width: 100%;">
-                        </a>
-                        {{#if imagesList.[1]}}
-                        <a href="{{imagesList.[1]}}" data-fancybox="thumb-img"></a>
-                        {{/if}}
-                        {{#if imagesList.[2]}}
-                        <a href="{{imagesList.[2]}}" data-fancybox="thumb-img"></a>
-                        {{/if}}
-                    </div>
-                    <div class="list-image-detail d-flex mb-4" style="margin-left: 2rem;">
-                        <img class="thumb-img thumb1 mr-3 me-3" src="{{imagesList.[0]}}" class="img-fluid">
-                        {{#if imagesList.[1]}}
-                        <img class="thumb-img thumb2 me-3" src="{{imagesList.[1]}}" class="img-fluid">
-                        {{/if}}
-                        {{#if imagesList.[2]}}
-                        <img class="thumb-img thumb3 me-3" src="{{imagesList.[2]}}" class="img-fluid">
-                        {{/if}}
-                    </div>
-                </div>
-                <div class="col-md-7 info-block">
-                    <div class="row">
-                        <div class="col-md-12 header">
-                            <h4 class="ten">{{name}}</h4>
-                            <div class="rate">
-                                <i class="fa fa-star active"></i>
-                                <i class="fa fa-star active"></i>
-                                <i class="fa fa-star active"></i>
-                                <i class="fa fa-star active"></i>
-                                <i class="fa fa-star "></i>
-                            </div>
-                            <hr>
-                        </div>
-                        <div class="col-md-7">
-                            <div class=>
-                                <div class="normal-price">Giá gốc:&nbsp;<span class="text-muted text-decoration-line-through ml-2">{{oldPrice}} ₫</span></div>
-                                <div class="price">Giá bán: <span class="new-price fs-2 fw-bold text-danger">{{price}} ₫</div>
-                                <div class="money-saved">Tiết kiệm: <b>{{saved}} ₫&nbsp;&nbsp;</b> <span class="sale">-{{discount}}%</span> </div>
-                            </div>
-                            <div class="_number d-flex">
-                                <label class="fw-bold">Số lượng: </label>
-                                <div class="input-number input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text btn-spin btn-dec">-</span>
-                                    </div>
-                                    <input type="text" value="1" class="product-number  text-center">
-                                    <div class="input-group-append">
-                                        <span class="input-group-text btn-spin btn-inc">+</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="buy-btn btn w-100 text-uppercase">Chọn mua</div>
-                            <a class="how-to-buy text-decoration-none" href="#">(Vui lòng xem hướng dẫn mua hàng)</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="product-description col-md-9">
-                    <nav>
-                        <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                            <button class="nav-item nav-link active text-uppercase" id="nav-introduce-tab" data-bs-toggle="tab"
-                                href="#nav-introduce" role="tab" aria-controls="nav-introduce" aria-selected="true">Giới
-                                thiệu</button>
-                            <button class="nav-item nav-link text-uppercase" id="review-nav-tab" data-bs-toggle="tab"
-                                href="#review-nav" role="tab" aria-controls="review-nav" aria-selected="false">Đánh
-                                giá của độc giả</button>
-                        </div>
-                    </nav>
-                    <div class="tab-content py-3" id="nav-tabContent">
-                        <div class="tab-pane fade show active ml-3" id="nav-introduce" role="tabpanel"
-                            aria-labelledby="nav-introduce-tab" style="white-space: pre-line;">
-                            {{content}}
-                        </div>
-                        <div class="tab-pane fade" id="review-nav" role="tabpanel" aria-labelledby="review-nav-tab">
-                            <div class="row">
-                                <div class="col-md-3 text-center">
-                                    <p class="title">Đánh giá trung bình</p>
-                                    <div class="diem">{{rateStar}}/5</div>
-                                    <p class="review-number text-muted">({{rateCount}} đánh giá)</p>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="review-title text-center">
-                                        {{#each ratePercents}}
-                                        <div class="margin-bottom d-flex align-items-center">
-                                            {{this.key}}
-                                            <i class="fa fa-star"></i>
-                                            <div class="progress mx-2 col-md-6">
-                                                <div class="progress-bar" role="progressbar" aria-valuenow="{{this.percent}}"
-                                                    aria-valuemin="0" aria-valuemax="100" style="width: {{this.percent}}%;"></div>
-                                            </div>
-                                            <div class="col-md-6">{{this.percent}}% ({{this.count}} đánh giá)</div>
-                                        </div>
-                                        {{/each}}
-                                        <div class="btn btn-outline-danger write-review mt-3">Viết đánh giá của bạn</div>
-                                    </div>
-                                    <!-- nội dung của form đánh giá  -->
-                                    <div class="review-form">
-                                        <h6 class="title text-uppercase">GỬI ĐÁNH GIÁ CỦA BẠN</h6>
-                                        <span class="your-review">Đánh giá của bạn về sản phẩm này:</span>
-                                        <div
-                                            class="rating d-flex flex-row-reverse align-items-center justify-content-end">
-                                            <input type="radio" name="star" id="star1"><label for="star1"></label>
-                                            <input type="radio" name="star" id="star2"><label for="star2"></label>
-                                            <input type="radio" name="star" id="star3"><label for="star3"></label>
-                                            <input type="radio" name="star" id="star4"><label for="star4"></label>
-                                            <input type="radio" name="star" id="star5"><label for="star5"></label>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" class="txtComment w-100"
-                                                placeholder="Đánh giá của bạn về sản phẩm này">
-                                        </div>
-                                        <div class="btn btn-outline-danger send-bl-btn">Gửi bình luận</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <div class="container">
+    <div class="product-detail bg-white p-4">
+      <div class="row">
+        <div class="col-md-7 image-block">
+          <div class="mb-4">
+            <a class="active" href="{{imagesList.[0]}}" data-fancybox="thumb-img">
+              <img class="product-image" src="{{imagesList.[0]}}" style="width: 100%;">
+            </a>
+            {{#if imagesList.[1]}}
+            <a href="{{imagesList.[1]}}" data-fancybox="thumb-img"></a>
+            {{/if}}
+            {{#if imagesList.[2]}}
+            <a href="{{imagesList.[2]}}" data-fancybox="thumb-img"></a>
+            {{/if}}
+          </div>
+          <div class="list-image-detail d-flex mb-4" style="margin-left: 2rem;">
+            <img class="thumb-img thumb1 mr-3 me-3" src="{{imagesList.[0]}}" class="img-fluid">
+            {{#if imagesList.[1]}}
+            <img class="thumb-img thumb2 me-3" src="{{imagesList.[1]}}" class="img-fluid">
+            {{/if}}
+            {{#if imagesList.[2]}}
+            <img class="thumb-img thumb3 me-3" src="{{imagesList.[2]}}" class="img-fluid">
+            {{/if}}
+          </div>
         </div>
+        <div class="col-md-5 info-block">
+          <hr class="mb-3">
+          <div class="row">
+            <div class="col-md-12 header">
+              <h4>{{name}}</h4>
+            </div>
+            <div class="col-md-7">
+              <div class=>
+                <div class="normal-price">Giá gốc:&nbsp;<span
+                    class="text-muted text-decoration-line-through ml-2">{{oldPrice}} ₫</span></div>
+                <div class="price">Giá bán: <span class="new-price fs-2 fw-bold text-danger">{{price}} ₫
+                </div>
+                <div class="money-saved">Tiết kiệm: <b>{{saved}} ₫&nbsp;&nbsp;</b> <span
+                    class="sale">-{{discount}}%</span> </div>
+              </div>
+              <div class="_number d-flex">
+                <label class="fw-bold">Số lượng: </label>
+                <div class="input-number input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text btn-spin btn-dec">-</span>
+                  </div>
+                  <input type="text" value="1" class="product-number  text-center">
+                  <div class="input-group-append">
+                    <span class="input-group-text btn-spin btn-inc">+</span>
+                  </div>
+                </div>
+              </div>
+              <div class="buy-btn btn w-100 text-uppercase">Chọn mua</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-description col">
+          <nav>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+              <button class="nav-item nav-link active text-uppercase" id="nav-introduce-tab" data-bs-toggle="tab"
+                href="#nav-introduce" role="tab" aria-controls="nav-introduce" aria-selected="true">Giới
+                thiệu</button>
+              <button class="nav-item nav-link text-uppercase" id="review-nav-tab" data-bs-toggle="tab"
+                href="#review-nav" role="tab" aria-controls="review-nav" aria-selected="false">Đánh
+                giá</button>
+            </div>
+          </nav>
+          <div class="tab-content py-3" id="nav-tabContent">
+            <div class="tab-pane fade show active ml-3" id="nav-introduce" role="tabpanel"
+              aria-labelledby="nav-introduce-tab" style="white-space: pre-line;">
+              {{content}}
+            </div>
+            <div class="tab-pane fade" id="review-nav" role="tabpanel" aria-labelledby="review-nav-tab">
+              <div class="row">
+                <div class="col-md-3 text-center">
+                  <p class="title">Đánh giá trung bình</p>
+                  <div class="diem">{{rateStar}}/5</div>
+                  <p class="review-number text-muted">({{rateCount}} đánh giá)</p>
+                </div>
+                <div class="col-md-6">
+                  <div class="review-title text-center">
+                    {{#each ratePercents}}
+                    <div class="margin-bottom d-flex align-items-center">
+                      {{this.key}}
+                      <i class="fa fa-star"></i>
+                      <div class="progress mx-2 col-md-6">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="{{this.percent}}" aria-valuemin="0"
+                          aria-valuemax="100" style="width: {{this.percent}}%;"></div>
+                      </div>
+                      <div class="col-md-6">{{this.percent}}% ({{this.count}} đánh giá)</div>
+                    </div>
+                    {{/each}}
+                  </div>
+                </div>
+              </div>
+              <hr class="my-3">
+              <div class="row">
+                <div class="col-8 vstack gap-3 border-end">
+                  {{#if comment}}
+                  {{#each comment}}
+                  <div class="border-bottom pb-2">
+                    <div>{{this.userId}} <div class="float-end">{{this.rate}} sao</div></div>
+                    <div style="white-space: pre-line;">{{this.comment}}</div>
+                  </div>
+                  {{/each}}
+                  {{/if}}
+                  {{#unless comment}}
+                  <h1>Không có đánh giá nào</h1>
+                  {{/unless}}
+                </div>
+                <div class="col-4 border-start text-center">
+                  {{#if user}}
+                  <div class="review-form">
+                    <h6 class="title text-uppercase my-2">GỬI ĐÁNH GIÁ CỦA BẠN</h6>
+                    <span class="your-review">Đánh giá của bạn về sản phẩm này:</span>
+                    <div class="form-group mt-3 vstack gap-3">
+                      <input type="range" class="form-range form-control" min="0" max="5">
+                      <textarea class="form-control" placeholder="Đánh giá của bạn về sản phẩm này"> </textarea>
+                    </div>
+                    <button type="submit" class="btn btn-outline-primary mt-3">Gửi bình luận</>
+                  </div>
+                  {{/if}}
+                  {{#unless user}}
+                  <a href="/auth/login" class="btn btn-outline-primary mt-3">Đăng nhập để đánh giá</a>
+                  {{/unless}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </section>

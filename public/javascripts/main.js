@@ -117,12 +117,6 @@ $(function () {
         }
     });
 
-    // gui danh gia
-    $('.review-form').hide(200);
-    $('.write-review').click(function (e) {
-        $('.review-form').toggle(200);
-    });
-
     // rotate chevron
     $('#step1content-id').on('show.bs.collapse', function () {
         $(this).prev().addClass('active');
