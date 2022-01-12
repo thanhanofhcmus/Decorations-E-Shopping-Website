@@ -1,8 +1,9 @@
 <section class="breadcrumb">
   <div class="container">
     <ol class="breadcrumb mb-0 py-3 bg-light">
-      <li class="breadcrumb-item"><a class="text-primary"
-          href="/search?categoryId={{category.id}}">{{category.name}}</a>
+      <li class="breadcrumb-item"><a class="text-primary" href="/">Trang chủ</a></li>
+      <li class="breadcrumb-item">
+        <a class="text-primary" href="/search?categoryId={{category.id}}">{{category.name}}</a>
       </li>
       <li class="breadcrumb-item active">{{title}}</li>
     </ol>
@@ -87,7 +88,7 @@
               <div class="row">
                 <div class="col-md-3 text-center">
                   <p class="title">Đánh giá trung bình</p>
-                  <div class="diem">{{rateStar}}/5</div>
+                  <div class="diem">{{rateAverage}}/5</div>
                   <p class="review-number text-muted">({{rateCount}} đánh giá)</p>
                 </div>
                 <div class="col-md-6">
@@ -95,7 +96,7 @@
                     {{#each ratePercents}}
                     <div class="margin-bottom d-flex align-items-center">
                       {{this.key}}
-                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star {{#if this.count}}text-primary{{/if}}"></i>
                       <div class="progress mx-2 col-md-6">
                         <div class="progress-bar" role="progressbar" aria-valuenow="{{this.percent}}" aria-valuemin="0"
                           aria-valuemax="100" style="width: {{this.percent}}%;"></div>
@@ -109,29 +110,40 @@
               <hr class="my-3">
               <div class="row">
                 <div class="col-8 vstack gap-3 border-end">
-                  {{#if comment}}
-                  {{#each comment}}
+                  {{#if comments}}
+                  {{#each comments}}
                   <div class="border-bottom pb-2">
-                    <div>{{this.userId}} <div class="float-end">{{this.rate}} sao</div></div>
-                    <div style="white-space: pre-line;">{{this.comment}}</div>
+                    <div>
+                      {{this.userName}}
+                      <div class="float-end">{{this.rate}} <i class="fa fa-star text-primary"></i></div></div>
+                    {{#if this.comment}}<div style="white-space: pre-line;">{{this.comment}}</div>{{/if}}
                   </div>
                   {{/each}}
                   {{/if}}
-                  {{#unless comment}}
+                  {{#unless comments}}
                   <h1>Không có đánh giá nào</h1>
                   {{/unless}}
                 </div>
                 <div class="col-4 border-start text-center">
                   {{#if user}}
-                  <div class="review-form">
+                  <form class="review-form" action="/products/add-comment" method="post" id="comment-form">
                     <h6 class="title text-uppercase my-2">GỬI ĐÁNH GIÁ CỦA BẠN</h6>
                     <span class="your-review">Đánh giá của bạn về sản phẩm này:</span>
                     <div class="form-group mt-3 vstack gap-3">
-                      <input type="range" class="form-range form-control" min="0" max="5">
-                      <textarea class="form-control" placeholder="Đánh giá của bạn về sản phẩm này"> </textarea>
+                      <select class="form-select" name="rate">
+                        <option value="1" selected>1 sao <i class="fa fa-star"></i></option>
+                        <option value="2">2 sao</option>
+                        <option value="3">3 sao</option>
+                        <option value="4">4 sao</option>
+                        <option value="5">5 sao</option>
+                      </select>
+                      <textarea form="comment-form" class="form-control" name="comment"
+                      placeholder="Đánh giá của bạn về sản phẩm này"></textarea>
+                      <input type="text" name="id" value="{{id}}" class="d-none">
+                      <input type="text" name="userName" value="{{user.name}}" class="d-none">
                     </div>
-                    <button type="submit" class="btn btn-outline-primary mt-3">Gửi bình luận</>
-                  </div>
+                    <button type="submit" class="btn btn-outline-primary mt-3">Gửi bình luận</i>
+                  </form>
                   {{/if}}
                   {{#unless user}}
                   <a href="/auth/login" class="btn btn-outline-primary mt-3">Đăng nhập để đánh giá</a>

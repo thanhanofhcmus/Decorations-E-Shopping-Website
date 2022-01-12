@@ -2,7 +2,7 @@ const MongoClient = require('mongodb').MongoClient;
 
 let database = null;
 
-module.exports.initDatabase = async () => {
+const initDatabase = async () => {
     try {
         database = await MongoClient.connect(process.env.MONGODB_URL, { useNewUrlParser: true }).then(client => client.db('mihishop'));
         console.log('database initialized');
@@ -11,6 +11,11 @@ module.exports.initDatabase = async () => {
     }
 };
 
-module.exports.getCollection = (collectionName) => {
+const getCollection = (collectionName) => {
     return database.collection(collectionName);
+};
+
+module.exports = {
+    initDatabase,
+    getCollection
 };

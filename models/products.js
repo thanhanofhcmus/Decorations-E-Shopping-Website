@@ -35,11 +35,17 @@ const find = async params => (await findRaw(params)).toArray();
 const findOne = params => findRaw({ ...params, isFindOne: true });
 const getSize = async params => (await findRaw(params)).count();
 
+const insertCommentById = (id, comment) => getCollection(COLLECTION_NAME).updateOne(
+    { id },
+    { $inc: { rateCount: 1, [`rate.${comment.rate}`]: 1 }, $push: { comments: comment } }
+);
+
 const toRenderData = data => {
     const ratePercents = data.rate
         .map((v, i) => ({ key: i, percent: Math.round(v * 100 / data.rateCount), count: v }))
         .splice(1)
         .reverse();
+    const rateAverage = (ratePercents.reduce((a, r) => a + r.key * r.count, 0) / data.rateCount).toFixed(2);
     const price = Math.floor(data.price * (1 - data.discount));
     const saved = data.price - price;
     return {
@@ -48,6 +54,7 @@ const toRenderData = data => {
         price,
         saved,
         ratePercents,
+        rateAverage,
         discount: Math.floor(data.discount * 100),
         link: `/products/${data.id}`
     };
@@ -58,5 +65,6 @@ module.exports = {
     find,
     findOne,
     getSize,
+    insertCommentById,
     toRenderData
 };
