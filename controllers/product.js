@@ -6,8 +6,8 @@ const getOne = async (req, res) => {
     const id = req.params.id;
     const product = productsModel.toRenderData(await productsModel.findOne({ id }));
     const category = await categoryModel.find({ id: product.categoryId });
-    const data = (await productsModel.find({ categoryId: category[0].id })).map(productsModel.toRenderData);
-    const relatedProducts = data.slice(0, Math.min(6, data.length));
+    const relatedProducts = (await productsModel.find({ categoryId: category[0].id, chunkSize: 10, offset: 0 }))
+        .map(productsModel.toRenderData);
     res.render('detail-product', { ...product, title: product.name, category, relatedProducts });
 };
 
