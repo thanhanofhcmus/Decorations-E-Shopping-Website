@@ -1,12 +1,17 @@
 const passport = require('../auth/passport');
 const model = require('../models/users');
 
+const redirectToLast = (req, res) => {
+    res.redirect(req.session.lastLink);
+};
+
 const loginGet = (req, res) => {
+    req.session.lastLink = req.get('referer');
     res.render('auth', { somethingWrong: req.query.somethingWrong });
 };
 
 const loginPost = passport.authenticate('local', {
-    successRedirect: '/',
+    successRedirect: '/auth/redirect-to-last',
     failureRedirect: '/auth/login?somethingWrong'
 });
 
@@ -29,6 +34,7 @@ const signupPost = async (req, res) => {
 };
 
 module.exports = {
+    redirectToLast,
     loginGet,
     loginPost,
     logoutPost,
