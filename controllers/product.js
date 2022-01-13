@@ -14,8 +14,6 @@ const getOne = async (req, res) => {
 const addToCart = async (req, res) => {
     const id = req.params.id;
     const data = req.body;
-    const product = productsModel.toRenderData(await productsModel.findOne({ id }));
-    const category = await categoryModel.find({ categoryId: product.categoryId });
     if (typeof res.locals.user !== 'undefined') {
         const user = await userModel.findByUsername(res.locals.user.username);
         const index = user.cart.findIndex((p) => p.productId === id);
@@ -25,7 +23,7 @@ const addToCart = async (req, res) => {
             user.cart.push({ productId: id, quantity: parseInt(data.quantity) });
         }
         await userModel.update(user.id, user);
-        res.render('detail-product', { ...product, title: product.name, category });
+        getOne(req, res);
     } else {
         res.render('auth');
     }
