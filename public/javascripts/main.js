@@ -107,7 +107,6 @@ $(function () {
     $('.btn-inc').click(function (e) {
         const strval = $(this).parent().prev().val();
         const val = parseInt(strval) + 1;
-        console.log()
         $(this).parent().prev().attr('value', val);
     });
     $('.btn-dec').click(function (e) {
@@ -135,6 +134,7 @@ $(function () {
         $('._temporary').text((_temporary + oldPrice).toString());
         $('._discount').text((_discount + discount).toString());
         $('._total').text((_total + newPrice).toString());
+        $('._total-price').attr('value', (_total + newPrice).toString());
     });
     $('.btn-dec-cart').click(function (e) {
         const strval = $(this).parent().next().val();
@@ -153,6 +153,7 @@ $(function () {
             $('._temporary').text((_temporary - oldPrice).toString());
             $('._discount').text((_discount - discount).toString());
             $('._total').text((_total - newPrice).toString());
+            $('._total-price').attr('value', (_total - newPrice).toString());
         }
     });
 
@@ -162,16 +163,13 @@ $(function () {
         const oldPrice = parseInt($(this).parent().find('.old-price').text());
         const discount = parseInt($(this).parent().find('.discount').text());
         const quantity = parseInt($(this).parent().prev().find('.product-number').val());
-        console.log(newPrice);
-        console.log(oldPrice);
-        console.log(discount);
-        console.log(quantity);
         const _temporary = parseInt($('._temporary').text());
         const _discount = parseInt($('._discount').text());
         const _total = parseInt($('._total').text());
         $('._temporary').text((_temporary - (oldPrice * quantity)).toString());
         $('._discount').text((_discount - (discount * quantity)).toString());
         $('._total').text((_total - (newPrice * quantity)).toString());
+        $('._total-price').attr('value', (_total - (newPrice * quantity)).toString());
         $(this).parentsUntil('.cart-list-items').remove();
     });
 
@@ -320,7 +318,6 @@ $(function () {
     const carts = document.querySelector('.buy-btn');
     if (carts) {
         carts.addEventListener('click', () => {
-            console.log(product);
             cartNumbers(product);
             totalCost(product);
         });
@@ -381,9 +378,9 @@ $(function () {
     }
 
     $('.btn-checkout').click(function (e) {
-        localStorage.clear();
-        location.reload(true);
-        alert('cảm ơn đã mua hàng');
+        // localStorage.clear();
+        // location.reload(true);
+        alert('Cảm ơn quý khách đã mua hàng <3');
     });
 
     onLoadCartNumbers();
