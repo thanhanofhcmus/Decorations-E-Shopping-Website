@@ -107,6 +107,7 @@ $(function () {
     $('.btn-inc').click(function (e) {
         const strval = $(this).parent().prev().val();
         const val = parseInt(strval) + 1;
+        console.log()
         $(this).parent().prev().attr('value', val);
     });
     $('.btn-dec').click(function (e) {
@@ -117,6 +118,69 @@ $(function () {
         } else {
             $(this).parent().next().attr('value', val);
         }
+    });
+
+    // update cost when change quantity of product in cart
+    $('.btn-inc-cart').click(function (e) {
+        const strval = $(this).parent().prev().val();
+        const val = parseInt(strval) + 1;
+        $(this).parent().prev().attr('value', val);
+        // update cost
+        const newPrice = parseInt($(this).parentsUntil('.item-caption').next().find('.new-price').text());
+        const oldPrice = parseInt($(this).parentsUntil('.item-caption').next().find('.old-price').text());
+        const discount = parseInt($(this).parentsUntil('.item-caption').next().find('.discount').text());
+        const _temporary = parseInt($('._temporary').text());
+        const _discount = parseInt($('._discount').text());
+        const _total = parseInt($('._total').text());
+        $('._temporary').text((_temporary + oldPrice).toString());
+        $('._discount').text((_discount + discount).toString());
+        $('._total').text((_total + newPrice).toString());
+    });
+    $('.btn-dec-cart').click(function (e) {
+        const strval = $(this).parent().next().val();
+        const val = parseInt(strval) - 1;
+        if (val < 1) {
+            $(this).parent().next().attr('value', 1);
+        } else {
+            $(this).parent().next().attr('value', val);
+            // update cost
+            const newPrice = parseInt($(this).parentsUntil('.item-caption').next().find('.new-price').text());
+            const oldPrice = parseInt($(this).parentsUntil('.item-caption').next().find('.old-price').text());
+            const discount = parseInt($(this).parentsUntil('.item-caption').next().find('.discount').text());
+            const _temporary = parseInt($('._temporary').text());
+            const _discount = parseInt($('._discount').text());
+            const _total = parseInt($('._total').text());
+            $('._temporary').text((_temporary - oldPrice).toString());
+            $('._discount').text((_discount - discount).toString());
+            $('._total').text((_total - newPrice).toString());
+        }
+    });
+
+    // remove item in cart
+    $('.btn-remove').click(function (e) {
+        const newPrice = parseInt($(this).parent().find('.new-price').text());
+        const oldPrice = parseInt($(this).parent().find('.old-price').text());
+        const discount = parseInt($(this).parent().find('.discount').text());
+        const quantity = parseInt($(this).parent().prev().find('.product-number').val());
+        console.log(newPrice);
+        console.log(oldPrice);
+        console.log(discount);
+        console.log(quantity);
+        const _temporary = parseInt($('._temporary').text());
+        const _discount = parseInt($('._discount').text());
+        const _total = parseInt($('._total').text());
+        $('._temporary').text((_temporary - (oldPrice * quantity)).toString());
+        $('._discount').text((_discount - (discount * quantity)).toString());
+        $('._total').text((_total - (newPrice * quantity)).toString());
+        $(this).parentsUntil('.cart-list-items').remove();
+    });
+
+    // update shipping cost when choose shipping option in cart
+    $('.radio-standard-ship').click(function (e) {
+        $('._shipping-cost').text('28000');
+    });
+    $('.radio-fast-ship').click(function (e) {
+        $('._shipping-cost').text('38000');
     });
 
     // rotate chevron
@@ -236,8 +300,7 @@ $(function () {
             },
             email: {
                 required: 'Vui lòng nhập email',
-                minlength: 'Email không hợp lệ',
-                email: 'Vui lòng nhập email'
+                email: 'Email không hợp lệ'
             },
             address: {
                 required: 'Vui lòng nhập địa chỉ giao hàng'
@@ -257,6 +320,7 @@ $(function () {
     const carts = document.querySelector('.buy-btn');
     if (carts) {
         carts.addEventListener('click', () => {
+            console.log(product);
             cartNumbers(product);
             totalCost(product);
         });

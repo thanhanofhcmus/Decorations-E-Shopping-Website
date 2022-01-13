@@ -6,7 +6,7 @@
                 {{#unless numberProduct}}
                 <div class="col-12 cart-empty">
                     <div class="py-3 ps-3">
-                        <h6 class="header-gio-hang">GIỎ HÀNG CỦA BẠN <span>(0 sản phẩm)</span></h6>
+                        <h6 class="header-cart">GIỎ HÀNG CỦA BẠN <span>(0 sản phẩm)</span></h6>
                         <div class="cart-empty-content w-100 text-center justify-content-center">
                             <img src="/images/shopping-cart-not-product.png">
                             <p>Chưa có sản phẩm nào trong giở hàng của bạn</p>
@@ -19,7 +19,7 @@
                 {{#if numberProduct}}
                 <div class="col-md-8 cart">
                     <div class="cart-content py-3 ps-3">
-                        <h6 class="header-gio-hang">GIỎ HÀNG CỦA BẠN <span>({{numberProduct}} sản phẩm)</span></h6>
+                        <h6 class="header-cart">GIỎ HÀNG CỦA BẠN <span>({{numberProduct}} sản phẩm)</span></h6>
                         <div class="cart-list-items">
                             {{#if cartList}}
                             {{#each cartList}}
@@ -33,19 +33,26 @@
                                         <div class="_number d-flex">
                                             <div class="input-number input-group mb-3">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text btn-spin btn-dec">-</span>
+                                                    <span class="input-group-text btn-spin btn-dec-cart">-</span>
                                                 </div>
                                                 <input type="text" value="{{this.quantity}}" class="product-number text-center">
                                                 <div class="input-group-append">
-                                                    <span class="input-group-text btn-spin btn-inc">+</span>
+                                                    <span class="input-group-text btn-spin btn-inc-cart">+</span>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="item-price ms-auto d-flex flex-column align-items-end">
-                                        <div class="new-price">{{this.price}} ₫</div>
-                                        <div class="old-price">{{this.oldPrice}} ₫</div>
-                                        <span class="remove mt-auto"><i class="far fa-trash-alt"></i></span>
+                                        <div>
+                                            <span class="new-price">{{this.price}}</span>
+                                            <span> ₫</span>
+                                        </div>
+                                        <div>
+                                            <span class="old-price">{{this.oldPrice}}</span>
+                                            <span> ₫</span>
+                                        </div>
+                                        <span class="discount d-none">{{this.discount}}</span>
+                                        <span class="remove mt-auto btn-remove"><i class="far fa-trash-alt"></i></span>
                                     </div>
                                 </div>
                             </div>
@@ -55,29 +62,37 @@
                         </div>
                         <div class="row">
                             <div class="col-md-3">
-                                <a href="index.html" class="btn btn-outline-danger mb-3">Mua thêm</a>
+                                <a href="/" class="btn btn-outline-danger mb-3">Mua thêm</a>
                             </div>
                             <div class="col-md-5 offset-md-4">
                                 <div class="total-money">
                                     <div class="group d-flex justify-content-between">
                                         <p class="label">Tạm tính:</p>
-                                        <p class="tamtinh">{{totalPrice.oldPrice}} ₫</p>
+                                        <p>
+                                            <span class="_temporary">{{totalPrice.oldPrice}}</span>
+                                            <span> ₫</span>
+                                        </p>
                                     </div>
                                     <div class="group d-flex justify-content-between">
                                         <p class="label">Giảm giá:</p>
-                                        <p class="giamgia">{{discount}} ₫</p>
+                                        <p>
+                                            <span class="_discount">{{discount}}</span>
+                                            <span> ₫</span>
+                                        </p>
                                     </div>
                                     <div class="group d-flex justify-content-between">
                                         <p class="label">Phí vận chuyển:</p>
-                                        <p class="phivanchuyen">0 ₫</p>
-                                    </div>
-                                    <div class="group d-flex justify-content-between">
-                                        <p class="label">Phí dịch vụ:</p>
-                                        <p class="phidicvu">0 ₫</p>
+                                        <p>
+                                            <span class="_shipping-cost">28000</span>
+                                            <span> ₫</span>
+                                        </p>
                                     </div>
                                     <div class="group d-flex justify-content-between align-items-center">
                                         <strong class="text-uppercase">Tổng cộng:</strong>
-                                        <p class="_total">{{totalPrice.price}} ₫</p>
+                                        <p>
+                                            <span class="_total">{{totalPrice.price}}</span>
+                                            <span> ₫</span>
+                                        </p>
                                     </div>
                                     <small class="note d-flex justify-content-end text-muted">
                                         (Giá đã bao gồm VAT)
@@ -153,17 +168,17 @@
                             <div id="step2content-id" class="collapse in" role="tabpanel"
                                 aria-labelledby="step2header" class="stepscontent">
                                 <div class="card-body" style="padding: 15px;">
-                                    <div class="goigiaohang">
+                                    <div class="ship-option">
                                         <h6 class="header text-uppercase">Chọn gói giao hàng</h6>
                                         <div class="option">
-                                            <input type="radio" name="goigiaohang" id="ghtc" checked>
-                                            <label for="ghtc">Giao hàng tiêu chuẩn</label>
+                                            <input class="radio-standard-ship" type="radio" name="ship-option" id="standard-ship" checked>
+                                            <label class="radio-standard-ship" for="standard-ship">Giao hàng tiêu chuẩn</label>
                                             <p>Từ 1-3 ngày tại TP. Hồ Chí Minh; từ 3-5 ngày đối với các Tỉnh /
                                                 Thành khác</p>
                                         </div>
                                         <div class="option">
-                                            <input type="radio" name="goigiaohang" id="ghn">
-                                            <label for="ghn">Giao hàng nhanh</label>
+                                            <input class="radio-fast-ship" type="radio" name="ship-option" id="fast-ship">
+                                            <label class="radio-fast-ship" for="fast-ship">Giao hàng nhanh</label>
                                             <p>1 ngày tại TP. Hồ Chí Minh; từ 2-3 ngày đối với các Tỉnh / Thành
                                                 khác</p>
                                         </div>
@@ -186,7 +201,7 @@
                                             <p>- Nội dung chuyển khoản cần ghi: <a href="#">[Mã đơn hàng]</a> ;
                                                 hoặc <a href="#">[số điện thoại dùng đặt hàng]</a> </p>
                                             <p>- Xem thông tin chuyển khoản của NetaBooks <a
-                                                    href="phuong-thuc-thanh-toan.html">tại đây</a> </p>
+                                                    href="#">tại đây</a> </p>
                                         </div>
                                     </div>
                                     <hr>

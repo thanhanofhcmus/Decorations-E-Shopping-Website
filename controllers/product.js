@@ -20,9 +20,9 @@ const addToCart = async (req, res) => {
         const user = await userModel.findByUsername(res.locals.user.username);
         const index = user.cart.findIndex((p) => p.productId === id);
         if (index > -1) {
-            user.cart[index].quantity += data.quantity;
+            user.cart[index].quantity += parseInt(data.quantity);
         } else {
-            user.cart.push({ productId: id, quantity: 1 });
+            user.cart.push({ productId: id, quantity: parseInt(data.quantity) });
         }
         await userModel.update(user.id, user);
         res.render('detail-product', { ...product, title: product.name, category });

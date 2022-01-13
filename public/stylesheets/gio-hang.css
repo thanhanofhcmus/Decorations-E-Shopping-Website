@@ -56,11 +56,11 @@
     margin-bottom: 5px;
 }
 
-.header-gio-hang span {
+.header-cart span {
     color: #979797;
 }
 
-.header-gio-hang {
+.header-cart {
     font-size: 14px;
     font-weight: 400;
 }
@@ -224,6 +224,11 @@ a#nav-signIn-tab {
     font-size: 80%;
     font-weight: bold;
     transition: all 0.2s;
+}
+
+.btn-block {
+    display: block;
+    width: 100%;
 }
 
 .btn-checkout:hover {
