@@ -1,7 +1,21 @@
 const usersModel = require('../models/users');
+const orderModel = require('../models/order');
+const productModel = require('../models/products');
 
-const details = (req, res) => {
-    res.render('profile/details');
+const details = async (req, res) => {
+    const user = res.locals.user;
+    console.log(user);
+    const orders = await orderModel.findByUserId(user.id);
+    const productIds = orders.map(o => o.productList[0].productId);
+    const products = (await productModel.findByIds(productIds)).map(productModel.toRenderData);
+    console.log(products);
+    const orderList = orders.map((o, i) => ({
+        ...o,
+        numProducts: o.productList.length - 1,
+        product: { ...products[i], quantity: o.productList[0].quantity }
+    }));
+    console.log(orderList);
+    res.render('profile/details', { orderList });
 };
 
 const edit = (req, res) => {
