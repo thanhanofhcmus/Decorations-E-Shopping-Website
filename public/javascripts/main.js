@@ -176,9 +176,13 @@ $(function () {
     // update shipping cost when choose shipping option in cart
     $('.radio-standard-ship').click(function (e) {
         $('._shipping-cost').text('28000');
+        $('._total').text((parseInt($('._total').text()) - 10000).toString());
+        $('._total-price').attr('value', (parseInt($('._total').text()) - 10000).toString());
     });
     $('.radio-fast-ship').click(function (e) {
         $('._shipping-cost').text('38000');
+        $('._total').text((parseInt($('._total').text()) + 10000).toString());
+        $('._total-price').attr('value', (parseInt($('._total').text()) + 10000).toString());
     });
 
     // rotate chevron

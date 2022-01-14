@@ -15,7 +15,7 @@ const getAll = async (req, res) => {
         const totalPrice = cartList.reduce((sum, a) => ({
             price: sum.price + a.price * a.quantity,
             oldPrice: sum.oldPrice + a.oldPrice * a.quantity
-        }));
+        }), ({ price: 28000, oldPrice: 0 }));
         const discount = totalPrice.oldPrice - totalPrice.price;
         res.render('cart', { numberProduct: products.length, cartList, discount, totalPrice });
     } else {
