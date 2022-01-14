@@ -275,7 +275,7 @@ $(function () {
         }
     });
 
-    $('#form-delivery-address').validate({
+    $('#form-cart').validate({
         rules: {
             name: {
                 required: true
@@ -383,8 +383,9 @@ $(function () {
 
     $('.btn-checkout').click(function (e) {
         // localStorage.clear();
-        // location.reload(true);
-        alert('Cảm ơn quý khách đã mua hàng <3');
+        if ($('#form-cart').valid()) {
+            alert('Cảm ơn quý khách đã mua hàng <3');
+        }
     });
 
     onLoadCartNumbers();

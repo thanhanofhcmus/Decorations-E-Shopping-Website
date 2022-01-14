@@ -1,7 +1,7 @@
 <section class="content my-3">
     <div class="container">
         <div class="cart-page bg-white">
-            <form action="/cart" method="post">
+            <form action="/cart" method="post" id="form-cart" novalidate="novalidate">
                 <div class="row d-flex justify-content-center">
                     
                     {{#unless numberProduct}}
@@ -127,9 +127,9 @@
                                     <div id="step1content-id" class="collapse in show" role="tabpanel"
                                         aria-labelledby="step1header" class="stepscontent">
                                         <div class="card-body">
-                                            <form id="form-delivery-address" novalidate="novalidate">
-                                                <input type="text" name="id" value="{{user.id}}" class="d-none">
-                                                <input type="text" name="username" value="{{user.username}}" class="d-none">
+                                            <input type="text" name="id" value="{{user.id}}" class="d-none">
+                                            <input type="text" name="username" value="{{user.username}}" class="d-none">
+                                            <div>
                                                 <div class="form-label-group">
                                                     <input type="text" id="inputName" class="form-control"
                                                         placeholder="Nhập họ và tên" value="{{user.name}}"
@@ -152,7 +152,7 @@
                                                     <textarea type="text" id="inputNote" class="form-control"
                                                         placeholder="Nhập ghi chú (Nếu có)" name="note"></textarea>
                                                 </div>
-                                            </form>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
