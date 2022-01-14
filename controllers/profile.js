@@ -11,8 +11,10 @@ const details = async (req, res) => {
     console.log(products);
     const orderList = orders.map((o, i) => ({
         ...o,
-        numProducts: o.productList.length - 1,
-        product: { ...products[i], quantity: o.productList[0].quantity }
+        link: `/order/${o.id}`,
+        numberProducts: o.productList.length - 1,
+        product: { ...products[i], quantity: o.productList[0].quantity },
+        productPrice: o.productList[0].price
     }));
     console.log(orderList);
     res.render('profile/details', { orderList });

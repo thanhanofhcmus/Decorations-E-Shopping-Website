@@ -1,0 +1,63 @@
+<section class="content my-3">
+    <div class="container">
+        <div class="cart-page bg-white">
+            <form action="/cart" method="post">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-md-8 cart">
+                        <div class="cart-content py-3 ps-3">
+                            <h6 class="header-cart mb-3">MÃ ĐƠN HÀNG: {{order.id}} <span>({{numberProduct}} sản phẩm)</span></h6>
+                            <div class="cart-list-items">
+                                {{#if productList}}
+                                {{#each productList}}
+                                <div class="cart-item d-flex mb-3">
+                                    <a href="{{this.link}}" class="img">
+                                        <img src="{{this.imagesList.[0]}}" class="img-fluid">
+                                    </a>
+                                    <div class="item-caption d-flex w-100">
+                                        <div class="item-info ms-3">
+                                            <a href="{{this.link}}" class="ten">{{this.name}}</a>
+                                            <div class="_number">
+                                                <div class="input-number input-group mb-3">SL: {{this.quantity}}</div>
+                                            </div>
+                                        </div>
+                                        <div class="item-price ms-auto d-flex flex-column align-items-end">
+                                            <div>
+                                                <span class="new-price">{{this.orderPrice}}</span>
+                                                <span> ₫</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {{/each}}
+                                {{/if}}
+                            </div>
+                            
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 cart-steps ps-0">
+                        <div class="m-3">
+                            <div class="total-money">
+                                <div>Địa chỉ: {{order.address}}</div>
+                                <div class="my-3">Số ĐT: {{order.phoneNumber}}</div>
+                                <div class="my-3">Tình trạng: {{order.status}}</div>
+                                <hr>
+                                <div class="group d-flex justify-content-between align-items-center">
+                                    <strong class="text-uppercase">Tổng cộng:</strong>
+                                    <p>
+                                        <input type="text" name="total" value="{{totalPrice.price}}" class="_total-price d-none">
+                                        <span class="_total">{{order.totalPrice}}</span>
+                                        <span> ₫</span>
+                                    </p>
+                                </div>
+                                <small class="note d-flex justify-content-end text-muted">
+                                    (Giá đã bao gồm VAT)
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

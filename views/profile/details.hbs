@@ -1,25 +1,25 @@
 <section class="content my-3">
     <div class="container bg-white">
         <div class="row d-flex justify-content-center">
-            <div class="col-md-8">
-                <ul class="nav nav-tabs mb-3" id="pills-tab" role="tablist">
+            <div class="col-md-8 my-3 mb-3 rounded shadow">
+                <ul class="nav nav-tabs my-3 mb-3" id="pills-tab" role="tablist">
                     <li class="nav-item bg-light fs-6" role="presentation">
-                        <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill"
-                            data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home"
+                        <button class="nav-link active" id="my-profile-tab" data-bs-toggle="pill"
+                            data-bs-target="#my-profile" type="button" role="tab" aria-controls="my-profile"
                             aria-selected="true">Thông tin cá nhân
                         </button>
                     </li>
                     <li class="nav-item bg-light fs-6" role="presentation">
-                        <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill"
-                            data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile"
+                        <button class="nav-link" id="my-orders-tab" data-bs-toggle="pill"
+                            data-bs-target="#my-orders" type="button" role="tab" aria-controls="my-orders"
                             aria-selected="false">Đơn hàng của tôi
                         </button>
                     </li>
                 </ul>
-                <div class="tab-content" id="pills-tabContent">
-                    <div class="tab-pane fade {{#unless signUpError}} show active {{/unless}}" id="pills-home"
-                        role="tabpanel" aria-labelledby="pills-home-tab">
-                        <div class="vstack gap-3 p-3 rounded shadow">
+                <div class="tab-content mb-3" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="my-profile"
+                        role="tabpanel" aria-labelledby="my-profile-tab">
+                        <div class="vstack gap-3">
                             <p class="p-1 border border-primary p-3 rounded fs-6">Họ và Tên: {{user.name}}</p>
                             <p class="p-1 border border-primary p-3 rounded fs-6">Username: {{user.username}}</p>
                             <p class="p-1 border border-primary p-3 rounded fs-6">Email: {{user.email}}</p>
@@ -30,41 +30,37 @@
                             </div>
                         </div>
                     </div>
-                    <div class="tab-pane fade {{#if signUpError}} active show {{/if}}" id="pills-profile"
-                        role="tabpanel" aria-labelledby="pills-profile-tab">
+                    <div class="tab-pane fade" id="my-orders"
+                        role="tabpanel" aria-labelledby="my-orders-tab">
                         {{#if orderList}}
                         {{#each orderList}}
                         <div class="card">
                             <div class="card-header active">
                                 <h5 class="mb-0">
-                                    <a href="#" class="header">
-                                        <span class="label">{{this.id}}</span>
+                                    <a href="{{this.link}}" class="header">
+                                        <span class="label order-id">{{this.id}}</span>
                                     </a>
                                 </h5>
                             </div>
                             <div class="card-body">
                                 <div class="cart-item d-flex mb-3">
-                                    <input type="text" name="productId" value="{{this.id}}" class="d-none">
-                                    <input type="text" name="price" value="{{this.price}}" class="d-none">
                                     <a href="{{this.product.link}}" class="img">
                                         <img src="{{this.product.imagesList.[0]}}" class="img-fluid">
                                     </a>
                                     <div class="item-caption d-flex w-100">
                                         <div class="item-info ms-3">
                                             <a href="{{this.product.link}}" class="ten">{{this.product.name}}</a>
-                                            <div class="_number d-flex">
-                                                SL: {{this.product.quantity}}
-                                            </div>
+                                            <div class="_number">SL: {{this.product.quantity}}</div>
                                         </div>
                                         <div class="item-price ms-auto d-flex flex-column align-items-end">
                                             <div>
-                                                <span class="new-price">{{this.product.price}}</span>
+                                                <span class="new-price">{{this.productPrice}}</span>
                                                 <span> ₫</span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div>(và {{this.numProducts}} sản phẩm khác)</div>
+                                <div>(và {{this.numberProducts}} sản phẩm khác)</div>
                                 <hr class="mb-3">
                                 <div class="group d-flex justify-content-between align-items-center">
                                     <strong class="text-uppercase">Tổng cộng:</strong>
@@ -74,7 +70,7 @@
                                         <span> ₫</span>
                                     </p>
                                 </div>
-                                <div>Trạng thái: {{this.status}}</div>
+                                <div>Tình trạng: {{this.status}}</div>
                             </div>
                         </div>
                         {{/each}}
