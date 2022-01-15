@@ -7,10 +7,82 @@
     </div>
 </section>
 
+
 <section class="content my-4">
     <div class="container">
-        <div class="product bg-white" style=" width: 100%;">
+        <div class="row">
+            <div id="cart-steps-accordion" role="tablist" aria-multiselectable="true">
+                <div class="card rounded m-0">
+                    <div class="card-header active" role="tab" id="step1header">
+                        <h5 class="mb-0">
+                            <a data-bs-toggle="collapse" data-parent="#cart-steps-accordion" href="#step1content-id"
+                                aria-expanded="true" aria-controls="step1content-id" class="text-uppercase header">
+                                <span class="label">Tìm kiếm nâng cao</span>
+                                <i class="fa fa-chevron-right float-end"></i>
+                            </a>
+                        </h5>
+                    </div>
+                    <div id="step1content-id" class="collapse in show" role="tabpanel" aria-labelledby="step1header"
+                        class="stepscontent">
+                        <form class="mx-3" action="/search" method="post">
+                            <div class="hstack gap-3">
+                                <div>
+                                    <label class="my-2" for="form-price-range">Khoảng giá</label>
+                                    <select class="form-select" name="priceRange" id="form-price-range">
+                                        <option value="0" selected>Tất cả sản phẩm</option>
+                                        <option value="1">bé hơn 20.000đ</option>
+                                        <option value="2">Từ 20.000đ đến 50.000đ</option>
+                                        <option value="3">Từ 50.000đ đến 100.000đ</option>
+                                        <option value="4">Từ 100.000đ đến 200.000đ</option>
+                                        <option value="5">Lớn hơn 200.000đ</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="my-2" for="form-price-sort-order">Thứ tự giá</label>
+                                    <select class="form-select" name="priceOrder" id="form-price-sort-order">
+                                        <option value="1" selected>Tăng dần</option>
+                                        <option value="-1">Giảm dần</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="my-2" for="form-discount-sort-order">Thứ tự khuyến mãi</label>
+                                    <select class="form-select" name="discountOrder" id="form-discount-sort-order">
+                                        <option value="1" selected>Tăng dần</option>
+                                        <option value="-1">Giảm dần</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="hstack gap-3">
+                                <div>
+                                    <label class="my-2" for="form-discount-sort-order">Danh mục sản phẩm</label>
+                                    <select class="form-select" name="categoryId" id="form-discount-sort-order">
+                                        {{#each categories}}
+                                        <option value="{{this.id}}">{{this.name}}</option>
+                                        {{/each}}
+                                    </select>
+                                </div>
+                                <div class="vstack">
+                                    <label class="my-2" for="form-chunk-size">Số lượng sản phẩm</label>
+                                    <input class="form-control" type="number" name="chunkSize" id="form-chunk-size"
+                                        min="5" max="50" step="5" value="10">
+                                </div>
+                                <div class="vstack">
+                                    <label class="my-2" for="form-keyword">Từ khóa tìm kiếm</label>
+                                    <input type="text" name="keyword" id="form-keyword">
+                                </div>
+                                <button class="btn btn-outline-primary my-3" type="submit">Tìm kiếm</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
+<section class="content my-4">
+    <div class="container">
+        <div class="product bg-white w-100">
             <div class="items">
                 <div class="row">
                     {{#if products}}

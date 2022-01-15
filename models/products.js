@@ -6,13 +6,32 @@ const categoriesModel = require('./category');
 const isValidUnsigned = num =>
     num !== undefined && num !== null && typeof num === 'number' && !isNaN(num) && isFinite(num) && num >= 0;
 
+const rangeParams = params => {
+    if (params === undefined || params === null) {
+        return undefined;
+    }
+    const { $gt, $lt } = params;
+    if (($gt === undefined || $gt === null) && ($lt === undefined || $lt === null)) {
+        return undefined;
+    }
+    const p = {};
+    $gt && (p.$gt = $gt);
+    $lt && (p.$lt = $lt);
+    return p;
+};
+
 /*
 This function is created so that we can be flexible in query params when we do a search query.
 It can handle keywords, product Id, multiple category ids, chunk size and offset for pagination
 and the lack of those params.
 */
 const findRaw = async params => {
-    const { id, productId, categoryId, keyword, chunkSize, offset, isFindOne } = params;
+    const {
+        id, productId, categoryId,
+        keyword, chunkSize, offset,
+        price, sort,
+        isFindOne
+    } = params;
     const product = {};
     productId && (product.id = productId);
     id && (product.id = id);
@@ -21,11 +40,15 @@ const findRaw = async params => {
         categories.push(categoryId);
         product.categoryId = { $in: categories };
     }
+    const priceRange = rangeParams(price);
+    priceRange && (product.price = priceRange);
     keyword && (product.$text = { $search: `"${keyword}"`, $caseSensitive: false, $diacriticSensitive: false });
     const query = isFindOne
         ? getCollection(COLLECTION_NAME).findOne(product)
         : getCollection(COLLECTION_NAME).find(product);
     (isValidUnsigned(chunkSize) && isValidUnsigned(offset)) && (query.skip(offset * chunkSize).limit(chunkSize));
+    sort && (query.sort(sort));
+    console.log(sort);
     return query;
 };
 
