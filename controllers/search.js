@@ -11,15 +11,15 @@ const parseIntUndef = num => {
     return isNaN(numParsed) ? undefined : numParsed;
 };
 
-const constructLink = (param, size) => {
+const constructLink = (param, page, size) => {
     const link = '/search?' + makeLinkParams(param);
     return {
-        disablePrev: param.page === 1,
-        disableNext: param.chunkSize * param.page >= size,
+        disablePrev: page === 1,
+        disableNext: param.chunkSize * page >= size,
         firstLink: `${link}&page=1`,
         lastLink: `${link}&page=${Math.ceil(size / param.chunkSize)}`,
-        nextLink: `${link}&page=${param.page + 1}`,
-        prevLink: `${link}&page=${param.page - 1}`
+        nextLink: `${link}&page=${page + 1}`,
+        prevLink: `${link}&page=${page - 1}`
     };
 };
 
@@ -54,7 +54,8 @@ const search = async (req, res) => {
         categories,
         page,
         ...constructLink(
-            { keyword, categoryId, page, chunkSize, priceLT, priceGT, priceOrder, discountOrder },
+            { keyword, categoryId, chunkSize, priceLT, priceGT, priceOrder, discountOrder },
+            page,
             size
         )
     });
