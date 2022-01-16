@@ -119,6 +119,72 @@ $(function () {
         }
     });
 
+    // update cost when change quantity of product in cart
+    $('.btn-inc-cart').click(function (e) {
+        const strval = $(this).parent().prev().val();
+        const val = parseInt(strval) + 1;
+        $(this).parent().prev().attr('value', val);
+        // update cost
+        const newPrice = parseInt($(this).parentsUntil('.item-caption').next().find('.new-price').text());
+        const oldPrice = parseInt($(this).parentsUntil('.item-caption').next().find('.old-price').text());
+        const discount = parseInt($(this).parentsUntil('.item-caption').next().find('.discount').text());
+        const _temporary = parseInt($('._temporary').text());
+        const _discount = parseInt($('._discount').text());
+        const _total = parseInt($('._total').text());
+        $('._temporary').text((_temporary + oldPrice).toString());
+        $('._discount').text((_discount + discount).toString());
+        $('._total').text((_total + newPrice).toString());
+        $('._total-price').attr('value', (_total + newPrice).toString());
+    });
+    $('.btn-dec-cart').click(function (e) {
+        const strval = $(this).parent().next().val();
+        const val = parseInt(strval) - 1;
+        if (val < 1) {
+            $(this).parent().next().attr('value', 1);
+        } else {
+            $(this).parent().next().attr('value', val);
+            // update cost
+            const newPrice = parseInt($(this).parentsUntil('.item-caption').next().find('.new-price').text());
+            const oldPrice = parseInt($(this).parentsUntil('.item-caption').next().find('.old-price').text());
+            const discount = parseInt($(this).parentsUntil('.item-caption').next().find('.discount').text());
+            const _temporary = parseInt($('._temporary').text());
+            const _discount = parseInt($('._discount').text());
+            const _total = parseInt($('._total').text());
+            $('._temporary').text((_temporary - oldPrice).toString());
+            $('._discount').text((_discount - discount).toString());
+            $('._total').text((_total - newPrice).toString());
+            $('._total-price').attr('value', (_total - newPrice).toString());
+        }
+    });
+
+    // remove item in cart
+    $('.btn-remove').click(function (e) {
+        const newPrice = parseInt($(this).parent().find('.new-price').text());
+        const oldPrice = parseInt($(this).parent().find('.old-price').text());
+        const discount = parseInt($(this).parent().find('.discount').text());
+        const quantity = parseInt($(this).parent().prev().find('.product-number').val());
+        const _temporary = parseInt($('._temporary').text());
+        const _discount = parseInt($('._discount').text());
+        const _total = parseInt($('._total').text());
+        $('._temporary').text((_temporary - (oldPrice * quantity)).toString());
+        $('._discount').text((_discount - (discount * quantity)).toString());
+        $('._total').text((_total - (newPrice * quantity)).toString());
+        $('._total-price').attr('value', (_total - (newPrice * quantity)).toString());
+        $(this).parentsUntil('.cart-list-items').remove();
+    });
+
+    // update shipping cost when choose shipping option in cart
+    $('.radio-standard-ship').click(function (e) {
+        $('._shipping-cost').text('28000');
+        $('._total').text((parseInt($('._total').text()) - 10000).toString());
+        $('._total-price').attr('value', (parseInt($('._total').text()) - 10000).toString());
+    });
+    $('.radio-fast-ship').click(function (e) {
+        $('._shipping-cost').text('38000');
+        $('._total').text((parseInt($('._total').text()) + 10000).toString());
+        $('._total-price').attr('value', (parseInt($('._total').text()) + 10000).toString());
+    });
+
     // rotate chevron
     $('#step1content-id').on('show.bs.collapse', function () {
         $(this).prev().addClass('active');
@@ -209,7 +275,7 @@ $(function () {
         }
     });
 
-    $('#form-delivery-address').validate({
+    $('#form-cart').validate({
         rules: {
             name: {
                 required: true
@@ -236,8 +302,7 @@ $(function () {
             },
             email: {
                 required: 'Vui lòng nhập email',
-                minlength: 'Email không hợp lệ',
-                email: 'Vui lòng nhập email'
+                email: 'Email không hợp lệ'
             },
             address: {
                 required: 'Vui lòng nhập địa chỉ giao hàng'
@@ -317,9 +382,10 @@ $(function () {
     }
 
     $('.btn-checkout').click(function (e) {
-        localStorage.clear();
-        location.reload(true);
-        alert('cảm ơn đã mua hàng');
+        // localStorage.clear();
+        if ($('#form-cart').valid()) {
+            alert('Cảm ơn quý khách đã mua hàng <3');
+        }
     });
 
     onLoadCartNumbers();

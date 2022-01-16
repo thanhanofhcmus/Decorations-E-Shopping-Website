@@ -1,5 +1,7 @@
 const passport = require('../auth/passport');
-const model = require('../models/users');
+const userModel = require('../models/users');
+const { uuid } = require('uuidv4');
+const bcrypt = require('bcrypt');
 
 const redirectToLast = (req, res) => {
     res.redirect(req.session.lastLink);
@@ -21,14 +23,26 @@ const logoutPost = (req, res) => {
 };
 
 const signupPost = async (req, res) => {
-    const newUser = req.body;
-    const users = await model.list();
-    if (newUser.password !== newUser.confirmPassword) {
+    const data = req.body;
+    const users = await userModel.list();
+    if (data.password !== data.confirmPassword) {
         res.render('auth', { signUpError: { passwordRetypeWrong: true } });
-    } else if (users.find(({ username }) => username === newUser.username) !== undefined) {
+    } else if (users.find(({ username }) => username === data.username) !== undefined) {
         res.render('auth', { signUpError: { userExists: true } });
     } else {
-        model.add(newUser);
+        console.log(data);
+        const newUser = {
+            id: uuid(),
+            name: data.name,
+            email: data.email,
+            username: data.username,
+            password: bcrypt.hashSync(data.password, 10),
+            accountImage: '',
+            block: false,
+            cart: []
+        };
+        console.log(newUser);
+        userModel.insert(newUser);
         res.redirect('/');
     }
 };

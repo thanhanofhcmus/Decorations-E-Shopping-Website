@@ -56,12 +56,12 @@
     margin-bottom: 5px;
 }
 
-.header-gio-hang span {
+.header-cart span {
     color: #979797;
 }
 
-.header-gio-hang {
-    font-size: 14px;
+.header-cart {
+    font-size: 18px;
     font-weight: 400;
 }
 
@@ -79,7 +79,7 @@
     font-size: 14px;
 }
 
-.total-money .group ._total {
+._total {
     font-size: 19px;
     color: red;
     font-weight: 600;
@@ -224,6 +224,11 @@ a#nav-signIn-tab {
     font-size: 80%;
     font-weight: bold;
     transition: all 0.2s;
+}
+
+.btn-block {
+    display: block;
+    width: 100%;
 }
 
 .btn-checkout:hover {

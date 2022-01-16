@@ -365,10 +365,6 @@ h3.card-title.ten {
     border-radius: 0;
 }
 
-.card:hover .ten {
-    color: #F5A623;
-}
-
 /* het css cho one-block  */
 
 /* css cho margin slick */
@@ -466,6 +462,10 @@ footer .row a:hover {
 footer .header {
     font-size: 14px;
     margin-bottom: 13px;
+}
+
+.footer-margin {
+    margin-top: 100px;
 }
 
 
