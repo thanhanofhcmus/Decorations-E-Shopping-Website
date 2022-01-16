@@ -15,4 +15,8 @@ router.get('/delete', controller.deleteGet);
 
 router.post('/delete', controller.deletePost);
 
+router.get('/forgot-password', controller.forgotPasswordGet);
+
+router.post('/forgot-password', controller.forgotPasswordPost);
+
 module.exports = router;

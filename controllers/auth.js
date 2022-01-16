@@ -59,7 +59,8 @@ const signupPost = async (req, res) => {
             to: `${data.email}`, // list of receivers
             subject: 'verify email required', // Subject line
             text: `
-            Hello
+            Hello,
+            Your verify link:
             http://${req.headers.host}/verify-email?token=${token}` // plain text body
         };
         // send mail with defined tr
@@ -84,6 +85,46 @@ const deletePost = async (req, res) => {
     }
 };
 
+const forgotPasswordGet = async (req, res) => {
+    res.render('forgot-password');
+};
+
+const forgotPasswordPost = async (req, res) => {
+    const data = req.body;
+    const user = await usersModel.findByEmail(data.email);
+    if (!user) {
+        res.render('forgot-password', { emailError: true });
+    } else {
+        const accessToken = await oAuth2Client.getAccessToken();
+
+        // create reusable transporter object using the default SMTP transport
+        const transporter = nodemailer.createTransport({
+            service: 'gmail', // true for 465, false for other ports
+            auth: {
+                type: 'OAuth2',
+                user: 'websitemihishop@gmail.com',
+                clientId: process.env.CLIENT_ID,
+                clientSecret: process.env.CLIENT_SECRET,
+                refreshToken: process.env.REFRESH_TOKEN,
+                accessToken: accessToken
+            }
+        });
+        const newPassword = Math.random().toString(36).substr(2, 10);
+        await usersModel.updatePassword(user.id, newPassword);
+        const msg = {
+            from: '"MiHi Shop" <websitemihishop@gmail.com>', // sender address
+            to: `${data.email}`, // list of receivers
+            subject: 'verify email required', // Subject line
+            text: `
+            Hello
+            New password: ${newPassword}` // plain text body
+        };
+        // send mail with defined tr
+        await transporter.sendMail(msg);
+        res.render('auth');
+    }
+};
+
 module.exports = {
     redirectToLast,
     loginGet,
@@ -91,5 +132,7 @@ module.exports = {
     logoutPost,
     signupPost,
     deleteGet,
-    deletePost
+    deletePost,
+    forgotPasswordGet,
+    forgotPasswordPost
 };

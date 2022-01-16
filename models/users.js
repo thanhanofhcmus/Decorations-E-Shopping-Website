@@ -9,6 +9,8 @@ const list = () => getCollection(COLLECTION_NAME).find({}).toArray();
 
 const findByUsername = username => getCollection(COLLECTION_NAME).findOne({ username });
 
+const findByEmail = email => getCollection(COLLECTION_NAME).findOne({ email });
+
 const findByToken = token => getCollection(COLLECTION_NAME).findOne({ token });
 
 const insert = user => getCollection(COLLECTION_NAME).insertOne(user);
@@ -45,6 +47,7 @@ module.exports = {
     mongoCollection,
     list,
     findByUsername,
+    findByEmail,
     findByToken,
     insert,
     create,
