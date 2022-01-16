@@ -1,5 +1,10 @@
 const passport = require('../auth/passport');
 const usersModel = require('../models/users');
+const nodemailer = require('nodemailer');
+const { google } = require('googleapis');
+
+const oAuth2Client = new google.auth.OAuth2(process.env.CLIENT_ID, process.env.CLIENT_SECRET, process.env.REDIRECT_URI);
+oAuth2Client.setCredentials({ refresh_token: process.env.REFRESH_TOKEN });
 
 const redirectToLast = (req, res) => {
     res.redirect(req.session.lastLink);
@@ -31,8 +36,35 @@ const signupPost = async (req, res) => {
         res.render('auth', { signUpError: { passwordRetypeWrong: true } });
     } else if (users.find(({ username }) => username === data.username) !== undefined) {
         res.render('auth', { signUpError: { userExists: true } });
+    } else if (users.find(({ email }) => email === data.email) !== undefined) {
+        res.render('auth', { signUpError: { emailExists: true } });
     } else {
-        usersModel.create(data);
+        const accessToken = await oAuth2Client.getAccessToken();
+
+        // create reusable transporter object using the default SMTP transport
+        const transporter = nodemailer.createTransport({
+            service: 'gmail', // true for 465, false for other ports
+            auth: {
+                type: 'OAuth2',
+                user: 'websitemihishop@gmail.com',
+                clientId: process.env.CLIENT_ID,
+                clientSecret: process.env.CLIENT_SECRET,
+                refreshToken: process.env.REFRESH_TOKEN,
+                accessToken: accessToken
+            }
+        });
+        const token = Math.random().toString(36).substr(2, 10);
+        const msg = {
+            from: '"MiHi Shop" <websitemihishop@gmail.com>', // sender address
+            to: `${data.email}`, // list of receivers
+            subject: 'verify email required', // Subject line
+            text: `
+            Hello
+            http://${req.headers.host}/verify-email?token=${token}` // plain text body
+        };
+        // send mail with defined tr
+        usersModel.create(data, token);
+        await transporter.sendMail(msg);
         res.redirect('/');
     }
 };

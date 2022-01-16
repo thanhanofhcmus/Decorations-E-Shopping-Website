@@ -3,6 +3,8 @@ const controller = require('../controllers/index');
 
 const router = express.Router();
 
-router.get('/', controller);
+router.get('/', controller.getIndex);
+
+router.get('/verify-email', controller.verifyEmail);
 
 module.exports = router;

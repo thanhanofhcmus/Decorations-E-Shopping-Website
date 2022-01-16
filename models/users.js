@@ -9,9 +9,11 @@ const list = () => getCollection(COLLECTION_NAME).find({}).toArray();
 
 const findByUsername = username => getCollection(COLLECTION_NAME).findOne({ username });
 
+const findByToken = token => getCollection(COLLECTION_NAME).findOne({ token });
+
 const insert = user => getCollection(COLLECTION_NAME).insertOne(user);
 
-const create = user => {
+const create = (user, token) => {
     const newUser = {
         id: uuid(),
         name: user.name,
@@ -20,12 +22,14 @@ const create = user => {
         password: bcrypt.hashSync(user.password, 10),
         accountImage: '',
         block: false,
+        token: token,
+        isVerified: false,
         cart: []
     };
     insert(newUser);
 };
 
-const update = (id, user) => getCollection(COLLECTION_NAME).updateOne({ id }, { $set: user }, { upsert: true });
+const update = (id, user) => getCollection(COLLECTION_NAME).updateOne({ id }, { $set: user }, { upsert: false });
 
 const updatePassword = (id, unhashedPassword) => getCollection(COLLECTION_NAME).updateOne(
     { id },
@@ -41,6 +45,7 @@ module.exports = {
     mongoCollection,
     list,
     findByUsername,
+    findByToken,
     insert,
     create,
     update,

@@ -66,6 +66,9 @@
                             {{#if signUpError.userExists}}
                             <p class="text-danger">Username đã được đăng ký từ trước</p>
                             {{/if}}
+                            {{#if signUpError.emailExists}}
+                            <p class="text-danger">Email đã được đăng ký từ trước</p>
+                            {{/if}}
                             {{#if signUpError.passwordRetypeWrong}}
                             <p class="text-danger">Nhập lại mật khẩu không trùng</p>
                             {{/if}}

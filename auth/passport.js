@@ -9,7 +9,7 @@ passport.use(new LocalStrategy({
 }, async (username, password, done) => {
     try {
         const user = await model.findByUsername(username);
-        if (!user || user.block) { return done(null, false); }
+        if (!user || user.block || !user.isVerified) { return done(null, false); }
         if (!validPassword(user, password)) { return done(null, false); }
         return done(null, user);
     } catch (err) {
