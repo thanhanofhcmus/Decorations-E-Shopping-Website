@@ -21,7 +21,7 @@
                         role="tabpanel" aria-labelledby="pills-home-tab">
                         <form class="form-signIn mt-2" action="/auth/login" method="post">
                             <div class="form-label-group">
-                                <input type="text" id="inputEmail" class="form-control" placeholder="Tên đăng nhập"
+                                <input type="text" class="form-control" placeholder="Tên đăng nhập"
                                     name="username" required>
                             </div>
                             <div class="form-label-group">
@@ -70,11 +70,6 @@
                             <p class="text-danger">Nhập lại mật khẩu không trùng</p>
                             {{/if}}
                             {{/if}}
-                            <div class="mb-3 text-center">
-                                <p class="mb-0">Bằng việc đăng ký, bạn đã đồng ý với MihiShop về</p>
-                                <a href="#" class="text-decoration-none" style="color: #F5A623">
-                                    Điều khoản dịch vụ &amp; Chính sách bảo mật</a>
-                            </div>
                             <div class="d-flex justify-content-center">
                                 <button class="btn btn-lg btn-primary text-uppercase my-3 text-white text-hover-black"
                                     type="submit">

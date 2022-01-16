@@ -32,8 +32,31 @@ const editPost = async (req, res) => {
     res.redirect('/auth/logout');
 };
 
+const updatePasswordGet = (req, res) => {
+    res.render('confirm-password');
+};
+
+const updatePasswordPost = async (req, res) => {
+    const localUser = res.locals.user;
+    console.log(res.body);
+    const { oldPassword, password, confirmPassword } = req.body;
+    const dbUser = await usersModel.findByUsername(localUser.username);
+    if (usersModel.validPassword(dbUser.password, oldPassword)) {
+        if (password === confirmPassword) {
+            usersModel.updatePassword(localUser.id, password);
+            res.redirect('/profile');
+        } else {
+            res.render('confirm-password', { retypeWrong: true });
+        }
+    } else {
+        res.render('confirm-password', { oldPasswordWrong: true });
+    }
+};
+
 module.exports = {
     details,
     edit,
-    editPost
+    editPost,
+    updatePasswordGet,
+    updatePasswordPost
 };
