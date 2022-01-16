@@ -6,7 +6,11 @@ const redirectToLast = (req, res) => {
 };
 
 const loginGet = (req, res) => {
-    req.session.lastLink = req.get('referer');
+    // remember last link if the link is not from /auth
+    const referer = req.get('referer');
+    if (!referer.includes('/auth')) {
+        req.session.lastLink = referer;
+    }
     res.render('auth', { somethingWrong: req.query.somethingWrong });
 };
 
