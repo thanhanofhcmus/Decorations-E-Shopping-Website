@@ -137,6 +137,17 @@
                     {{#if this.comment}}<div style="white-space: pre-line;">{{this.comment}}</div>{{/if}}
                   </div>
                   {{/each}}
+                  <div class="d-flex justify-content-around">
+                    {{#unless disablePrev}}
+                    <a class="mx-1 btn btn-outline-primary" href="{{firstLink}}" role="button">&laquo;</a>
+                    <a class="mx-1 btn btn-outline-primary" href="{{prevLink}}" role="button">&lsaquo;</a>
+                    {{/unless}}
+                    <div class="mx-1 btn btn-outline-primary disabled">{{commentPage}}</div>
+                    {{#unless disableNext}}
+                    <a class="mx-1 btn btn-outline-primary" href="{{nextLink}}" role="button">&rsaquo;</a>
+                    <a class="mx-1 btn btn-outline-primary" href="{{lastLink}}" role="button">&raquo;</a>
+                    {{/unless}}
+                  </div>
                   {{/if}}
                   {{#unless comments}}
                   <h1>Không có đánh giá nào</h1>

@@ -2,13 +2,43 @@ const productsModel = require('../models/products');
 const categoryModel = require('../models/category');
 const userModel = require('../models/users');
 
+const parseIntDefault = (num, _default) => {
+    const numParsed = parseInt(num);
+    return isNaN(numParsed) ? _default : numParsed;
+};
+
+const constructLink = (productId, chunkSize, page, size) => {
+    const link = `/products/${productId}?`;
+    return {
+        disablePrev: page === 1,
+        disableNext: chunkSize * page >= size,
+        firstLink: `${link}?commentPage=1`,
+        lastLink: `${link}?commentPage=${Math.ceil(size / chunkSize)}`,
+        nextLink: `${link}?commentPage=${page + 1}`,
+        prevLink: `${link}?commentPage=${page - 1}`
+    };
+};
+
 const getOne = async (req, res) => {
+    const COMMENTS_CHUNK = 5;
     const id = req.params.id;
+    const commentPage = parseIntDefault(req.query.commentPage, 1);
     const product = productsModel.toRenderData(await productsModel.findOne({ id }));
     const category = await categoryModel.find({ id: product.categoryId });
     const relatedProducts = (await productsModel.find({ categoryId: category[0].id, chunkSize: 10, offset: 0 }))
         .map(productsModel.toRenderData);
-    res.render('detail-product', { ...product, title: product.name, category, relatedProducts });
+    const renderProduct = {
+        ...product,
+        comments: product.comments.splice((commentPage - 1) * COMMENTS_CHUNK, COMMENTS_CHUNK)
+    };
+    res.render('detail-product', {
+        ...renderProduct,
+        ...constructLink(id, COMMENTS_CHUNK, commentPage, product.comments.length),
+        commentPage,
+        title: product.name,
+        category,
+        relatedProducts
+    });
 };
 
 const addToCart = async (req, res) => {
