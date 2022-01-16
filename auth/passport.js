@@ -17,7 +17,7 @@ passport.use(new LocalStrategy({
     }
 }));
 
-function validPassword(user, password) {
+const validPassword = (user, password) => {
     return bcrypt.compareSync(password, user.password);
 };
 

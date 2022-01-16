@@ -11,10 +11,13 @@ const insert = user => getCollection(COLLECTION_NAME).insertOne(user);
 
 const update = (id, user) => getCollection(COLLECTION_NAME).updateOne({ id }, { $set: user }, { upsert: true });
 
+const remove = id => getCollection(COLLECTION_NAME).deleteOne({ id });
+
 module.exports = {
     mongoCollection,
     list,
     findByUsername,
     insert,
-    update
+    update,
+    remove
 };

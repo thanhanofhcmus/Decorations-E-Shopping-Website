@@ -1,0 +1,29 @@
+<section class="content my-3">
+  <div class="container bg-white">
+    <div class="row d-flex justify-content-center">
+      <div class="col-md-8 p-3 rounded shadow">
+        <div class="tab-content" id="pills-tabContent">
+          <form class="form-signIn mt-2" action="/auth/delete" method="post">
+            <p class="text-center fw-bold fs-4">Đăng nhập lại để xác nhận</p>
+            <div class="form-label-group">
+              <input type="text" id="inputEmail" class="form-control" placeholder="Tên đăng nhập" name="username"
+                required>
+            </div>
+            <div class="form-label-group">
+              <input type="password" id="inputPassword" class="form-control" placeholder="Mật khẩu" name="password"
+                required>
+            </div>
+            {{#if wrongPassword}} <p class="text-danger">Sai mật khẩu</p> {{/if}}
+            {{#if somethingWrong}} <p class="text-danger">Tên đăng nhập hoặc mật khẩu không đúng</p>
+            {{/if}}
+            <div class="vstack gap-3 align-items-center">
+              <button class="btn btn-lg btn-primary text-uppercase my-3 text-white text-hover-black" type="submit">
+                Đăng nhập
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

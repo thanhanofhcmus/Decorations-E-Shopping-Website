@@ -8,7 +8,7 @@ const parseIntDefault = (num, _default) => {
 };
 
 const constructLink = (productId, chunkSize, page, size) => {
-    const link = `/products/${productId}?`;
+    const link = `/products/${productId}`;
     return {
         disablePrev: page === 1,
         disableNext: chunkSize * page >= size,

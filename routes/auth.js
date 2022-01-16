@@ -11,4 +11,8 @@ router.get('/logout', controller.logoutPost);
 
 router.post('/sign-up', controller.signupPost);
 
+router.get('/delete', controller.deleteGet);
+
+router.post('/delete', controller.deletePost);
+
 module.exports = router;

@@ -48,7 +48,6 @@ const findRaw = async params => {
         : getCollection(COLLECTION_NAME).find(product);
     (isValidUnsigned(chunkSize) && isValidUnsigned(offset)) && (query.skip(offset * chunkSize).limit(chunkSize));
     sort && (query.sort(sort));
-    console.log(sort);
     return query;
 };
 

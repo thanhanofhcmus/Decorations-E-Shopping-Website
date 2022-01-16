@@ -1,7 +1,12 @@
 const passport = require('../auth/passport');
-const userModel = require('../models/users');
+const usersModel = require('../models/users');
 const { uuid } = require('uuidv4');
 const bcrypt = require('bcrypt');
+
+const validPassword = (dbPassword, password) => {
+    console.log(dbPassword, password);
+    return bcrypt.compareSync(password, dbPassword);
+};
 
 const redirectToLast = (req, res) => {
     res.redirect(req.session.lastLink);
@@ -14,7 +19,7 @@ const loginGet = (req, res) => {
 
 const loginPost = passport.authenticate('local', {
     successRedirect: '/auth/redirect-to-last',
-    failureRedirect: '/auth/login?somethingWrong'
+    failureRedirect: '/auth/login?somethingWrong=1'
 });
 
 const logoutPost = (req, res) => {
@@ -24,13 +29,12 @@ const logoutPost = (req, res) => {
 
 const signupPost = async (req, res) => {
     const data = req.body;
-    const users = await userModel.list();
+    const users = await usersModel.list();
     if (data.password !== data.confirmPassword) {
         res.render('auth', { signUpError: { passwordRetypeWrong: true } });
     } else if (users.find(({ username }) => username === data.username) !== undefined) {
         res.render('auth', { signUpError: { userExists: true } });
     } else {
-        console.log(data);
         const newUser = {
             id: uuid(),
             name: data.name,
@@ -41,9 +45,23 @@ const signupPost = async (req, res) => {
             block: false,
             cart: []
         };
-        console.log(newUser);
-        userModel.insert(newUser);
+        usersModel.insert(newUser);
         res.redirect('/');
+    }
+};
+
+const deleteGet = (req, res) => {
+    res.render('confirm-login');
+};
+
+const deletePost = async (req, res) => {
+    const localUser = res.locals.user;
+    const dbUser = await usersModel.findByUsername(localUser.username);
+    if (validPassword(dbUser.password, req.body.password)) {
+        usersModel.remove(localUser.id);
+        res.redirect('/');
+    } else {
+        res.render('confirm-login', { somethingWrong: true });
     }
 };
 
@@ -52,5 +70,7 @@ module.exports = {
     loginGet,
     loginPost,
     logoutPost,
-    signupPost
+    signupPost,
+    deleteGet,
+    deletePost
 };
