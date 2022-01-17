@@ -8,6 +8,7 @@ const parseIntDefault = (num, _default) => {
 };
 
 const constructLink = (productId, chunkSize, page, size) => {
+    console.log(page, chunkSize, size);
     const link = `/products/${productId}`;
     return {
         disablePrev: page === 1,
@@ -24,6 +25,7 @@ const getOne = async (req, res) => {
     const id = req.params.id;
     const commentPage = parseIntDefault(req.query.commentPage, 1);
     const product = productsModel.toRenderData(await productsModel.findOne({ id }));
+    const commentLength = product.comments.length;
     const category = await categoryModel.find({ id: product.categoryId });
     const relatedProducts = (await productsModel.find({ categoryId: category[0].id, chunkSize: 10, offset: 0 }))
         .map(productsModel.toRenderData);
@@ -33,7 +35,7 @@ const getOne = async (req, res) => {
     };
     res.render('detail-product', {
         ...renderProduct,
-        ...constructLink(id, COMMENTS_CHUNK, commentPage, product.comments.length),
+        ...constructLink(id, COMMENTS_CHUNK, commentPage, commentLength),
         commentPage,
         title: product.name,
         category,
@@ -61,8 +63,9 @@ const addToCart = async (req, res) => {
 
 const insertCommentPost = async (req, res) => {
     const { id, comment, rate, userName } = req.body;
+    console.log('insert comment');
     await productsModel.insertCommentById(id, { comment, rate, userName });
-    res.redirect(req.get('referer'));
+    res.redirect(`/products/${id}`);
 };
 
 module.exports = {
