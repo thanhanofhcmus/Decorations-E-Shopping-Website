@@ -79,7 +79,7 @@ const deletePost = async (req, res) => {
     const dbUser = await usersModel.findByUsername(localUser.username);
     if (usersModel.validPassword(dbUser.password, req.body.password)) {
         usersModel.remove(localUser.id);
-        res.redirect('/');
+        res.redirect('/auth/logout');
     } else {
         res.render('confirm-login', { somethingWrong: true });
     }
